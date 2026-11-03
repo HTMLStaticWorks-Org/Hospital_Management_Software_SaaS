@@ -1,0 +1,2 @@
+# Hospital_Management_Software_SaaS
+Automated website repository for Hospital_Management_Software_SaaS
