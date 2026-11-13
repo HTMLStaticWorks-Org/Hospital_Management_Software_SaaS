@@ -1,186 +1,131 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light" dir="ltr">
+<html lang="en" data-theme="dark" dir="ltr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hospital Staff Login Portal | MediCore HMS</title>
-  <meta name="description" content="Secure role-based hospital login portal for MediCore HMS Administrators, Physicians, Nursing Stations, and TPA Billing Desks. SAML 2.0 and HIPAA audited.">
-  <meta property="og:title" content="MediCore HMS — Hospital Clinical Login Portal">
-  <meta property="og:description" content="Sign in with your Hospital Tenant ID and clinical role to launch the MediCore HMS Workspace.">
+  <title>Sign In | MediCore HMS</title>
+  <meta name="description" content="Sign in to your MediCore HMS hospital account. HIPAA, NABH, and ISO 27001 audited cloud healthcare platform.">
+  <meta property="og:title" content="MediCore HMS — Welcome Back">
+  <meta property="og:description" content="Sign in to your hospital workspace with MediCore HMS.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://medicorehms.com/login.html">
-  <meta property="og:image" content="assets/images/hero/login-clinical-panel.jpg">
   <link rel="canonical" href="https://medicorehms.com/login.html">
+    <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png">
   <link rel="stylesheet" href="assets/css/style.css">
   <link rel="stylesheet" href="assets/css/dark-mode.css">
   <link rel="stylesheet" href="assets/css/rtl.css">
+  <script>
+  (function() {
+    var savedTheme = localStorage.getItem('medicore_theme') || 'dark';
+    document.documentElement.setAttribute('data-theme', savedTheme);
+    var savedDir = localStorage.getItem('medicore_dir') || 'ltr';
+    document.documentElement.setAttribute('dir', savedDir);
+  })();
+  </script>
 </head>
-<body class="bg-clinical-grid">
+<body class="auth-page-body bg-clinical-grid">
   <a href="#main-content" class="skip-link">Skip to main content</a>
 
-  <!-- ==================== GLOBAL MARKETING HEADER ==================== -->
-  <header class="site-header">
-    <div class="container nav-bar">
-      <a href="index.html" class="brand-logo" aria-label="MediCore HMS Home">
+  <!-- Top bar -->
+  <header class="auth-topbar">
+    <div class="auth-topbar-actions">
+      <button type="button" class="btn btn-icon btn-sm auth-pill-btn" data-action="toggle-rtl" aria-label="Toggle RTL layout">RTL</button>
+      <button type="button" class="btn btn-icon btn-sm auth-pill-btn" data-action="toggle-theme" aria-label="Toggle color theme">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2m-7.07-14.93 1.41 1.41m11.32 11.32 1.41 1.41M2 12h2m16 0h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- Centered Card Area -->
+  <main id="main-content" class="auth-page-main">
+    <div class="auth-modal-card">
+      <!-- Brand Logo Badge -->
+      <a href="index.html" class="brand-logo" aria-label="MediCore HMS Home" style="justify-content:center;margin-bottom:var(--sp-4);">
         <span class="brand-logo-mark" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
         </span>
         <span>MediCore <em>HMS</em></span>
       </a>
 
-      <nav aria-label="Primary Navigation">
-        <ul class="nav-menu">
-          <li class="nav-item">
-            <a href="index.html" class="nav-link" aria-haspopup="true">
-              Home
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
-            </a>
-            <ul class="dropdown-menu" aria-label="Home Variations">
-              <li><a href="index.html" class="dropdown-link"><span>Home 1 — Clinical Outcomes</span><span class="dropdown-tag">Bright</span></a></li>
-              <li><a href="home-2.html" class="dropdown-link"><span>Home 2 — Platform Suite</span><span class="dropdown-tag">Dark UI</span></a></li>
-            </ul>
-          </li>
-          <li class="nav-item"><a href="features.html" class="nav-link">Features</a></li>
-          <li class="nav-item"><a href="pricing.html" class="nav-link">Pricing</a></li>
-          <li class="nav-item"><a href="docs.html" class="nav-link">Docs</a></li>
-          <li class="nav-item">
-            <a href="about.html" class="nav-link" aria-haspopup="true">
-              Company / Resources
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
-            </a>
-            <ul class="dropdown-menu" aria-label="Company and Resources">
-              <li><a href="about.html" class="dropdown-link"><span>About MediCore</span><span class="dropdown-tag">Story</span></a></li>
-              <li><a href="integrations.html" class="dropdown-link"><span>Integrations Hub</span><span class="dropdown-tag">HL7/FHIR</span></a></li>
-              <li><a href="changelog.html" class="dropdown-link"><span>Changelog</span><span class="dropdown-tag">v4.8</span></a></li>
-              <li><a href="status.html" class="dropdown-link"><span>System Status</span><span class="dropdown-tag">99.99%</span></a></li>
-              <li><a href="contact.html" class="dropdown-link"><span>Contact &amp; Support</span><span class="dropdown-tag">24/7</span></a></li>
-              <li><a href="coming-soon.html" class="dropdown-link"><span>AI Ambient Scribe</span><span class="dropdown-tag">Labs</span></a></li>
-            </ul>
-          </li>
-          <li class="nav-item"><a href="login.html" class="nav-link active">Login</a></li>
-          <li class="nav-item"><a href="signup.html" class="nav-link">Sign Up</a></li>
-        </ul>
-      </nav>
+      <!-- Headline -->
+      <h1 class="auth-title">Welcome Back.</h1>
+      <p class="auth-subtitle">New here? <a href="signup.html">Create an account</a></p>
 
-      <div class="nav-actions">
-        <button type="button" class="btn btn-icon btn-sm" data-action="toggle-rtl" aria-label="Toggle RTL layout">RTL</button>
-        <button type="button" class="btn btn-icon btn-sm" data-action="toggle-theme" aria-label="Toggle color theme">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2m-7.07-14.93 1.41 1.41m11.32 11.32 1.41 1.41M2 12h2m16 0h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
-        </button>
-        <a href="demo-request.html" class="btn btn-primary btn-sm">Request Demo</a>
-        <button type="button" class="btn btn-icon btn-sm mobile-menu-toggle" data-action="toggle-mobile-nav" aria-expanded="false" aria-controls="mobile-nav-drawer" aria-label="Open navigation menu">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
-        </button>
+      <!-- Form -->
+      <form data-validate data-form-type="login" action="dashboard/dashboard.html" method="get" class="auth-form" novalidate>
+        <div class="auth-field">
+          <label for="login-email">Email Address</label>
+          <input type="email" id="login-email" name="email" class="auth-input" placeholder="traveler@example.com" value="doctor@hospital.org" required>
+          <div class="form-error">Please enter a valid email address.</div>
+        </div>
+
+        <div class="auth-field">
+          <label for="login-password">Password</label>
+          <div class="auth-password-wrapper">
+            <input type="password" id="login-password" name="password" class="auth-input" placeholder="••••••••" value="MediCore#2026" required>
+            <button type="button" class="auth-pass-toggle-btn" data-toggle-password="login-password" aria-label="Toggle password visibility">
+              <svg class="eye-open" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+              <svg class="eye-closed" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none;"><path d="M9.88 9.88a3 3 0 1 0 4.24 4.24"/><path d="M10.73 5.08A10.43 10.43 0 0 1 12 5c7 0 10 7 10 7a13.16 13.16 0 0 1-1.67 2.68"/><path d="M6.61 6.61A13.526 13.526 0 0 0 2 12s3 7 10 7a9.74 9.74 0 0 0 5.39-1.61"/><line x1="2" y1="2" x2="22" y2="22"/></svg>
+            </button>
+          </div>
+          <div class="form-error">Please enter your password.</div>
+        </div>
+
+        <div class="auth-row-options">
+          <label class="auth-checkbox-label">
+            <input type="checkbox" name="remember" checked class="auth-checkbox-input">
+            <span class="auth-checkbox-custom">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </span>
+            <span>Remember me</span>
+          </label>
+          <a href="contact.html?topic=password-reset" class="auth-forgot-link">Forgot password?</a>
+        </div>
+
+        <button type="submit" class="auth-submit-btn">Sign In</button>
+      </form>
+
+      <div class="auth-or-divider">
+        <span>OR CONTINUE WITH</span>
+      </div>
+
+      <div class="auth-sso-grid">
+        <a href="dashboard/dashboard.html" class="auth-sso-btn">
+          <svg width="18" height="18" viewBox="0 0 24 24">
+            <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+            <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+            <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
+            <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
+          </svg>
+          <span>Google</span>
+        </a>
+        <a href="dashboard/dashboard.html" class="auth-sso-btn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.33c.66-.82 1.11-1.96.99-3.1-.96.04-2.11.64-2.8 1.44-.6.69-1.13 1.83-.99 2.95 1.07.08 2.15-.55 2.8-1.29z"/>
+          </svg>
+          <span>Apple</span>
+        </a>
       </div>
     </div>
 
-    <div id="mobile-nav-drawer" class="mobile-nav-drawer" aria-label="Mobile Navigation">
-      <ul class="mobile-nav-list">
-        <li><a href="index.html">Home 1 — Clinical Outcomes</a></li>
-        <li><a href="home-2.html">Home 2 — Dark Product Suite</a></li>
-        <li><a href="features.html">Features</a></li>
-        <li><a href="pricing.html">Pricing</a></li>
-        <li><a href="docs.html">Documentation &amp; API</a></li>
-        <li><a href="login.html">Hospital Login Portal</a></li>
-        <li><a href="signup.html">Hospital Sign Up</a></li>
-      </ul>
-    </div>
-  </header>
-
-  <main id="main-content" class="auth-split-layout">
-    <!-- Left Branded Real-Photo Panel with Security Messaging -->
-    <aside class="auth-photo-panel" aria-label="Clinical Security Assurance">
-      <picture>
-        <source type="image/webp" srcset="assets/images/hero/login-clinical-panel-640w.webp 640w, assets/images/hero/login-clinical-panel.webp 1200w" sizes="(max-width: 1024px) 100vw, 50vw">
-        <img src="assets/images/hero/login-clinical-panel.jpg" alt="Hospital surgical wing and central clinical command terminal" width="1200" height="798" fetchpriority="high" loading="eager">
-      </picture>
-      <div class="auth-photo-overlay">
-        <span class="badge badge-mint" style="margin-bottom:var(--sp-2);">HIPAA §164.312 AUDITED SESSION</span>
-        <h2 style="color:#FFFFFF;font-size:1.55rem;">Zero-Trust Clinical Access Portal</h2>
-        <p style="color:rgba(243,250,250,0.85);font-size:0.93rem;margin-top:8px;">
-          All clinical sign-ins are protected by TLS 1.3 encryption, biometric/SAML hardware keys, and immutable role-based audit logging. Select your active shift role to launch the corresponding workspace.
-        </p>
-        <div class="mono" style="font-size:0.76rem;color:var(--accent);margin-top:var(--sp-3);">
-          ACTIVE REALM: APEX-METRO-TERTIARY-01 · ISO/IEC 27001:2022
-        </div>
+    <!-- Auth Page Footer -->
+    <footer class="auth-page-footer">
+      <div class="auth-footer-links">
+        <a href="docs.html#privacy">Privacy Policy</a>
+        <span class="auth-footer-dot">•</span>
+        <a href="docs.html#terms">Terms of Service</a>
       </div>
-    </aside>
-
-    <!-- Right Login Form Panel -->
-    <section class="auth-form-panel" aria-labelledby="login-heading">
-      <div class="auth-form-box">
-        <span class="eyebrow"><span class="eyebrow-dot"></span>Clinical Shift Authentication</span>
-        <h1 id="login-heading" style="font-size:1.75rem;margin-bottom:6px;">Sign In to MediCore HMS</h1>
-        <p style="font-size:0.92rem;margin-bottom:var(--sp-4);">Enter your hospital credentials or click Sign In with the pre-filled demo values to open the Admin Dashboard.</p>
-
-        <form data-validate data-form-type="login" action="dashboard/dashboard.html" method="get" novalidate>
-          <div class="form-group">
-            <label for="login-role" class="form-label">Select Clinical / Shift Role *</label>
-            <select id="login-role" name="role" class="form-select" required>
-              <option value="Admin">Hospital Administrator (Full Command Access)</option>
-              <option value="Doctor">Attending Physician / Surgeon (EMR &amp; CPOE)</option>
-              <option value="Nurse">Ward / ICU Charge Nurse (Bed Board &amp; eMAR)</option>
-              <option value="Billing">TPA &amp; Revenue Cycle Officer (Billing &amp; Claims)</option>
-            </select>
-          </div>
-
-          <div class="form-group">
-            <label for="login-email" class="form-label">Hospital ID or Official Email *</label>
-            <input type="text" id="login-email" name="hospital_id" class="form-control" value="admin@apexmetro-hospital.org" placeholder="HOSP-ID or doctor@hospital.org" required>
-            <div class="form-error">Please enter your Hospital ID or official email address.</div>
-          </div>
-
-          <div class="form-group">
-            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
-              <label for="login-password" class="form-label" style="margin-bottom:0;">Shift Password / PIN *</label>
-              <a href="contact.html?topic=password-reset" style="font-size:0.82rem;font-weight:600;">Forgot password?</a>
-            </div>
-            <div style="display:flex;gap:8px;">
-              <input type="password" id="login-password" name="password" class="form-control" value="MediCore#2026" required>
-              <button type="button" class="btn btn-secondary btn-sm" data-toggle-password="login-password" aria-label="Show or hide password">Show</button>
-            </div>
-            <div class="form-error">Please enter your shift password.</div>
-          </div>
-
-          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:var(--sp-4);font-size:0.88rem;">
-            <label style="display:inline-flex;align-items:center;gap:8px;cursor:pointer;">
-              <input type="checkbox" name="remember" checked>
-              <span>Keep workstation unlocked for 8h shift</span>
-            </label>
-          </div>
-
-          <button type="submit" class="btn btn-primary" style="width:100%;">Authenticate &amp; Launch Dashboard →</button>
-        </form>
-
-        <!-- SSO Placeholder Buttons -->
-        <!-- TODO: Configure SAML 2.0 / OIDC Identity Provider Redirect URLs in production -->
-        <div style="margin-top:var(--sp-4);padding-top:var(--sp-3);border-top:1px solid var(--border-subtle);">
-          <div class="mono" style="font-size:0.75rem;text-align:center;color:var(--text-muted);margin-bottom:var(--sp-2);">OR AUTHENTICATE VIA HOSPITAL SSO</div>
-          <div class="grid grid-2" style="gap:10px;">
-            <a href="dashboard/dashboard.html" class="btn btn-secondary btn-sm">Microsoft Entra ID</a>
-            <a href="dashboard/dashboard.html" class="btn btn-secondary btn-sm">Okta Clinical SAML</a>
-          </div>
-        </div>
-
-        <p style="text-align:center;font-size:0.88rem;margin-top:var(--sp-4);">
-          Commissioning a new facility? <a href="signup.html" style="font-weight:700;">Register your hospital →</a>
-        </p>
-      </div>
-    </section>
+      <p class="auth-footer-copy">© 2026 MediCore Health Systems Inc. All Rights Reserved.</p>
+    </footer>
   </main>
 
-  <!-- ==================== GLOBAL MARKETING FOOTER ==================== -->
-  <footer class="site-footer">
-    <div class="container">
-      <div class="footer-bottom" style="padding-top:0;">
-        <span>© 2026 MediCore Health Systems Inc. HIPAA · ISO 27001 · NABH Ready.</span>
-        <div style="display:flex;gap:16px;">
-          <a href="status.html">System Status (99.99%)</a>
-          <a href="contact.html">24/7 IT Helpdesk</a>
-        </div>
-      </div>
-    </div>
-  </footer>
+  <!-- Scroll to top floating button -->
+  <button type="button" class="auth-scroll-top-btn" data-action="scroll-top" aria-label="Scroll to top">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg>
+  </button>
 
   <script src="assets/js/main.js"></script>
 </body>

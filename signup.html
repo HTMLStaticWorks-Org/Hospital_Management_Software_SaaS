@@ -1,205 +1,142 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light" dir="ltr">
+<html lang="en" data-theme="dark" dir="ltr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Register Your Hospital Tenant | MediCore HMS</title>
-  <meta name="description" content="Provision a dedicated HIPAA and NABH-ready MediCore HMS cloud tenant for your hospital or clinic in minutes. Select your bed tier and start onboarding.">
-  <meta property="og:title" content="MediCore HMS — Hospital Registration &amp; Cloud Provisioning">
-  <meta property="og:description" content="Onboard your hospital with zero-downtime data migration and 24/7 clinical implementation support.">
+  <title>Create Account | MediCore HMS</title>
+  <meta name="description" content="Create your MediCore HMS account. Join thousands of clinicians and healthcare leaders managing hospital operations with zero friction.">
+  <meta property="og:title" content="MediCore HMS — Join the Journey">
+  <meta property="og:description" content="Create your hospital account with MediCore HMS.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://medicorehms.com/signup.html">
-  <meta property="og:image" content="assets/images/hero/signup-onboarding-panel.jpg">
   <link rel="canonical" href="https://medicorehms.com/signup.html">
+    <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png">
   <link rel="stylesheet" href="assets/css/style.css">
   <link rel="stylesheet" href="assets/css/dark-mode.css">
   <link rel="stylesheet" href="assets/css/rtl.css">
+  <script>
+  (function() {
+    var savedTheme = localStorage.getItem('medicore_theme') || 'dark';
+    document.documentElement.setAttribute('data-theme', savedTheme);
+    var savedDir = localStorage.getItem('medicore_dir') || 'ltr';
+    document.documentElement.setAttribute('dir', savedDir);
+  })();
+  </script>
 </head>
-<body class="bg-clinical-grid">
+<body class="auth-page-body bg-clinical-grid">
   <a href="#main-content" class="skip-link">Skip to main content</a>
 
-  <!-- ==================== GLOBAL MARKETING HEADER ==================== -->
-  <header class="site-header">
-    <div class="container nav-bar">
-      <a href="index.html" class="brand-logo" aria-label="MediCore HMS Home">
+  <!-- Top bar -->
+  <header class="auth-topbar">
+    <div class="auth-topbar-actions">
+      <button type="button" class="btn btn-icon btn-sm auth-pill-btn" data-action="toggle-rtl" aria-label="Toggle RTL layout">RTL</button>
+      <button type="button" class="btn btn-icon btn-sm auth-pill-btn" data-action="toggle-theme" aria-label="Toggle color theme">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2m-7.07-14.93 1.41 1.41m11.32 11.32 1.41 1.41M2 12h2m16 0h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- Centered Card Area -->
+  <main id="main-content" class="auth-page-main">
+    <div class="auth-modal-card">
+      <!-- Brand Logo Badge -->
+      <a href="index.html" class="brand-logo" aria-label="MediCore HMS Home" style="justify-content:center;margin-bottom:var(--sp-4);">
         <span class="brand-logo-mark" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
         </span>
         <span>MediCore <em>HMS</em></span>
       </a>
 
-      <nav aria-label="Primary Navigation">
-        <ul class="nav-menu">
-          <li class="nav-item">
-            <a href="index.html" class="nav-link" aria-haspopup="true">
-              Home
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
-            </a>
-            <ul class="dropdown-menu" aria-label="Home Variations">
-              <li><a href="index.html" class="dropdown-link"><span>Home 1 — Clinical Outcomes</span><span class="dropdown-tag">Bright</span></a></li>
-              <li><a href="home-2.html" class="dropdown-link"><span>Home 2 — Platform Suite</span><span class="dropdown-tag">Dark UI</span></a></li>
-            </ul>
-          </li>
-          <li class="nav-item"><a href="features.html" class="nav-link">Features</a></li>
-          <li class="nav-item"><a href="pricing.html" class="nav-link">Pricing</a></li>
-          <li class="nav-item"><a href="docs.html" class="nav-link">Docs</a></li>
-          <li class="nav-item">
-            <a href="about.html" class="nav-link" aria-haspopup="true">
-              Company / Resources
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
-            </a>
-            <ul class="dropdown-menu" aria-label="Company and Resources">
-              <li><a href="about.html" class="dropdown-link"><span>About MediCore</span><span class="dropdown-tag">Story</span></a></li>
-              <li><a href="integrations.html" class="dropdown-link"><span>Integrations Hub</span><span class="dropdown-tag">HL7/FHIR</span></a></li>
-              <li><a href="changelog.html" class="dropdown-link"><span>Changelog</span><span class="dropdown-tag">v4.8</span></a></li>
-              <li><a href="status.html" class="dropdown-link"><span>System Status</span><span class="dropdown-tag">99.99%</span></a></li>
-              <li><a href="contact.html" class="dropdown-link"><span>Contact &amp; Support</span><span class="dropdown-tag">24/7</span></a></li>
-              <li><a href="coming-soon.html" class="dropdown-link"><span>AI Ambient Scribe</span><span class="dropdown-tag">Labs</span></a></li>
-            </ul>
-          </li>
-          <li class="nav-item"><a href="login.html" class="nav-link">Login</a></li>
-          <li class="nav-item"><a href="signup.html" class="nav-link active">Sign Up</a></li>
-        </ul>
-      </nav>
+      <!-- Headline -->
+      <h1 class="auth-title">Join the Journey.</h1>
+      <p class="auth-subtitle">Already a member? <a href="login.html">Sign in here</a></p>
 
-      <div class="nav-actions">
-        <button type="button" class="btn btn-icon btn-sm" data-action="toggle-rtl" aria-label="Toggle RTL layout">RTL</button>
-        <button type="button" class="btn btn-icon btn-sm" data-action="toggle-theme" aria-label="Toggle color theme">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2m-7.07-14.93 1.41 1.41m11.32 11.32 1.41 1.41M2 12h2m16 0h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
-        </button>
-        <a href="demo-request.html" class="btn btn-primary btn-sm">Request Demo</a>
-        <button type="button" class="btn btn-icon btn-sm mobile-menu-toggle" data-action="toggle-mobile-nav" aria-expanded="false" aria-controls="mobile-nav-drawer" aria-label="Open navigation menu">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
-        </button>
+      <!-- Form -->
+      <form data-validate data-form-type="signup" action="dashboard/dashboard.html" method="get" class="auth-form" novalidate>
+        <div class="auth-field">
+          <label for="signup-firstname">First Name</label>
+          <input type="text" id="signup-firstname" name="first_name" class="auth-input" placeholder="First Name" required>
+          <div class="form-error">Please enter your first name.</div>
+        </div>
+
+        <div class="auth-field">
+          <label for="signup-lastname">Last Name</label>
+          <input type="text" id="signup-lastname" name="last_name" class="auth-input" placeholder="Last Name" required>
+          <div class="form-error">Please enter your last name.</div>
+        </div>
+
+        <div class="auth-field">
+          <label for="signup-email">Email Address</label>
+          <input type="email" id="signup-email" name="email" class="auth-input" placeholder="Email Address" required>
+          <div class="form-error">Please enter a valid email address.</div>
+        </div>
+
+        <div class="auth-field">
+          <label for="signup-password">Password</label>
+          <div class="auth-password-wrapper">
+            <input type="password" id="signup-password" name="password" class="auth-input" placeholder="••••••••" required>
+            <button type="button" class="auth-pass-toggle-btn" data-toggle-password="signup-password" aria-label="Toggle password visibility">
+              <svg class="eye-open" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+              <svg class="eye-closed" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none;"><path d="M9.88 9.88a3 3 0 1 0 4.24 4.24"/><path d="M10.73 5.08A10.43 10.43 0 0 1 12 5c7 0 10 7 10 7a13.16 13.16 0 0 1-1.67 2.68"/><path d="M6.61 6.61A13.526 13.526 0 0 0 2 12s3 7 10 7a9.74 9.74 0 0 0 5.39-1.61"/><line x1="2" y1="2" x2="22" y2="22"/></svg>
+            </button>
+          </div>
+          <div class="form-error">Please create a secure password.</div>
+        </div>
+
+        <div class="auth-row-options" style="margin-top:2px;">
+          <label class="auth-checkbox-label" style="align-items:flex-start;">
+            <input type="checkbox" name="terms" required class="auth-checkbox-input">
+            <span class="auth-checkbox-custom" style="margin-top:2px;">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </span>
+            <span style="font-size:0.86rem;line-height:1.45;">I agree to the <a href="docs.html#privacy" class="auth-accent-link">Privacy Policy</a> and <a href="docs.html#terms" class="auth-accent-link">Terms of Service</a></span>
+          </label>
+        </div>
+
+        <button type="submit" class="auth-submit-btn">Create Account</button>
+      </form>
+
+      <div class="auth-or-divider">
+        <span>OR CONTINUE WITH</span>
+      </div>
+
+      <div class="auth-sso-grid">
+        <a href="dashboard/dashboard.html" class="auth-sso-btn">
+          <svg width="18" height="18" viewBox="0 0 24 24">
+            <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+            <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+            <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
+            <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
+          </svg>
+          <span>Google</span>
+        </a>
+        <a href="dashboard/dashboard.html" class="auth-sso-btn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.33c.66-.82 1.11-1.96.99-3.1-.96.04-2.11.64-2.8 1.44-.6.69-1.13 1.83-.99 2.95 1.07.08 2.15-.55 2.8-1.29z"/>
+          </svg>
+          <span>Apple</span>
+        </a>
       </div>
     </div>
 
-    <div id="mobile-nav-drawer" class="mobile-nav-drawer" aria-label="Mobile Navigation">
-      <ul class="mobile-nav-list">
-        <li><a href="index.html">Home 1 — Clinical Outcomes</a></li>
-        <li><a href="home-2.html">Home 2 — Dark Product Suite</a></li>
-        <li><a href="features.html">Features</a></li>
-        <li><a href="pricing.html">Pricing</a></li>
-        <li><a href="docs.html">Documentation &amp; API</a></li>
-        <li><a href="login.html">Hospital Login Portal</a></li>
-        <li><a href="signup.html">Hospital Sign Up</a></li>
-      </ul>
-    </div>
-  </header>
-
-  <main id="main-content" class="auth-split-layout">
-    <!-- Left Hospital Registration Form Panel -->
-    <section class="auth-form-panel" aria-labelledby="signup-heading">
-      <div class="auth-form-box" style="max-width:560px;">
-        <span class="eyebrow"><span class="eyebrow-dot"></span>Instant Cloud Tenant Provisioning</span>
-        <h1 id="signup-heading" style="font-size:1.75rem;margin-bottom:6px;">Register Your Hospital on MediCore HMS</h1>
-        <p style="font-size:0.92rem;margin-bottom:var(--sp-4);">Create your dedicated hospital workspace with pre-configured wards, ICD-11 clinical templates, and TPA billing masters.</p>
-
-        <form data-validate data-form-type="signup" action="#tenant-provisioned" method="post" novalidate>
-          <div class="grid grid-2">
-            <div class="form-group">
-              <label for="reg-hospital-name" class="form-label">Hospital / Facility Legal Name *</label>
-              <input type="text" id="reg-hospital-name" name="hospital_name" class="form-control" placeholder="Asteria Super-Specialty Hospital" required>
-              <div class="form-error">Please enter your hospital's legal name.</div>
-            </div>
-            <div class="form-group">
-              <label for="reg-license-id" class="form-label">NABH / Rohini / Clinical Reg. No. *</label>
-              <input type="text" id="reg-license-id" name="registration_no" class="form-control" placeholder="NABH-HCO-2026-0419" required>
-              <div class="form-error">Please enter your clinical establishment license ID.</div>
-            </div>
-          </div>
-
-          <div class="grid grid-2">
-            <div class="form-group">
-              <label for="reg-bed-count" class="form-label">Licensed Inpatient Bed Count *</label>
-              <input type="number" id="reg-bed-count" name="beds" class="form-control" min="1" max="10000" placeholder="150" required>
-              <div class="form-error">Please enter your inpatient bed count.</div>
-            </div>
-            <div class="form-group">
-              <label for="reg-plan" class="form-label">Subscription Plan Selection *</label>
-              <select id="reg-plan" name="plan" class="form-select" required>
-                <option value="">Select Plan Tier...</option>
-                <option value="Clinic">Clinic &amp; Daycare (Up to 30 Beds)</option>
-                <option value="Hospital" selected>Multi-Specialty Hospital (Up to 250 Beds)</option>
-                <option value="Enterprise">Enterprise Health Network (250+ Beds)</option>
-              </select>
-              <div class="form-error">Please select a subscription tier.</div>
-            </div>
-          </div>
-
-          <div class="grid grid-2">
-            <div class="form-group">
-              <label for="reg-admin-name" class="form-label">Chief Administrator / MS Name *</label>
-              <input type="text" id="reg-admin-name" name="admin_name" class="form-control" placeholder="Dr. Siddharth Deshmukh" required>
-              <div class="form-error">Please enter the primary administrator's name.</div>
-            </div>
-            <div class="form-group">
-              <label for="reg-admin-email" class="form-label">Official Administrator Email *</label>
-              <input type="email" id="reg-admin-email" name="admin_email" class="form-control" placeholder="ms@asteria-hospital.org" required>
-              <div class="form-error">Please enter a valid official email address.</div>
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label for="reg-password" class="form-label">Create Master Administrator Password *</label>
-            <div style="display:flex;gap:8px;">
-              <input type="password" id="reg-password" name="password" class="form-control" placeholder="Minimum 12 characters with symbol" required>
-              <button type="button" class="btn btn-secondary btn-sm" data-toggle-password="reg-password">Show</button>
-            </div>
-            <div class="form-error">Please create a master administrator password.</div>
-          </div>
-
-          <div class="form-group">
-            <label style="display:flex;align-items:flex-start;gap:10px;font-size:0.86rem;cursor:pointer;">
-              <input type="checkbox" id="reg-terms" required style="margin-top:4px;">
-              <span>I accept the Master SaaS Subscription Agreement, HIPAA Business Associate Addendum (BAA), and ISO 27001 Data Processing Terms. *</span>
-            </label>
-            <div class="form-error">You must accept the HIPAA BAA and subscription terms to provision a tenant.</div>
-          </div>
-
-          <button type="submit" class="btn btn-primary" style="width:100%;">Provision Hospital Cloud Tenant →</button>
-
-          <div class="form-success-banner" role="status">
-            ✓ Hospital Tenant Provisioned! <a href="dashboard/dashboard.html" style="font-weight:700;text-decoration:underline;">Click here to launch your Admin Dashboard</a>.
-          </div>
-        </form>
-
-        <p style="text-align:center;font-size:0.88rem;margin-top:var(--sp-4);">
-          Already have an active hospital tenant? <a href="login.html" style="font-weight:700;">Sign in to your shift →</a>
-        </p>
+    <!-- Auth Page Footer -->
+    <footer class="auth-page-footer">
+      <div class="auth-footer-links">
+        <a href="docs.html#privacy">Privacy Policy</a>
+        <span class="auth-footer-dot">•</span>
+        <a href="docs.html#terms">Terms of Service</a>
       </div>
-    </section>
-
-    <!-- Right Side Panel with Onboarding Benefits -->
-    <aside class="auth-photo-panel" aria-label="Hospital Onboarding Benefits">
-      <picture>
-        <source type="image/webp" srcset="assets/images/hero/signup-onboarding-panel-640w.webp 640w, assets/images/hero/signup-onboarding-panel.webp 1200w" sizes="(max-width: 1024px) 100vw, 50vw">
-        <img src="assets/images/hero/signup-onboarding-panel.jpg" alt="Medical team collaborating in high-tech hospital facility" width="1200" height="751" fetchpriority="high" loading="eager">
-      </picture>
-      <div class="auth-photo-overlay">
-        <span class="badge badge-mint" style="margin-bottom:var(--sp-2);">INCLUDED WITH EVERY HOSPITAL ONBOARDING</span>
-        <h2 style="color:#FFFFFF;font-size:1.5rem;">Go Live in 15 Days With White-Glove Clinical Engineering</h2>
-        <ul style="margin-top:var(--sp-3);padding-inline-start:18px;color:rgba(243,250,250,0.88);font-size:0.92rem;display:flex;flex-direction:column;gap:8px;">
-          <li><strong>Automated Legacy Import:</strong> Free migration of historical UHID demographics, tariff masters, and pharmacy stock.</li>
-          <li><strong>45+ Analyzer Drivers:</strong> Out-of-the-box bi-directional ASTM/HL7 setup for your pathology lab and PACS.</li>
-          <li><strong>Unlimited Staff Accounts:</strong> Add all consultants, residents, shift nurses, and TPA billing officers at zero extra cost.</li>
-        </ul>
-      </div>
-    </aside>
+      <p class="auth-footer-copy">© 2026 MediCore Health Systems Inc. All Rights Reserved.</p>
+    </footer>
   </main>
 
-  <!-- ==================== GLOBAL MARKETING FOOTER ==================== -->
-  <footer class="site-footer">
-    <div class="container">
-      <div class="footer-bottom" style="padding-top:0;">
-        <span>© 2026 MediCore Health Systems Inc. HIPAA · ISO 27001 · NABH Ready.</span>
-        <div style="display:flex;gap:16px;">
-          <a href="pricing.html">Compare Plans</a>
-          <a href="contact.html">24/7 Onboarding Desk</a>
-        </div>
-      </div>
-    </div>
-  </footer>
+  <!-- Scroll to top floating button -->
+  <button type="button" class="auth-scroll-top-btn" data-action="scroll-top" aria-label="Scroll to top">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg>
+  </button>
 
   <script src="assets/js/main.js"></script>
 </body>

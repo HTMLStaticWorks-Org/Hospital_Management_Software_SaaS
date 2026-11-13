@@ -36,14 +36,24 @@
     var collapseBtn = document.querySelector('[data-action="collapse-sidebar"]');
     var mobileBtn = document.querySelector('[data-action="mobile-sidebar"]');
 
-    if (sidebar && localStorage.getItem('medicore_sidebar') === 'collapsed') {
+    if (sidebar && localStorage.getItem('medicore_sidebar') === 'collapsed' && window.innerWidth >= 1024) {
       sidebar.classList.add('is-collapsed');
+      if (collapseBtn) {
+        collapseBtn.setAttribute('aria-label', 'Expand sidebar');
+        collapseBtn.setAttribute('title', 'Expand sidebar');
+      }
     }
 
     if (collapseBtn && sidebar) {
       collapseBtn.addEventListener('click', function () {
+        if (window.innerWidth < 1024) {
+          sidebar.classList.remove('mobile-open');
+          return;
+        }
         var collapsed = sidebar.classList.toggle('is-collapsed');
         localStorage.setItem('medicore_sidebar', collapsed ? 'collapsed' : 'expanded');
+        collapseBtn.setAttribute('aria-label', collapsed ? 'Expand sidebar' : 'Collapse sidebar');
+        collapseBtn.setAttribute('title', collapsed ? 'Expand sidebar' : 'Collapse sidebar');
       });
     }
 
@@ -52,6 +62,13 @@
         sidebar.classList.toggle('mobile-open');
       });
     }
+
+    // Logout button: clear stored session and redirect
+    document.querySelectorAll('.sidebar-logout-btn').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        localStorage.removeItem('medicore_role');
+      });
+    });
 
     // Role Switcher
     var roleSelect = document.getElementById('dash-role-switcher');

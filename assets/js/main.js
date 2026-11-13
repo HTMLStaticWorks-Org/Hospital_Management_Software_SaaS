@@ -71,10 +71,166 @@
       });
     }
 
+    // Dropdown caret & menu click interactions (desktop & mobile)
+    document.addEventListener('click', function (e) {
+      // 0. Account dropdown toggle button (nav-actions)
+      var accountToggle = e.target.closest('[data-action="toggle-account"]');
+      if (accountToggle) {
+        e.preventDefault();
+        e.stopPropagation();
+        var accountParent = accountToggle.closest('.nav-account-dropdown');
+        if (accountParent) {
+          var isAccOpen = accountParent.classList.contains('open');
+          document.querySelectorAll('.nav-item.open').forEach(function (item) {
+            if (item !== accountParent) {
+              item.classList.remove('open');
+              var btn = item.querySelector('.nav-link, button');
+              if (btn) btn.setAttribute('aria-expanded', 'false');
+            }
+          });
+          if (isAccOpen) {
+            accountParent.classList.remove('open');
+            accountToggle.setAttribute('aria-expanded', 'false');
+          } else {
+            accountParent.classList.add('open');
+            accountToggle.setAttribute('aria-expanded', 'true');
+          }
+          return;
+        }
+      }
+
+      // 1. Desktop dropdown caret icon click (or clicking chevron SVG inside nav-link)
+      var caret = e.target.closest('.dropdown-caret');
+      if (!caret) {
+        var svg = e.target.closest('svg');
+        if (svg) {
+          var parentLink = svg.closest('.nav-item > .nav-link[aria-haspopup="true"], .nav-item.has-dropdown > .nav-link');
+          if (parentLink) {
+            caret = svg;
+          }
+        }
+      }
+
+      if (caret) {
+        var navItem = caret.closest('.nav-item');
+        if (navItem && navItem.querySelector('.dropdown-menu')) {
+          e.preventDefault();
+          e.stopPropagation();
+          var isOpen = navItem.classList.contains('open');
+
+          // Close other open dropdowns
+          document.querySelectorAll('.nav-item.open').forEach(function (item) {
+            if (item !== navItem) {
+              item.classList.remove('open');
+              var link = item.querySelector('.nav-link');
+              if (link) link.setAttribute('aria-expanded', 'false');
+            }
+          });
+
+          if (isOpen) {
+            navItem.classList.remove('open');
+            var link = navItem.querySelector('.nav-link');
+            if (link) link.setAttribute('aria-expanded', 'false');
+          } else {
+            navItem.classList.add('open');
+            var link = navItem.querySelector('.nav-link');
+            if (link) link.setAttribute('aria-expanded', 'true');
+          }
+          return;
+        }
+      }
+
+      // 2. Click on "Company / Resources" nav-link directly to toggle options
+      var companyLink = e.target.closest('.nav-link');
+      if (companyLink) {
+        var parentItem = companyLink.closest('.nav-item');
+        if (parentItem && parentItem.querySelector('.dropdown-menu')) {
+          var linkText = (companyLink.textContent || '').trim().toLowerCase();
+          if (linkText.indexOf('company') !== -1) {
+            e.preventDefault();
+            e.stopPropagation();
+            var isCurrentlyOpen = parentItem.classList.contains('open');
+
+            document.querySelectorAll('.nav-item.open').forEach(function (item) {
+              if (item !== parentItem) {
+                item.classList.remove('open');
+                var l = item.querySelector('.nav-link');
+                if (l) l.setAttribute('aria-expanded', 'false');
+              }
+            });
+
+            if (isCurrentlyOpen) {
+              parentItem.classList.remove('open');
+              companyLink.setAttribute('aria-expanded', 'false');
+            } else {
+              parentItem.classList.add('open');
+              companyLink.setAttribute('aria-expanded', 'true');
+            }
+            return;
+          }
+        }
+      }
+
+      // 3. Mobile drawer dropdown toggle buttons
+      var mobileToggle = e.target.closest('.mobile-dropdown-toggle');
+      if (mobileToggle) {
+        e.preventDefault();
+        e.stopPropagation();
+        var mobileItem = mobileToggle.closest('.mobile-nav-item');
+        if (mobileItem) {
+          var mobileOpen = mobileItem.classList.toggle('open');
+          mobileToggle.setAttribute('aria-expanded', mobileOpen ? 'true' : 'false');
+        }
+        return;
+      }
+
+      // 4. Mobile drawer "Company / Resources" or "Account" header link toggle
+      var mobileCompanyLink = e.target.closest('.mobile-nav-header > a');
+      if (mobileCompanyLink) {
+        var mobileParent = mobileCompanyLink.closest('.mobile-nav-item');
+        if (mobileParent && mobileParent.querySelector('.mobile-submenu')) {
+          var mobileText = (mobileCompanyLink.textContent || '').trim().toLowerCase();
+          if (mobileText.indexOf('company') !== -1 || mobileText.indexOf('account') !== -1) {
+            e.preventDefault();
+            e.stopPropagation();
+            var mOpen = mobileParent.classList.toggle('open');
+            var mToggle = mobileParent.querySelector('.mobile-dropdown-toggle');
+            if (mToggle) mToggle.setAttribute('aria-expanded', mOpen ? 'true' : 'false');
+            return;
+          }
+        }
+      }
+
+      // 5. Close dropdowns if clicking outside
+      if (!e.target.closest('.nav-item.open')) {
+        document.querySelectorAll('.nav-item.open').forEach(function (item) {
+          item.classList.remove('open');
+          var link = item.querySelector('.nav-link, button');
+          if (link) link.setAttribute('aria-expanded', 'false');
+        });
+      }
+    });
+
+    // Keyboard accessibility for dropdowns
     document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape' && drawer && drawer.classList.contains('is-open')) {
-        drawer.classList.remove('is-open');
-        if (toggleBtn) toggleBtn.setAttribute('aria-expanded', 'false');
+      if (e.key === 'Enter' || e.key === ' ') {
+        var activeEl = document.activeElement;
+        if (activeEl && activeEl.classList.contains('dropdown-caret')) {
+          e.preventDefault();
+          activeEl.click();
+        }
+      }
+
+      if (e.key === 'Escape') {
+        document.querySelectorAll('.nav-item.open').forEach(function (item) {
+          item.classList.remove('open');
+          var link = item.querySelector('.nav-link, button');
+          if (link) link.setAttribute('aria-expanded', 'false');
+        });
+        if (drawer && drawer.classList.contains('is-open')) {
+          drawer.classList.remove('is-open');
+          if (toggleBtn) toggleBtn.setAttribute('aria-expanded', 'false');
+        }
       }
     });
   }
@@ -301,7 +457,7 @@
   }
 
   /**
-   * Universal Form Validation + Login Redirect + Password Toggle.
+   * Universal Form Validation + Login Redirect + Password Toggle + Scroll Top.
    */
   function initForms() {
     document.querySelectorAll('[data-toggle-password]').forEach(function (btn) {
@@ -311,7 +467,15 @@
         if (!input) return;
         var isPwd = input.type === 'password';
         input.type = isPwd ? 'text' : 'password';
-        btn.textContent = isPwd ? 'Hide' : 'Show';
+
+        var eyeOpen = btn.querySelector('.eye-open');
+        var eyeClosed = btn.querySelector('.eye-closed');
+        if (eyeOpen && eyeClosed) {
+          eyeOpen.style.display = isPwd ? 'none' : 'block';
+          eyeClosed.style.display = isPwd ? 'block' : 'none';
+        } else {
+          btn.textContent = isPwd ? 'Hide' : 'Show';
+        }
       });
     });
 
@@ -322,7 +486,7 @@
         var requiredFields = form.querySelectorAll('[required]');
 
         requiredFields.forEach(function (field) {
-          var group = field.closest('.form-group');
+          var group = field.closest('.form-group, .auth-field');
           var ok = true;
           if (field.type === 'checkbox') {
             ok = field.checked;
@@ -340,7 +504,7 @@
         if (!valid) return;
 
         var formType = form.getAttribute('data-form-type');
-        if (formType === 'login') {
+        if (formType === 'login' || formType === 'signup') {
           var roleSelect = form.querySelector('[name="role"]');
           if (roleSelect) {
             localStorage.setItem('medicore_role', roleSelect.value);
@@ -427,6 +591,46 @@
     }
   }
 
+  /**
+   * Universal Scroll to Top Button
+   */
+  function initScrollTop() {
+    var buttons = Array.from(document.querySelectorAll('[data-action="scroll-top"], .scroll-top-btn, .auth-scroll-top-btn'));
+
+    if (buttons.length === 0) {
+      var btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'scroll-top-btn';
+      btn.setAttribute('data-action', 'scroll-top');
+      btn.setAttribute('aria-label', 'Scroll to top');
+      btn.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg>';
+      document.body.appendChild(btn);
+      buttons.push(btn);
+    }
+
+    function checkScroll() {
+      var scrolled = window.pageYOffset || document.documentElement.scrollTop || 0;
+      var show = scrolled > 180;
+      buttons.forEach(function (b) {
+        if (show) {
+          b.classList.add('is-visible');
+        } else {
+          b.classList.remove('is-visible');
+        }
+      });
+    }
+
+    buttons.forEach(function (b) {
+      b.addEventListener('click', function (e) {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    });
+
+    window.addEventListener('scroll', checkScroll, { passive: true });
+    checkScroll();
+  }
+
   document.addEventListener('DOMContentLoaded', function () {
     initThemeAndDirection();
     initNavigation();
@@ -439,6 +643,7 @@
     initDemoWizard();
     initForms();
     initUtilities();
+    initScrollTop();
   });
 })();
 

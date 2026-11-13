@@ -5,6 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Hospital Settings &amp; RBAC Security | MediCore HMS</title>
   <meta name="description" content="Configure hospital profile, NABH license details, Role-Based Access Control (RBAC) permissions, HL7/DICOM keys, and audit preferences in MediCore HMS.">
+    <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../assets/images/apple-touch-icon.png">
   <link rel="stylesheet" href="../assets/css/style.css">
   <link rel="stylesheet" href="../assets/css/dark-mode.css">
   <link rel="stylesheet" href="../assets/css/rtl.css">
@@ -17,9 +21,9 @@
     <!-- ==================== SHARED COLLAPSIBLE SIDEBAR ==================== -->
     <aside id="dash-sidebar" class="dash-sidebar" aria-label="Hospital Dashboard Navigation">
       <div class="sidebar-brand">
-        <a href="../index.html" class="brand-logo" style="color:#FFFFFF;font-size:1.1rem;">
+        <a href="../index.html" class="brand-logo" aria-label="MediCore HMS Home">
           <span class="brand-logo-mark" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
           </span>
           <span class="sidebar-label">MediCore <em>HMS</em></span>
         </a>
@@ -68,6 +72,12 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4"/></svg>
           <span class="sidebar-label">Hospital Settings</span>
         </a>
+        <div class="sidebar-logout-wrap">
+          <a href="../index.html" class="sidebar-logout-btn" title="Logout">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+            <span class="sidebar-label">Logout</span>
+          </a>
+        </div>
       </nav>
 
       <div class="sidebar-footer">
@@ -85,10 +95,6 @@
           <button type="button" class="btn btn-icon btn-sm mobile-menu-toggle" data-action="mobile-sidebar" aria-label="Open sidebar menu">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
           </button>
-          <div class="global-search-wrap">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-            <input type="search" id="dash-global-search" placeholder="Search RBAC roles, security policy, or license configuration..." aria-label="Search settings">
-          </div>
         </div>
 
         <div class="topbar-right">
@@ -101,7 +107,6 @@
               <option value="Billing">Billing</option>
             </select>
           </div>
-          <button type="button" id="reset-demo-data-btn" class="btn btn-secondary btn-sm">Reset Demo State</button>
           <button type="button" class="btn btn-icon btn-sm" data-action="toggle-rtl" aria-label="Toggle RTL layout">RTL</button>
           <button type="button" class="btn btn-icon btn-sm" data-action="toggle-theme" aria-label="Toggle color theme">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2m-7.07-14.93 1.41 1.41m11.32 11.32 1.41 1.41M2 12h2m16 0h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
@@ -118,9 +123,6 @@
           <div>
             <span class="eyebrow" style="margin-bottom:4px;"><span class="eyebrow-dot"></span>Tenant Governance &amp; Security Policy</span>
             <h1>Hospital Profile, RBAC &amp; System Preferences</h1>
-          </div>
-          <div style="display:flex;gap:10px;flex-wrap:wrap;">
-            <a href="../login.html" class="btn btn-secondary btn-sm">Sign Out of Portal</a>
           </div>
         </div>
 
@@ -232,6 +234,10 @@
   <script src="../assets/js/plugins/tilt.js"></script>
   <script src="../assets/js/main.js"></script>
   <script src="../assets/js/dashboard.js"></script>
+  <!-- Scroll to Top Button -->
+  <button type="button" class="scroll-top-btn" data-action="scroll-top" aria-label="Scroll to top">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg>
+  </button>
 </body>
 </html>
 
