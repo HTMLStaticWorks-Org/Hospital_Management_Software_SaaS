@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Real-Time System Status &amp; 99.99% Uptime | MediCore HMS</title>
+  <meta name="description" content="Live operational status and 90-day uptime telemetry for MediCore HMS clinical cloud clusters, HL7 FHIR R4 APIs, DICOM PACS relays, and TPA claim gateways.">
+  <meta property="og:title" content="MediCore HMS System Status — 99.99% Clinical Uptime Telemetry">
+  <meta property="og:description" content="Real-time health of EMR, ADT Bed Board, LIS MLLP Listeners, and TPA Gateways.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://medicorehms.com/status.html">
+  <link rel="canonical" href="https://medicorehms.com/status.html">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/dark-mode.css">
+  <link rel="stylesheet" href="assets/css/rtl.css">
+</head>
+<body class="bg-clinical-grid">
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- ==================== GLOBAL MARKETING HEADER ==================== -->
+  <header class="site-header">
+    <div class="container nav-bar">
+      <a href="index.html" class="brand-logo" aria-label="MediCore HMS Home">
+        <span class="brand-logo-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+        </span>
+        <span>MediCore <em>HMS</em></span>
+      </a>
+
+      <nav aria-label="Primary Navigation">
+        <ul class="nav-menu">
+          <li class="nav-item">
+            <a href="index.html" class="nav-link" aria-haspopup="true">
+              Home
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+            </a>
+            <ul class="dropdown-menu" aria-label="Home Variations">
+              <li><a href="index.html" class="dropdown-link"><span>Home 1 — Clinical Outcomes</span><span class="dropdown-tag">Bright</span></a></li>
+              <li><a href="home-2.html" class="dropdown-link"><span>Home 2 — Platform Suite</span><span class="dropdown-tag">Dark UI</span></a></li>
+            </ul>
+          </li>
+          <li class="nav-item"><a href="features.html" class="nav-link">Features</a></li>
+          <li class="nav-item"><a href="pricing.html" class="nav-link">Pricing</a></li>
+          <li class="nav-item"><a href="docs.html" class="nav-link">Docs</a></li>
+          <li class="nav-item">
+            <a href="status.html" class="nav-link active" aria-haspopup="true">
+              Company / Resources
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+            </a>
+            <ul class="dropdown-menu" aria-label="Company and Resources">
+              <li><a href="about.html" class="dropdown-link"><span>About MediCore</span><span class="dropdown-tag">Story</span></a></li>
+              <li><a href="integrations.html" class="dropdown-link"><span>Integrations Hub</span><span class="dropdown-tag">HL7/FHIR</span></a></li>
+              <li><a href="changelog.html" class="dropdown-link"><span>Changelog</span><span class="dropdown-tag">v4.8</span></a></li>
+              <li><a href="status.html" class="dropdown-link active"><span>System Status</span><span class="dropdown-tag">99.99%</span></a></li>
+              <li><a href="contact.html" class="dropdown-link"><span>Contact &amp; Support</span><span class="dropdown-tag">24/7</span></a></li>
+              <li><a href="coming-soon.html" class="dropdown-link"><span>AI Ambient Scribe</span><span class="dropdown-tag">Labs</span></a></li>
+            </ul>
+          </li>
+          <li class="nav-item"><a href="login.html" class="nav-link">Login</a></li>
+          <li class="nav-item"><a href="signup.html" class="nav-link">Sign Up</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <button type="button" class="btn btn-icon btn-sm" data-action="toggle-rtl" aria-label="Toggle RTL layout">RTL</button>
+        <button type="button" class="btn btn-icon btn-sm" data-action="toggle-theme" aria-label="Toggle color theme">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2m-7.07-14.93 1.41 1.41m11.32 11.32 1.41 1.41M2 12h2m16 0h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+        </button>
+        <a href="demo-request.html" class="btn btn-primary btn-sm">Request Demo</a>
+        <button type="button" class="btn btn-icon btn-sm mobile-menu-toggle" data-action="toggle-mobile-nav" aria-expanded="false" aria-controls="mobile-nav-drawer" aria-label="Open navigation menu">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <div id="mobile-nav-drawer" class="mobile-nav-drawer" aria-label="Mobile Navigation">
+      <ul class="mobile-nav-list">
+        <li><a href="index.html">Home 1 — Clinical Outcomes</a></li>
+        <li><a href="home-2.html">Home 2 — Dark Product Suite</a></li>
+        <li><a href="features.html">Features</a></li>
+        <li><a href="pricing.html">Pricing</a></li>
+        <li><a href="docs.html">Documentation &amp; API</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="integrations.html">Integrations</a></li>
+        <li><a href="changelog.html">Changelog</a></li>
+        <li><a href="status.html">System Status</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="login.html">Hospital Login Portal</a></li>
+        <li><a href="signup.html">Hospital Sign Up</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <!-- ==================== SECTION 1: LIVE GLOBAL OPERATIONAL BANNER ==================== -->
+    <section class="section" style="padding-bottom:var(--sp-4);" aria-labelledby="status-title">
+      <div class="container" style="max-width:960px;">
+        <div class="mc-card card-anim-pulse reveal-up" style="border:2px solid var(--emerald);padding:var(--sp-5);">
+          <div class="card-icon" style="background:var(--emerald-soft);color:var(--emerald);border-color:var(--emerald);">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <span class="badge badge-emerald">ALL CLINICAL CLUSTERS OPERATIONAL · 99.994% 90-DAY UPTIME</span>
+          <h1 id="status-title" style="font-size:2rem;margin-top:var(--sp-2);">MediCore HMS Live Infrastructure Telemetry</h1>
+          <p class="mono" style="font-size:0.84rem;">Last Automated Probe: 13 Nov 2026 · 13:05 UTC · P95 FHIR Latency: 18.4 ms</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== SECTION 2: LIVE SERVICE STATUS LIST & 90-DAY UPTIME BARS ==================== -->
+    <section class="section" style="padding-top:var(--sp-3);" aria-labelledby="services-heading">
+      <div class="container" style="max-width:960px;">
+        <h2 id="services-heading" style="margin-bottom:var(--sp-4);text-align:center;">Core Clinical Services &amp; 90-Day Uptime History</h2>
+
+        <!-- Service 1: EMR & CPOE Core -->
+        <div class="dash-panel reveal-up">
+          <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;">
+            <div>
+              <strong>1. Longitudinal EMR, CPOE &amp; e-Prescription Core</strong>
+              <span class="mono" style="font-size:0.78rem;color:var(--text-muted);margin-inline-start:8px;">(ap-south-1 · eu-central-1 · me-central-1)</span>
+            </div>
+            <span class="badge badge-emerald">Operational · 100.00%</span>
+          </div>
+          <div class="uptime-bars" role="img" aria-label="90-day uptime 100 percent">
+            <span class="uptime-bar"></span><span class="uptime-bar"></span><span class="uptime-bar"></span><span class="uptime-bar"></span><span class="uptime-bar"></span><span class="uptime-bar"></span><span class="uptime-bar"></span><span class="uptime-bar"></span><span class="uptime-bar"></span><span class="uptime-bar"></span><span class="uptime-bar"></span><span class="uptime-bar"></span><span class="uptime-bar"></span><span class="uptime-bar"></span><span class="uptime-bar"></span><span class="uptime-bar"></span><span class="uptime-bar"></span><span class="uptime-bar"></span><span class="uptime-bar"></span><span class="uptime-bar"></span><span class="uptime-bar"></span><span class="uptime-bar"></span><span class="uptime-bar"></span><span class="uptime-bar"></span><span class="uptime-bar"></span><span class="uptime-bar"></span><span class="uptime-bar"></span><span class="uptime-bar"></span><span class="uptime-bar"></span><span class="uptime-bar"></span>
+          </div>
+          <div style="display:flex;justify-content:space-between;font-size:0.75rem;color:var(--text-muted);" class="mono">
+            <span>90 days ago</span><span>Today (16 ms avg)</span>
+          </div>
+        </div>
+
+        <!-- Service 2: Real-Time Ward & ICU Bed Telemetry -->
+        <div class="dash-panel reveal-up">
+          <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;">
+            <div>
+              <strong>2. Real-Time ADT Ward &amp; ICU WebSocket Broker</strong>
+              <span class="mono" style="font-size:0.78rem;color:var(--text-muted);margin-inline-start:8px;">(wss://adt.medicorehms.com)</span>
+            </div>
+            <span class="badge badge-emerald">Operational · 99.99%</span>
+          </div>
+          <div class="uptime-bars" role="img" aria-label="90-day uptime 99.99 percent">
+            <span class="uptime-bar"></span><span class="uptime-bar"></span><span class="uptime-bar"></span><span class="uptime-bar"></span><span class="uptime-bar"></span><span class="uptime-bar"></span><span class="uptime-bar"></span><span class="uptime-bar"></span><span class="uptime-bar"></span><span class="uptime-bar"></span><span class="uptime-bar"></span><span class="uptime-bar"></span><span class="uptime-bar"></span><span class="uptime-bar"></span><span class="uptime-bar"></span><span class="uptime-bar"></span><span class="uptime-bar"></span><span class="uptime-bar"></span><span class="uptime-bar"></span><span class="uptime-bar"></span><span class="uptime-bar"></span><span class="uptime-bar"></span><span class="uptime-bar"></span><span class="uptime-bar"></span><span class="uptime-bar"></span><span class="uptime-bar"></span><span class="uptime-bar"></span><span class="uptime-bar"></span><span class="uptime-bar"></span><span class="uptime-bar"></span>
+          </div>
+          <div style="display:flex;justify-content:space-between;font-size:0.75rem;color:var(--text-muted);" class="mono">
+            <span>90 days ago</span><span>Today (9 ms avg)</span>
+          </div>
+        </div>
+
+        <!-- Service 3: HL7 v2.5.1 LIS & DICOM PACS Relay -->
+        <div class="dash-panel reveal-up">
+          <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;">
+            <div>
+              <strong>3. HL7 v2.5.1 MLLP LIS Listener &amp; DICOMweb WADO-RS Relay</strong>
+              <span class="mono" style="font-size:0.78rem;color:var(--text-muted);margin-inline-start:8px;">(45+ Analyzer Gateways)</span>
+            </div>
+            <span class="badge badge-emerald">Operational · 99.98%</span>
+          </div>
+          <div class="uptime-bars" role="img" aria-label="90-day uptime 99.98 percent">
+            <span class="uptime-bar"></span><span class="uptime-bar"></span><span class="uptime-bar"></span><span class="uptime-bar"></span><span class="uptime-bar"></span><span class="uptime-bar"></span><span class="uptime-bar"></span><span class="uptime-bar"></span><span class="uptime-bar"></span><span class="uptime-bar"></span><span class="uptime-bar"></span><span class="uptime-bar"></span><span class="uptime-bar"></span><span class="uptime-bar"></span><span class="uptime-bar"></span><span class="uptime-bar"></span><span class="uptime-bar"></span><span class="uptime-bar"></span><span class="uptime-bar"></span><span class="uptime-bar"></span><span class="uptime-bar"></span><span class="uptime-bar warn" title="4-min upstream carrier reroute on 29 Oct"></span><span class="uptime-bar"></span><span class="uptime-bar"></span><span class="uptime-bar"></span><span class="uptime-bar"></span><span class="uptime-bar"></span><span class="uptime-bar"></span><span class="uptime-bar"></span><span class="uptime-bar"></span>
+          </div>
+          <div style="display:flex;justify-content:space-between;font-size:0.75rem;color:var(--text-muted);" class="mono">
+            <span>90 days ago</span><span>Today (24 ms avg)</span>
+          </div>
+        </div>
+
+        <!-- Service 4: Cashless TPA & NHCX Gateway -->
+        <div class="dash-panel reveal-up">
+          <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;">
+            <div>
+              <strong>4. Cashless TPA Pre-Auth &amp; NHCX FHIR Claim Gateway</strong>
+              <span class="mono" style="font-size:0.78rem;color:var(--text-muted);margin-inline-start:8px;">(Star Health · ICICI · MediAssist · Aetna)</span>
+            </div>
+            <span class="badge badge-emerald">Operational · 99.99%</span>
+          </div>
+          <div class="uptime-bars" role="img" aria-label="90-day uptime 99.99 percent">
+            <span class="uptime-bar"></span><span class="uptime-bar"></span><span class="uptime-bar"></span><span class="uptime-bar"></span><span class="uptime-bar"></span><span class="uptime-bar"></span><span class="uptime-bar"></span><span class="uptime-bar"></span><span class="uptime-bar"></span><span class="uptime-bar"></span><span class="uptime-bar"></span><span class="uptime-bar"></span><span class="uptime-bar"></span><span class="uptime-bar"></span><span class="uptime-bar"></span><span class="uptime-bar"></span><span class="uptime-bar"></span><span class="uptime-bar"></span><span class="uptime-bar"></span><span class="uptime-bar"></span><span class="uptime-bar"></span><span class="uptime-bar"></span><span class="uptime-bar"></span><span class="uptime-bar"></span><span class="uptime-bar"></span><span class="uptime-bar"></span><span class="uptime-bar"></span><span class="uptime-bar"></span><span class="uptime-bar"></span><span class="uptime-bar"></span>
+          </div>
+          <div style="display:flex;justify-content:space-between;font-size:0.75rem;color:var(--text-muted);" class="mono">
+            <span>90 days ago</span><span>Today (31 ms avg)</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== SECTION 3: INCIDENT HISTORY ==================== -->
+    <section class="section" style="background:var(--surface-2);" aria-labelledby="incidents-heading">
+      <div class="container" style="max-width:960px;">
+        <div class="section-header reveal-up">
+          <span class="eyebrow"><span class="eyebrow-dot"></span>Transparent Post-Mortem Log</span>
+          <h2 id="incidents-heading">Past 90 Days Incident &amp; Maintenance History</h2>
+        </div>
+
+        <div class="grid grid-2">
+          <article class="mc-card card-anim-scan reveal-up">
+            <span class="badge badge-amber">29 OCTOBER 2026 · RESOLVED IN 4 MINS</span>
+            <div class="card-icon" style="margin-top:var(--sp-2);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div>
+            <h3>Transient BGP Latency on EU-Central DICOM Relay</h3>
+            <p>An upstream fiber cut in Frankfurt increased WADO-RS CT slice streaming latency from 24ms to 190ms for 4 minutes before automated Anycast failover rerouted traffic to Zurich. Zero data loss occurred.</p>
+          </article>
+
+          <article class="mc-card card-anim-ring reveal-up">
+            <span class="badge badge-emerald">14 SEPTEMBER 2026 · ZERO DOWNTIME</span>
+            <div class="card-icon" style="margin-top:var(--sp-2);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+            <h3>PostgreSQL 16 Blue-Green Cluster Promotion</h3>
+            <p>Completed rolling database engine upgrade across all 340+ hospital tenants at 02:30 UTC using logical replication switchover in 1.4 seconds with zero interrupted OPD/IPD sessions.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==================== GLOBAL MARKETING FOOTER ==================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a href="index.html" class="brand-logo" style="color:#FFFFFF;margin-bottom:var(--sp-3);">
+            <span class="brand-logo-mark" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+            </span>
+            <span>MediCore <em>HMS</em></span>
+          </a>
+          <p style="margin-bottom:var(--sp-3);">One platform. Every ward. Zero friction. Cloud-native Hospital Information &amp; EMR System built for NABH, JCI, and HIPAA-accredited healthcare institutions.</p>
+          <div class="mono" style="font-size:0.78rem;color:var(--accent);">● ALL CLINICAL CLUSTERS OPERATIONAL (99.99%)</div>
+        </div>
+
+        <div>
+          <h4>Platform</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home 1 (Clinical Outcomes)</a></li>
+            <li><a href="home-2.html">Home 2 (Dark Product Suite)</a></li>
+            <li><a href="features.html">All 10 Clinical Modules</a></li>
+            <li><a href="integrations.html">HL7 / FHIR / LIS Integrations</a></li>
+            <li><a href="dashboard/dashboard.html">Live Admin Dashboard</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>Commercial &amp; Auth</h4>
+          <ul class="footer-links">
+            <li><a href="pricing.html">Bed-Tiered Pricing</a></li>
+            <li><a href="demo-request.html">Request a 30-Min Demo</a></li>
+            <li><a href="login.html">Hospital Staff Login</a></li>
+            <li><a href="signup.html">Register Your Hospital</a></li>
+            <li><a href="coming-soon.html">AI Ambient Scribe (Preview)</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>Resources &amp; Docs</h4>
+          <ul class="footer-links">
+            <li><a href="docs.html">API &amp; Module Documentation</a></li>
+            <li><a href="changelog.html">Release Changelog (v4.8)</a></li>
+            <li><a href="status.html">Real-Time System Status</a></li>
+            <li><a href="404.html">Emergency Route Recovery (404)</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>Company</h4>
+          <ul class="footer-links">
+            <li><a href="about.html">About &amp; Clinical Board</a></li>
+            <li><a href="contact.html">Contact &amp; Regional Offices</a></li>
+            <li><a href="contact.html#priority-desk">24/7 Code-Blue IT Support</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2026 MediCore Health Systems Inc. All rights reserved. HIPAA · ISO 27001 · NABH Ready.</span>
+        <div style="display:flex;gap:16px;">
+          <a href="docs.html#security">Security &amp; BAA</a>
+          <a href="status.html">SLA 99.99%</a>
+          <a href="sitemap.xml">Sitemap</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/plugins/tilt.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,18 @@
+{
+  "nabhIndicators": [
+    { "metric": "Average Discharge Turnaround Time (TAT)", "current": "42 mins", "target": "< 90 mins", "trend": "-38% vs Legacy", "status": "Optimal" },
+    { "metric": "ICU Catheter-Associated UTI Rate (CAUTI)", "current": "0.4 / 1000 days", "target": "< 1.5 / 1000 days", "trend": "-52% YoY", "status": "Optimal" },
+    { "metric": "TPA First-Pass Cashless Claim Approval", "current": "97.4%", "target": "> 92.0%", "trend": "+8.6% YoY", "status": "Optimal" },
+    { "metric": "Medication Barcode Administration Match", "current": "99.94%", "target": "> 99.5%", "trend": "Zero Near-Misses", "status": "Optimal" },
+    { "metric": "Average Length of Stay (ALOS — Multi-Specialty)", "current": "3.4 Days", "target": "< 4.2 Days", "trend": "-0.7 Days", "status": "Optimal" },
+    { "metric": "Emergency Door-to-Balloon Time (STEMI)", "current": "51 mins", "target": "< 90 mins", "trend": "-24 mins", "status": "Optimal" }
+  ],
+  "departmentPerformance": [
+    { "department": "Cardiology & Interventional Cath", "admissions": 312, "alosDays": 3.1, "revenueLakhs": 148.5, "occupancyPct": 91 },
+    { "department": "Orthopedics & Joint Replacement", "admissions": 264, "alosDays": 3.8, "revenueLakhs": 122.0, "occupancyPct": 84 },
+    { "department": "Obstetrics, Gynecology & NICU", "admissions": 290, "alosDays": 2.9, "revenueLakhs": 96.4, "occupancyPct": 87 },
+    { "department": "Neurology & Neuro-Intervention", "admissions": 178, "alosDays": 4.2, "revenueLakhs": 88.2, "occupancyPct": 79 },
+    { "department": "Emergency & Acute Care Surgery", "admissions": 438, "alosDays": 2.4, "revenueLakhs": 68.9, "occupancyPct": 89 }
+  ]
+}
+

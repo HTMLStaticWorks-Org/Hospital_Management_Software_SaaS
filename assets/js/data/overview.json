@@ -1,0 +1,113 @@
+{
+  "kpis": {
+    "totalPatients": 1482,
+    "admissionsToday": 46,
+    "bedOccupancyPct": 86.4,
+    "revenueTodayINR": 1845000,
+    "revenueTodayUSD": 22400,
+    "pendingBillsCount": 19,
+    "staffOnDuty": 164
+  },
+  "admissionsTrend": {
+    "labels": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+    "ipd": [32, 38, 41, 35, 49, 44, 46],
+    "opd": [145, 162, 178, 154, 190, 168, 182],
+    "discharges": [28, 34, 39, 31, 45, 42, 38]
+  },
+  "departmentLoad": [
+    { "department": "Cardiology & Cath Lab", "patients": 68, "capacity": 75 },
+    { "department": "Critical Care (ICU/NICU)", "patients": 44, "capacity": 48 },
+    { "department": "Orthopedics & Trauma", "patients": 54, "capacity": 65 },
+    { "department": "Obstetrics & Maternity", "patients": 39, "capacity": 45 },
+    { "department": "Neurology & Stroke Unit", "patients": 31, "capacity": 40 },
+    { "department": "Pediatrics", "patients": 29, "capacity": 40 }
+  ],
+  "revenueVsCollections": {
+    "months": ["Jun", "Jul", "Aug", "Sep", "Oct", "Nov"],
+    "billedLakhs": [412, 438, 465, 451, 489, 524],
+    "collectedLakhs": [389, 415, 448, 439, 472, 508]
+  },
+  "bedOccupancyBreakdown": {
+    "occupied": 216,
+    "available": 21,
+    "cleaning": 6,
+    "reserved": 5,
+    "maintenance": 2
+  },
+  "recentAdmissions": [
+    {
+      "uhid": "UHID-2026-9041",
+      "patient": "Aarav Sharma",
+      "ageGender": "58 / M",
+      "wardBed": "ICU-A · Bed 04",
+      "department": "Cardiology",
+      "doctor": "Dr. Kabir Sen",
+      "admittedAt": "10:14 AM",
+      "status": "ICU Critical"
+    },
+    {
+      "uhid": "UHID-2026-9042",
+      "patient": "Meera Patel",
+      "ageGender": "34 / F",
+      "wardBed": "Maternity · Bed 12",
+      "department": "Obstetrics",
+      "doctor": "Dr. Neha Kapoor",
+      "admittedAt": "09:42 AM",
+      "status": "Admitted"
+    },
+    {
+      "uhid": "UHID-2026-9043",
+      "patient": "Robert Chen",
+      "ageGender": "45 / M",
+      "wardBed": "Private · Suite 302",
+      "department": "Orthopedics",
+      "doctor": "Dr. Sanjay Verma",
+      "admittedAt": "08:55 AM",
+      "status": "Discharge Ready"
+    },
+    {
+      "uhid": "UHID-2026-9044",
+      "patient": "Fatima Al-Mansoor",
+      "ageGender": "62 / F",
+      "wardBed": "Neuro · Bed 08",
+      "department": "Neurology",
+      "doctor": "Dr. Omar Farooq",
+      "admittedAt": "08:10 AM",
+      "status": "Admitted"
+    },
+    {
+      "uhid": "UHID-2026-9045",
+      "patient": "David Kowalski",
+      "ageGender": "29 / M",
+      "wardBed": "ER Triage · Bay 02",
+      "department": "Emergency",
+      "doctor": "Dr. Claire Dupont",
+      "admittedAt": "07:30 AM",
+      "status": "Admitted"
+    }
+  ],
+  "alerts": [
+    {
+      "id": "ALT-01",
+      "severity": "critical",
+      "title": "ICU-A Bed 04 Telemetry Alert",
+      "detail": "SpO2 dropped to 91% for UHID-2026-9041 (Aarav Sharma). Charge Nurse notified.",
+      "time": "2 mins ago"
+    },
+    {
+      "id": "ALT-02",
+      "severity": "warning",
+      "title": "TPA Pre-Auth SLA Expiring",
+      "detail": "3 Star Health TPA pre-authorizations require clinical notes upload before 14:30.",
+      "time": "18 mins ago"
+    },
+    {
+      "id": "ALT-03",
+      "severity": "info",
+      "title": "Central Pharmacy Batch Reorder",
+      "detail": "Meropenem 1g IV vial stock reached safety threshold (42 units remaining).",
+      "time": "41 mins ago"
+    }
+  ]
+}
+

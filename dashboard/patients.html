@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Patient Records &amp; Longitudinal EMR | MediCore HMS Dashboard</title>
+  <meta name="description" content="Search, filter, and manage inpatient and outpatient Electronic Medical Records (EMR), vitals, e-prescriptions, lab reports, and TPA billing in MediCore HMS.">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/dark-mode.css">
+  <link rel="stylesheet" href="../assets/css/rtl.css">
+  <link rel="stylesheet" href="../assets/css/dashboard.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <div class="dash-shell">
+    <!-- ==================== SHARED COLLAPSIBLE SIDEBAR ==================== -->
+    <aside id="dash-sidebar" class="dash-sidebar" aria-label="Hospital Dashboard Navigation">
+      <div class="sidebar-brand">
+        <a href="../index.html" class="brand-logo" style="color:#FFFFFF;font-size:1.1rem;">
+          <span class="brand-logo-mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+          </span>
+          <span class="sidebar-label">MediCore <em>HMS</em></span>
+        </a>
+        <button type="button" class="btn btn-icon btn-sm" data-action="collapse-sidebar" aria-label="Collapse or expand sidebar" style="background:rgba(255,255,255,0.08);color:#FFFFFF;border:none;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+        </button>
+      </div>
+
+      <nav class="sidebar-nav" aria-label="Clinical Modules">
+        <div class="sidebar-section-title">Clinical Command</div>
+        <a href="dashboard.html" class="sidebar-link" data-nav-module="overview">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+          <span class="sidebar-label">Overview &amp; KPIs</span>
+        </a>
+        <a href="patients.html" class="sidebar-link active" data-nav-module="patients">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+          <span class="sidebar-label">Patient Records (EMR)</span>
+        </a>
+        <a href="beds.html" class="sidebar-link" data-nav-module="beds">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 4v16M2 8h18a2 2 0 0 1 2 2v10M2 17h20"/></svg>
+          <span class="sidebar-label">Bed &amp; Ward Status</span>
+        </a>
+        <a href="appointments.html" class="sidebar-link" data-nav-module="appointments">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          <span class="sidebar-label">Appointments &amp; OPD</span>
+        </a>
+
+        <div class="sidebar-section-title">Operations &amp; Finance</div>
+        <a href="billing.html" class="sidebar-link" data-nav-module="billing">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
+          <span class="sidebar-label">Billing &amp; TPA Claims</span>
+        </a>
+        <a href="staff-schedule.html" class="sidebar-link" data-nav-module="staff">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          <span class="sidebar-label">Staff Shift Roster</span>
+        </a>
+        <a href="messages.html" class="sidebar-link" data-nav-module="messages">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          <span class="sidebar-label">Clinical Messages</span>
+        </a>
+        <a href="reports.html" class="sidebar-link" data-nav-module="reports">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+          <span class="sidebar-label">Reports &amp; NABH KPIs</span>
+        </a>
+        <a href="settings.html" class="sidebar-link" data-nav-module="settings">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4"/></svg>
+          <span class="sidebar-label">Hospital Settings</span>
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="sidebar-footer-text">
+          <div class="mono" style="color:var(--accent);font-size:0.74rem;">● HL7 FHIR R4 ACTIVE</div>
+          <div>EMR Schema v4.8</div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- ==================== MAIN WORKSPACE ==================== -->
+    <div class="dash-main-wrap">
+      <header class="dash-topbar">
+        <div class="topbar-left">
+          <button type="button" class="btn btn-icon btn-sm mobile-menu-toggle" data-action="mobile-sidebar" aria-label="Open sidebar menu">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+          </button>
+          <div class="global-search-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <input type="search" id="dash-global-search" placeholder="Quick search UHID, patient name, or diagnosis..." aria-label="Global workspace search">
+          </div>
+        </div>
+
+        <div class="topbar-right">
+          <div class="role-switcher-wrap">
+            <span>Role:</span>
+            <select id="dash-role-switcher" class="role-switcher-select" aria-label="Switch Active Hospital Role">
+              <option value="Admin">Admin</option>
+              <option value="Doctor">Doctor</option>
+              <option value="Nurse">Nurse</option>
+              <option value="Billing">Billing</option>
+            </select>
+          </div>
+          <button type="button" class="btn btn-primary btn-sm" data-open-modal="add-patient-modal">+ Admit New Patient</button>
+          <button type="button" class="btn btn-icon btn-sm" data-action="toggle-rtl" aria-label="Toggle RTL layout">RTL</button>
+          <button type="button" class="btn btn-icon btn-sm" data-action="toggle-theme" aria-label="Toggle color theme">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2m-7.07-14.93 1.41 1.41m11.32 11.32 1.41 1.41M2 12h2m16 0h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+          </button>
+          <a href="settings.html" class="user-monogram-pill">
+            <span class="monogram-circle">SD</span>
+            <span id="active-role-badge">Admin View</span>
+          </a>
+        </div>
+      </header>
+
+      <main id="main-content" class="dash-content">
+        <div class="dash-page-header">
+          <div>
+            <span class="eyebrow" style="margin-bottom:4px;"><span class="eyebrow-dot"></span>Longitudinal Electronic Medical Records</span>
+            <h1>Patient Registry &amp; Inpatient Census</h1>
+          </div>
+          <div style="display:flex;gap:10px;">
+            <button type="button" class="btn btn-primary btn-sm" data-open-modal="add-patient-modal">+ Register &amp; Admit Patient</button>
+          </div>
+        </div>
+
+        <!-- ==================== SEARCH, DEPARTMENT & STATUS FILTERS ==================== -->
+        <section class="dash-panel" aria-label="Patient Records Directory">
+          <div class="table-toolbar">
+            <div class="filter-chips" role="group" aria-label="Filter by Patient Status">
+              <button type="button" class="filter-chip active" data-patient-status="all">All Patients (8)</button>
+              <button type="button" class="filter-chip" data-patient-status="ICU Critical">ICU Critical</button>
+              <button type="button" class="filter-chip" data-patient-status="Admitted">Admitted IPD</button>
+              <button type="button" class="filter-chip" data-patient-status="Discharge Ready">Discharge Ready</button>
+              <button type="button" class="filter-chip" data-patient-status="OPD Follow-up">OPD Follow-up</button>
+            </div>
+
+            <div style="display:flex;gap:10px;flex-wrap:wrap;">
+              <input type="search" id="patient-search" class="form-control" placeholder="Search UHID, name, doctor..." style="width:240px;min-height:38px;" aria-label="Filter patients by text">
+              <select id="patient-dept-filter" class="form-select" style="width:190px;min-height:38px;" aria-label="Filter by Specialty Department">
+                <option value="all">All Departments</option>
+                <option value="Cardiology">Cardiology</option>
+                <option value="Obstetrics">Obstetrics</option>
+                <option value="Orthopedics">Orthopedics</option>
+                <option value="Neurology">Neurology</option>
+                <option value="Emergency">Emergency</option>
+                <option value="Pulmonology">Pulmonology</option>
+                <option value="Endocrinology">Endocrinology</option>
+                <option value="General Surgery">General Surgery</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="table-responsive">
+            <table id="patients-table" class="data-table">
+              <thead>
+                <tr>
+                  <th>Patient &amp; UHID</th>
+                  <th>Age / Blood</th>
+                  <th>Department</th>
+                  <th>Attending Doctor</th>
+                  <th>Ward / Bed</th>
+                  <th>Status</th>
+                  <th>Last Visit</th>
+                  <th>Clinical Chart</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- Patient 1 -->
+                <tr data-dept="Cardiology" data-status="ICU Critical" data-name="Aarav Sharma" data-uhid="UHID-2026-9041" data-doctor="Dr. Kabir Sen" data-diagnosis="Acute Anterior Wall Myocardial Infarction (Post-PCI)" data-bp="138/86 mmHg" data-hr="94 bpm" data-spo2="95%" data-rx="Ticagrelor 90mg BD · Rosuvastatin 40mg HS · Enoxaparin 60mg SC" data-lab="High-Sensitivity Troponin-I: 1,420 ng/L · LVEF 48%" data-bill="INV-2026-8841 · ₹2,48,500 (Star Health TPA Approved ₹2.10L)">
+                  <td data-label="Patient">
+                    <div class="avatar-cell">
+                      <picture>
+                        <source type="image/webp" srcset="../assets/images/dashboard/patient-01-aarav-sharma-640w.webp 640w, ../assets/images/dashboard/patient-01-aarav-sharma.webp 400w" sizes="42px">
+                        <img src="../assets/images/dashboard/patient-01-aarav-sharma.jpg" alt="Patient Aarav Sharma portrait" class="avatar-thumb" width="42" height="42" loading="lazy">
+                      </picture>
+                      <div>
+                        <strong>Aarav Sharma</strong>
+                        <div class="mono" style="font-size:0.75rem;color:var(--text-muted);">UHID-2026-9041</div>
+                      </div>
+                    </div>
+                  </td>
+                  <td data-label="Age / Blood">58 M · <span class="mono">O+</span></td>
+                  <td data-label="Department">Cardiology</td>
+                  <td data-label="Attending Doctor">Dr. Kabir Sen</td>
+                  <td data-label="Ward / Bed" class="mono">ICU-A · Bed 04</td>
+                  <td data-label="Status"><span class="badge badge-signal">ICU Critical</span></td>
+                  <td data-label="Last Visit" class="mono">2026-11-13</td>
+                  <td data-label="Chart"><button type="button" class="btn btn-secondary btn-sm" data-open-patient>Open Drawer</button></td>
+                </tr>
+
+                <!-- Patient 2 -->
+                <tr data-dept="Obstetrics" data-status="Admitted" data-name="Meera Patel" data-uhid="UHID-2026-9042" data-doctor="Dr. Neha Kapoor" data-diagnosis="39 Weeks Gestation — Elective LSCS Delivery Care" data-bp="118/76 mmHg" data-hr="78 bpm" data-spo2="99%" data-rx="Cefazolin 2g IV Pre-Op · Ferrous Ascorbate + Folic Acid" data-lab="CBC Hb 12.4 g/dL · Fetal NST Reactive (140 bpm)" data-bill="INV-2026-8842 · ₹95,000 (100% Cashless ICICI Lombard)">
+                  <td data-label="Patient">
+                    <div class="avatar-cell">
+                      <picture>
+                        <source type="image/webp" srcset="../assets/images/dashboard/patient-02-meera-patel-640w.webp 640w, ../assets/images/dashboard/patient-02-meera-patel.webp 400w" sizes="42px">
+                        <img src="../assets/images/dashboard/patient-02-meera-patel.jpg" alt="Patient Meera Patel portrait" class="avatar-thumb" width="42" height="42" loading="lazy">
+                      </picture>
+                      <div>
+                        <strong>Meera Patel</strong>
+                        <div class="mono" style="font-size:0.75rem;color:var(--text-muted);">UHID-2026-9042</div>
+                      </div>
+                    </div>
+                  </td>
+                  <td data-label="Age / Blood">34 F · <span class="mono">A+</span></td>
+                  <td data-label="Department">Obstetrics</td>
+                  <td data-label="Attending Doctor">Dr. Neha Kapoor</td>
+                  <td data-label="Ward / Bed" class="mono">Maternity · Bed 12</td>
+                  <td data-label="Status"><span class="badge badge-teal">Admitted</span></td>
+                  <td data-label="Last Visit" class="mono">2026-11-13</td>
+                  <td data-label="Chart"><button type="button" class="btn btn-secondary btn-sm" data-open-patient>Open Drawer</button></td>
+                </tr>
+
+                <!-- Patient 3 -->
+                <tr data-dept="Orthopedics" data-status="Discharge Ready" data-name="Robert Chen" data-uhid="UHID-2026-9043" data-doctor="Dr. Sanjay Verma" data-diagnosis="Arthroscopic ACL Reconstruction (Right Knee)" data-bp="122/78 mmHg" data-hr="70 bpm" data-spo2="99%" data-rx="Celecoxib 200mg BD · Pantoprazole 40mg OD" data-lab="Post-Op Knee AP/Lat Radiograph: Endobutton Intact" data-bill="INV-2026-8843 · ₹1,64,000 (Settled Aetna Global)">
+                  <td data-label="Patient">
+                    <div class="avatar-cell">
+                      <picture>
+                        <source type="image/webp" srcset="../assets/images/dashboard/patient-03-robert-chen-640w.webp 640w, ../assets/images/dashboard/patient-03-robert-chen.webp 400w" sizes="42px">
+                        <img src="../assets/images/dashboard/patient-03-robert-chen.jpg" alt="Patient Robert Chen portrait" class="avatar-thumb" width="42" height="42" loading="lazy">
+                      </picture>
+                      <div>
+                        <strong>Robert Chen</strong>
+                        <div class="mono" style="font-size:0.75rem;color:var(--text-muted);">UHID-2026-9043</div>
+                      </div>
+                    </div>
+                  </td>
+                  <td data-label="Age / Blood">45 M · <span class="mono">B+</span></td>
+                  <td data-label="Department">Orthopedics</td>
+                  <td data-label="Attending Doctor">Dr. Sanjay Verma</td>
+                  <td data-label="Ward / Bed" class="mono">Private · Suite 302</td>
+                  <td data-label="Status"><span class="badge badge-emerald">Discharge Ready</span></td>
+                  <td data-label="Last Visit" class="mono">2026-11-13</td>
+                  <td data-label="Chart"><button type="button" class="btn btn-secondary btn-sm" data-open-patient>Open Drawer</button></td>
+                </tr>
+
+                <!-- Patient 4 -->
+                <tr data-dept="Neurology" data-status="Admitted" data-name="Fatima Al-Mansoor" data-uhid="UHID-2026-9044" data-doctor="Dr. Omar Farooq" data-diagnosis="Transient Ischemic Attack (TIA) — Neuro Telemetry" data-bp="134/82 mmHg" data-hr="76 bpm" data-spo2="98%" data-rx="Clopidogrel 75mg OD · Atorvastatin 40mg HS" data-lab="3T Brain MRI + MRA: No acute infarct · LDL 138 mg/dL" data-bill="INV-2026-8844 · ₹1,18,000 (MediAssist TPA Pre-Auth)">
+                  <td data-label="Patient">
+                    <div class="avatar-cell">
+                      <picture>
+                        <source type="image/webp" srcset="../assets/images/dashboard/patient-04-fatima-al-mansoor-640w.webp 640w, ../assets/images/dashboard/patient-04-fatima-al-mansoor.webp 400w" sizes="42px">
+                        <img src="../assets/images/dashboard/patient-04-fatima-al-mansoor.jpg" alt="Patient Fatima Al-Mansoor portrait" class="avatar-thumb" width="42" height="42" loading="lazy">
+                      </picture>
+                      <div>
+                        <strong>Fatima Al-Mansoor</strong>
+                        <div class="mono" style="font-size:0.75rem;color:var(--text-muted);">UHID-2026-9044</div>
+                      </div>
+                    </div>
+                  </td>
+                  <td data-label="Age / Blood">62 F · <span class="mono">AB+</span></td>
+                  <td data-label="Department">Neurology</td>
+                  <td data-label="Attending Doctor">Dr. Omar Farooq</td>
+                  <td data-label="Ward / Bed" class="mono">Neuro · Bed 08</td>
+                  <td data-label="Status"><span class="badge badge-teal">Admitted</span></td>
+                  <td data-label="Last Visit" class="mono">2026-11-12</td>
+                  <td data-label="Chart"><button type="button" class="btn btn-secondary btn-sm" data-open-patient>Open Drawer</button></td>
+                </tr>
+
+                <!-- Patient 5 -->
+                <tr data-dept="Emergency" data-status="Admitted" data-name="David Kowalski" data-uhid="UHID-2026-9045" data-doctor="Dr. Claire Dupont" data-diagnosis="Acute Appendicitis — Pre-Op Laparoscopic Prep" data-bp="128/84 mmHg" data-hr="92 bpm" data-spo2="98%" data-rx="Ceftriaxone 1g + Metronidazole 500mg IV STAT" data-lab="CT Abdomen: 11mm inflamed appendix · WBC 15,400 /µL" data-bill="INV-2026-8845 · ₹72,500 (₹50,000 Deposit Collected)">
+                  <td data-label="Patient">
+                    <div class="avatar-cell">
+                      <picture>
+                        <source type="image/webp" srcset="../assets/images/dashboard/patient-05-david-kowalski-640w.webp 640w, ../assets/images/dashboard/patient-05-david-kowalski.webp 400w" sizes="42px">
+                        <img src="../assets/images/dashboard/patient-05-david-kowalski.jpg" alt="Patient David Kowalski portrait" class="avatar-thumb" width="42" height="42" loading="lazy">
+                      </picture>
+                      <div>
+                        <strong>David Kowalski</strong>
+                        <div class="mono" style="font-size:0.75rem;color:var(--text-muted);">UHID-2026-9045</div>
+                      </div>
+                    </div>
+                  </td>
+                  <td data-label="Age / Blood">29 M · <span class="mono">O-</span></td>
+                  <td data-label="Department">Emergency</td>
+                  <td data-label="Attending Doctor">Dr. Claire Dupont</td>
+                  <td data-label="Ward / Bed" class="mono">ER Triage · Bay 02</td>
+                  <td data-label="Status"><span class="badge badge-teal">Admitted</span></td>
+                  <td data-label="Last Visit" class="mono">2026-11-13</td>
+                  <td data-label="Chart"><button type="button" class="btn btn-secondary btn-sm" data-open-patient>Open Drawer</button></td>
+                </tr>
+
+                <!-- Patient 6 -->
+                <tr data-dept="Pulmonology" data-status="OPD Follow-up" data-name="Lakshmi Narayanan" data-uhid="UHID-2026-9046" data-doctor="Dr. Alan Park" data-diagnosis="Bronchial Asthma & COPD — Spirometry Review" data-bp="130/80 mmHg" data-hr="74 bpm" data-spo2="96%" data-rx="Budesonide + Formoterol 200mcg Inhaler BD" data-lab="Spirometry FEV1/FVC 0.72 (+14% Post-Bronchodilator)" data-bill="INV-2026-8846 · ₹4,800 (Paid CGHS)">
+                  <td data-label="Patient">
+                    <div class="avatar-cell">
+                      <picture>
+                        <source type="image/webp" srcset="../assets/images/dashboard/patient-06-lakshmi-narayanan-640w.webp 640w, ../assets/images/dashboard/patient-06-lakshmi-narayanan.webp 400w" sizes="42px">
+                        <img src="../assets/images/dashboard/patient-06-lakshmi-narayanan.jpg" alt="Patient Lakshmi Narayanan portrait" class="avatar-thumb" width="42" height="42" loading="lazy">
+                      </picture>
+                      <div>
+                        <strong>Lakshmi Narayanan</strong>
+                        <div class="mono" style="font-size:0.75rem;color:var(--text-muted);">UHID-2026-9046</div>
+                      </div>
+                    </div>
+                  </td>
+                  <td data-label="Age / Blood">67 F · <span class="mono">B-</span></td>
+                  <td data-label="Department">Pulmonology</td>
+                  <td data-label="Attending Doctor">Dr. Alan Park</td>
+                  <td data-label="Ward / Bed" class="mono">OPD · Cabin 06</td>
+                  <td data-label="Status"><span class="badge badge-amber">OPD Follow-up</span></td>
+                  <td data-label="Last Visit" class="mono">2026-11-11</td>
+                  <td data-label="Chart"><button type="button" class="btn btn-secondary btn-sm" data-open-patient>Open Drawer</button></td>
+                </tr>
+
+                <!-- Patient 7 -->
+                <tr data-dept="Endocrinology" data-status="OPD Follow-up" data-name="Hannah Abbott" data-uhid="UHID-2026-9047" data-doctor="Dr. Zoya Mirza" data-diagnosis="Hashimoto Thyroiditis & Continuous Glucose Monitoring" data-bp="114/72 mmHg" data-hr="68 bpm" data-spo2="99%" data-rx="Levothyroxine Sodium 75mcg Early Morning" data-lab="TSH 2.14 mIU/L (Optimal Target)" data-bill="INV-2026-8847 · ₹3,200 (Paid)">
+                  <td data-label="Patient">
+                    <div class="avatar-cell">
+                      <picture>
+                        <source type="image/webp" srcset="../assets/images/dashboard/patient-07-hannah-abbott-640w.webp 640w, ../assets/images/dashboard/patient-07-hannah-abbott.webp 400w" sizes="42px">
+                        <img src="../assets/images/dashboard/patient-07-hannah-abbott.jpg" alt="Patient Hannah Abbott portrait" class="avatar-thumb" width="42" height="42" loading="lazy">
+                      </picture>
+                      <div>
+                        <strong>Hannah Abbott</strong>
+                        <div class="mono" style="font-size:0.75rem;color:var(--text-muted);">UHID-2026-9047</div>
+                      </div>
+                    </div>
+                  </td>
+                  <td data-label="Age / Blood">31 F · <span class="mono">A-</span></td>
+                  <td data-label="Department">Endocrinology</td>
+                  <td data-label="Attending Doctor">Dr. Zoya Mirza</td>
+                  <td data-label="Ward / Bed" class="mono">OPD · Telehealth</td>
+                  <td data-label="Status"><span class="badge badge-amber">OPD Follow-up</span></td>
+                  <td data-label="Last Visit" class="mono">2026-11-10</td>
+                  <td data-label="Chart"><button type="button" class="btn btn-secondary btn-sm" data-open-patient>Open Drawer</button></td>
+                </tr>
+
+                <!-- Patient 8 -->
+                <tr data-dept="General Surgery" data-status="Discharge Ready" data-name="Carlos Mendoza" data-uhid="UHID-2026-9048" data-doctor="Dr. Thomas Wright" data-diagnosis="Laparoscopic Cholecystectomy — Post-Op Day 2" data-bp="124/80 mmHg" data-hr="72 bpm" data-spo2="99%" data-rx="Paracetamol 650mg TID · Ursodeoxycholic Acid 300mg HS" data-lab="LFT Total Bilirubin 0.9 mg/dL, ALT 32 U/L" data-bill="INV-2026-8848 · ₹88,400 (Niva Bupa Co-Pay ₹14,400 Overdue)">
+                  <td data-label="Patient">
+                    <div class="avatar-cell">
+                      <picture>
+                        <source type="image/webp" srcset="../assets/images/dashboard/patient-08-carlos-mendoza-640w.webp 640w, ../assets/images/dashboard/patient-08-carlos-mendoza.webp 400w" sizes="42px">
+                        <img src="../assets/images/dashboard/patient-08-carlos-mendoza.jpg" alt="Patient Carlos Mendoza portrait" class="avatar-thumb" width="42" height="42" loading="lazy">
+                      </picture>
+                      <div>
+                        <strong>Carlos Mendoza</strong>
+                        <div class="mono" style="font-size:0.75rem;color:var(--text-muted);">UHID-2026-9048</div>
+                      </div>
+                    </div>
+                  </td>
+                  <td data-label="Age / Blood">52 M · <span class="mono">O+</span></td>
+                  <td data-label="Department">General Surgery</td>
+                  <td data-label="Attending Doctor">Dr. Thomas Wright</td>
+                  <td data-label="Ward / Bed" class="mono">General · Ward B-09</td>
+                  <td data-label="Status"><span class="badge badge-emerald">Discharge Ready</span></td>
+                  <td data-label="Last Visit" class="mono">2026-11-12</td>
+                  <td data-label="Chart"><button type="button" class="btn btn-secondary btn-sm" data-open-patient>Open Drawer</button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <!-- ==================== SLIDE-OUT PATIENT DETAIL DRAWER (6 TABS) ==================== -->
+  <aside id="patient-detail-drawer" class="patient-drawer" aria-label="Patient Longitudinal Clinical Drawer">
+    <div class="drawer-header">
+      <div>
+        <span id="drawer-pt-uhid" class="mono" style="font-size:0.78rem;color:var(--primary);">UHID-2026-9041</span>
+        <h2 id="drawer-pt-name" style="font-size:1.35rem;">Aarav Sharma</h2>
+      </div>
+      <button type="button" id="close-patient-drawer" class="btn btn-secondary btn-sm" aria-label="Close patient drawer">Close ✕</button>
+    </div>
+
+    <div class="drawer-body" data-tabs>
+      <div class="tabs-nav" role="tablist" style="justify-content:flex-start;margin-bottom:var(--sp-3);">
+        <button type="button" class="tab-btn" role="tab" aria-selected="true" aria-controls="drw-overview">Overview</button>
+        <button type="button" class="tab-btn" role="tab" aria-selected="false" aria-controls="drw-vitals">Vitals</button>
+        <button type="button" class="tab-btn" role="tab" aria-selected="false" aria-controls="drw-rx">Prescriptions</button>
+        <button type="button" class="tab-btn" role="tab" aria-selected="false" aria-controls="drw-labs">Lab Reports</button>
+        <button type="button" class="tab-btn" role="tab" aria-selected="false" aria-controls="drw-billing">Billing</button>
+        <button type="button" class="tab-btn" role="tab" aria-selected="false" aria-controls="drw-docs">Documents</button>
+      </div>
+
+      <div id="drw-overview" class="tab-panel is-active" role="tabpanel">
+        <div class="dash-panel">
+          <div class="mono" style="font-size:0.75rem;color:var(--text-muted);">PRIMARY DIAGNOSIS (ICD-11)</div>
+          <p id="drawer-pt-diag" style="font-weight:700;color:var(--text-main);margin-top:4px;">Acute Anterior Wall Myocardial Infarction (Post-PCI)</p>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:var(--sp-3);font-size:0.88rem;">
+            <div><strong>Department:</strong> <span id="drawer-pt-dept">Cardiology</span></div>
+            <div><strong>Attending:</strong> <span id="drawer-pt-doc">Dr. Kabir Sen</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div id="drw-vitals" class="tab-panel" role="tabpanel">
+        <div class="grid grid-3" style="gap:10px;">
+          <div class="dash-panel" style="margin:0;">
+            <div class="mono" style="font-size:0.74rem;">BLOOD PRESSURE</div>
+            <strong id="drawer-pt-bp" class="mono" style="font-size:1.15rem;">138/86 mmHg</strong>
+          </div>
+          <div class="dash-panel" style="margin:0;">
+            <div class="mono" style="font-size:0.74rem;">HEART RATE</div>
+            <strong id="drawer-pt-hr" class="mono" style="font-size:1.15rem;">94 bpm</strong>
+          </div>
+          <div class="dash-panel" style="margin:0;">
+            <div class="mono" style="font-size:0.74rem;">SpO2 PULSE OX</div>
+            <strong id="drawer-pt-spo2" class="mono" style="font-size:1.15rem;">95%</strong>
+          </div>
+        </div>
+      </div>
+
+      <div id="drw-rx" class="tab-panel" role="tabpanel">
+        <div class="dash-panel">
+          <div class="mono" style="font-size:0.75rem;color:var(--primary);">ACTIVE CPOE E-PRESCRIPTION &amp; eMAR</div>
+          <p id="drawer-pt-rx" style="margin-top:8px;font-weight:600;">Ticagrelor 90mg BD · Rosuvastatin 40mg HS · Enoxaparin 60mg SC</p>
+        </div>
+      </div>
+
+      <div id="drw-labs" class="tab-panel" role="tabpanel">
+        <div class="dash-panel">
+          <div class="mono" style="font-size:0.75rem;color:var(--emerald);">VERIFIED LIS &amp; RIS DIAGNOSTIC RESULTS</div>
+          <p id="drawer-pt-lab" style="margin-top:8px;font-weight:600;">High-Sensitivity Troponin-I: 1,420 ng/L · LVEF 48%</p>
+        </div>
+      </div>
+
+      <div id="drw-billing" class="tab-panel" role="tabpanel">
+        <div class="dash-panel">
+          <div class="mono" style="font-size:0.75rem;color:var(--amber);">RUNNING FOLIO &amp; TPA PRE-AUTH</div>
+          <p id="drawer-pt-bill" style="margin-top:8px;font-weight:600;">INV-2026-8841 · ₹2,48,500</p>
+          <a href="billing.html" class="btn btn-primary btn-sm" style="margin-top:12px;">Open Billing Ledger</a>
+        </div>
+      </div>
+
+      <div id="drw-docs" class="tab-panel" role="tabpanel">
+        <div class="dash-panel">
+          <div class="mono" style="font-size:0.75rem;">ATTACHED CLINICAL &amp; TPA ARTIFACTS</div>
+          <ul style="margin-top:8px;padding-inline-start:18px;font-size:0.88rem;">
+            <li>Signed Cath Lab / Diagnostic Summary Report.pdf (Verified)</li>
+            <li>TPA Cashless Pre-Authorization Approval Letter.pdf</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ==================== ADD PATIENT MODAL ==================== -->
+  <div id="add-patient-modal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="add-pt-modal-title">
+    <div class="modal-dialog">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:var(--sp-3);">
+        <h2 id="add-pt-modal-title" style="font-size:1.35rem;">Register &amp; Admit New Patient (UHID)</h2>
+        <button type="button" class="btn btn-ghost btn-sm" data-close-modal>✕</button>
+      </div>
+      <form id="add-patient-form" novalidate>
+        <div class="grid grid-2">
+          <div class="form-group">
+            <label for="new-pt-name" class="form-label">Patient Full Name *</label>
+            <input type="text" id="new-pt-name" class="form-control" placeholder="e.g., Rohan Kulkarni" required>
+          </div>
+          <div class="form-group">
+            <label for="new-pt-age" class="form-label">Age (Years) *</label>
+            <input type="number" id="new-pt-age" class="form-control" placeholder="48" min="0" max="120" required>
+          </div>
+          <div class="form-group">
+            <label for="new-pt-dept" class="form-label">Specialty Department *</label>
+            <select id="new-pt-dept" class="form-select" required>
+              <option value="Cardiology">Cardiology</option>
+              <option value="Orthopedics">Orthopedics</option>
+              <option value="Neurology">Neurology</option>
+              <option value="Obstetrics">Obstetrics</option>
+              <option value="Emergency">Emergency</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="new-pt-doc" class="form-label">Attending Consultant *</label>
+            <input type="text" id="new-pt-doc" class="form-control" value="Dr. Kabir Sen" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="new-pt-ward" class="form-label">Assigned Ward &amp; Bed Number *</label>
+          <input type="text" id="new-pt-ward" class="form-control" value="ICU-A · Bed 03" required>
+        </div>
+        <div style="display:flex;justify-content:flex-end;gap:10px;margin-top:var(--sp-3);">
+          <button type="button" class="btn btn-secondary" data-close-modal>Cancel</button>
+          <button type="submit" class="btn btn-primary">Generate UHID &amp; Admit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="../assets/js/plugins/tilt.js"></script>
+  <script src="../assets/js/main.js"></script>
+  <script src="../assets/js/dashboard.js"></script>
+</body>
+</html>
+

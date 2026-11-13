@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Analytics, BI &amp; NABH KPIs | MediCore HMS Dashboard</title>
+  <meta name="description" content="Hospital executive business intelligence, NABH 5th Edition clinical quality indicators, ALOS, ARPOB, and revenue analytics in MediCore HMS.">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/dark-mode.css">
+  <link rel="stylesheet" href="../assets/css/rtl.css">
+  <link rel="stylesheet" href="../assets/css/dashboard.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <div class="dash-shell">
+    <!-- ==================== SHARED COLLAPSIBLE SIDEBAR ==================== -->
+    <aside id="dash-sidebar" class="dash-sidebar" aria-label="Hospital Dashboard Navigation">
+      <div class="sidebar-brand">
+        <a href="../index.html" class="brand-logo" style="color:#FFFFFF;font-size:1.1rem;">
+          <span class="brand-logo-mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+          </span>
+          <span class="sidebar-label">MediCore <em>HMS</em></span>
+        </a>
+        <button type="button" class="btn btn-icon btn-sm" data-action="collapse-sidebar" aria-label="Collapse or expand sidebar" style="background:rgba(255,255,255,0.08);color:#FFFFFF;border:none;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+        </button>
+      </div>
+
+      <nav class="sidebar-nav" aria-label="Clinical Modules">
+        <div class="sidebar-section-title">Clinical Command</div>
+        <a href="dashboard.html" class="sidebar-link" data-nav-module="overview">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+          <span class="sidebar-label">Overview &amp; KPIs</span>
+        </a>
+        <a href="patients.html" class="sidebar-link" data-nav-module="patients">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+          <span class="sidebar-label">Patient Records (EMR)</span>
+        </a>
+        <a href="beds.html" class="sidebar-link" data-nav-module="beds">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 4v16M2 8h18a2 2 0 0 1 2 2v10M2 17h20"/></svg>
+          <span class="sidebar-label">Bed &amp; Ward Status</span>
+        </a>
+        <a href="appointments.html" class="sidebar-link" data-nav-module="appointments">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          <span class="sidebar-label">Appointments &amp; OPD</span>
+        </a>
+
+        <div class="sidebar-section-title">Operations &amp; Finance</div>
+        <a href="billing.html" class="sidebar-link" data-nav-module="billing">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
+          <span class="sidebar-label">Billing &amp; TPA Claims</span>
+        </a>
+        <a href="staff-schedule.html" class="sidebar-link" data-nav-module="staff">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          <span class="sidebar-label">Staff Shift Roster</span>
+        </a>
+        <a href="messages.html" class="sidebar-link" data-nav-module="messages">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          <span class="sidebar-label">Clinical Messages</span>
+        </a>
+        <a href="reports.html" class="sidebar-link active" data-nav-module="reports">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+          <span class="sidebar-label">Reports &amp; NABH KPIs</span>
+        </a>
+        <a href="settings.html" class="sidebar-link" data-nav-module="settings">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4"/></svg>
+          <span class="sidebar-label">Hospital Settings</span>
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="sidebar-footer-text">
+          <div class="mono" style="color:var(--accent);font-size:0.74rem;">● NABH 5TH EDITION</div>
+          <div>68/68 Quality Metrics Met</div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- ==================== MAIN WORKSPACE ==================== -->
+    <div class="dash-main-wrap">
+      <header class="dash-topbar">
+        <div class="topbar-left">
+          <button type="button" class="btn btn-icon btn-sm mobile-menu-toggle" data-action="mobile-sidebar" aria-label="Open sidebar menu">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+          </button>
+          <div class="global-search-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <input type="search" id="dash-global-search" placeholder="Search department KPI, ALOS, ARPOB, or NABH indicator..." aria-label="Search reports">
+          </div>
+        </div>
+
+        <div class="topbar-right">
+          <div class="role-switcher-wrap">
+            <span>Role:</span>
+            <select id="dash-role-switcher" class="role-switcher-select" aria-label="Switch Active Hospital Role">
+              <option value="Admin">Admin</option>
+              <option value="Doctor">Doctor</option>
+              <option value="Nurse">Nurse</option>
+              <option value="Billing">Billing</option>
+            </select>
+          </div>
+          <button type="button" class="btn btn-secondary btn-sm" onclick="window.print()">Print NABH Dossier</button>
+          <button type="button" class="btn btn-icon btn-sm" data-action="toggle-rtl" aria-label="Toggle RTL layout">RTL</button>
+          <button type="button" class="btn btn-icon btn-sm" data-action="toggle-theme" aria-label="Toggle color theme">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2m-7.07-14.93 1.41 1.41m11.32 11.32 1.41 1.41M2 12h2m16 0h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+          </button>
+          <a href="settings.html" class="user-monogram-pill">
+            <span class="monogram-circle">SD</span>
+            <span id="active-role-badge">Admin View</span>
+          </a>
+        </div>
+      </header>
+
+      <main id="main-content" class="dash-content">
+        <div class="dash-page-header">
+          <div>
+            <span class="eyebrow" style="margin-bottom:4px;"><span class="eyebrow-dot"></span>Executive BI &amp; Clinical Governance</span>
+            <h1>Analytics, Revenue &amp; NABH Quality Reports</h1>
+          </div>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;">
+            <button type="button" class="btn btn-secondary btn-sm" onclick="window.MediCoreDash.toast('CSV dataset exported for Q4 2026 Departmental KPIs.')">Export CSV</button>
+            <button type="button" class="btn btn-primary btn-sm" onclick="window.print()">Generate Board PDF</button>
+          </div>
+        </div>
+
+        <!-- ==================== NABH 5TH EDITION QUALITY INDICATOR CARDS ==================== -->
+        <section class="grid grid-4" aria-label="NABH Quality Indicators">
+          <article class="mc-card card-anim-pulse">
+            <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+            <span class="badge badge-emerald">Benchmark &lt; 4.2d</span>
+            <div class="kpi-value">3.4 Days</div>
+            <h3>Average Length of Stay (ALOS)</h3>
+            <p>Improved by 0.7 days YoY via automated discharge clearance.</p>
+          </article>
+
+          <article class="mc-card card-anim-ecg">
+            <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+            <span class="badge badge-teal">+14.2% vs Q3</span>
+            <div class="kpi-value">₹38,450</div>
+            <h3>Avg Revenue Per Occupied Bed (ARPOB)</h3>
+            <p>Driven by zero unbilled OT/ICU consumables and automated coding.</p>
+          </article>
+
+          <article class="mc-card card-anim-scan">
+            <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+            <span class="badge badge-emerald">NABH Target &lt; 0.5%</span>
+            <div class="kpi-value">0.18%</div>
+            <h3>Hospital-Acquired Infection (HAI) Rate</h3>
+            <p>Continuous CAUTI, CLABSI, and VAP surveillance across 48 ICU beds.</p>
+          </article>
+
+          <article class="mc-card card-anim-ring">
+            <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></div>
+            <span class="badge badge-mint">Top Decile</span>
+            <div class="kpi-value">96.9%</div>
+            <h3>Net TPA Claim Realization</h3>
+            <p>Pre-validated NHCX bundles cut insurer query cycles by 68%.</p>
+          </article>
+        </section>
+
+        <!-- ==================== CHARTS ROW ==================== -->
+        <section class="grid grid-2" aria-label="Revenue and Department Utilization Charts">
+          <div class="dash-panel">
+            <div class="dash-panel-header">
+              <h2 style="font-size:1.1rem;">6-Month Billed vs Collected Revenue (₹ Lakhs)</h2>
+              <span class="badge badge-emerald">96.9% Realization</span>
+            </div>
+            <div id="chart-revenue-collections" class="chart-container"></div>
+          </div>
+
+          <div class="dash-panel">
+            <div class="dash-panel-header">
+              <h2 style="font-size:1.1rem;">Departmental Bed Utilization vs Capacity</h2>
+              <span class="badge badge-teal">Live Census</span>
+            </div>
+            <div id="chart-department-load" class="chart-container"></div>
+          </div>
+        </section>
+
+        <!-- ==================== DEPARTMENTAL PERFORMANCE & NABH AUDIT TABLE ==================== -->
+        <section class="dash-panel" aria-labelledby="dept-kpi-heading">
+          <div class="dash-panel-header">
+            <h2 id="dept-kpi-heading" style="font-size:1.15rem;">Departmental Financial &amp; Clinical Governance Matrix (Nov 2026)</h2>
+            <span class="badge badge-teal">Audited by Medical Superintendent</span>
+          </div>
+
+          <div class="table-responsive">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Clinical Department</th>
+                  <th>Monthly Admissions</th>
+                  <th>ALOS (Days)</th>
+                  <th>ARPOB (₹ / Day)</th>
+                  <th>Medication Error Rate</th>
+                  <th>Discharge TAT</th>
+                  <th>NABH Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td data-label="Department"><strong>Cardiology &amp; Cath Lab</strong></td>
+                  <td data-label="Admissions" class="mono">318</td>
+                  <td data-label="ALOS" class="mono">3.1 d</td>
+                  <td data-label="ARPOB" class="mono">₹52,400</td>
+                  <td data-label="Med Error" class="mono">0.00%</td>
+                  <td data-label="Discharge TAT" class="mono">38 mins</td>
+                  <td data-label="NABH Status"><span class="badge badge-emerald">Compliant (100%)</span></td>
+                </tr>
+                <tr>
+                  <td data-label="Department"><strong>Critical Care (ICU / NICU)</strong></td>
+                  <td data-label="Admissions" class="mono">194</td>
+                  <td data-label="ALOS" class="mono">4.8 d</td>
+                  <td data-label="ARPOB" class="mono">₹64,900</td>
+                  <td data-label="Med Error" class="mono">0.00%</td>
+                  <td data-label="Discharge TAT" class="mono">44 mins</td>
+                  <td data-label="NABH Status"><span class="badge badge-emerald">Compliant (100%)</span></td>
+                </tr>
+                <tr>
+                  <td data-label="Department"><strong>Orthopedics &amp; Joint Replacement</strong></td>
+                  <td data-label="Admissions" class="mono">265</td>
+                  <td data-label="ALOS" class="mono">3.6 d</td>
+                  <td data-label="ARPOB" class="mono">₹41,200</td>
+                  <td data-label="Med Error" class="mono">0.02%</td>
+                  <td data-label="Discharge TAT" class="mono">41 mins</td>
+                  <td data-label="NABH Status"><span class="badge badge-emerald">Compliant (99.4%)</span></td>
+                </tr>
+                <tr>
+                  <td data-label="Department"><strong>Obstetrics, Gynecology &amp; Maternity</strong></td>
+                  <td data-label="Admissions" class="mono">289</td>
+                  <td data-label="ALOS" class="mono">2.7 d</td>
+                  <td data-label="ARPOB" class="mono">₹31,800</td>
+                  <td data-label="Med Error" class="mono">0.00%</td>
+                  <td data-label="Discharge TAT" class="mono">34 mins</td>
+                  <td data-label="NABH Status"><span class="badge badge-emerald">Compliant (100%)</span></td>
+                </tr>
+                <tr>
+                  <td data-label="Department"><strong>Neurology &amp; Acute Stroke Unit</strong></td>
+                  <td data-label="Admissions" class="mono">142</td>
+                  <td data-label="ALOS" class="mono">4.2 d</td>
+                  <td data-label="ARPOB" class="mono">₹47,600</td>
+                  <td data-label="Med Error" class="mono">0.00%</td>
+                  <td data-label="Discharge TAT" class="mono">46 mins</td>
+                  <td data-label="NABH Status"><span class="badge badge-emerald">Compliant (100%)</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <script src="../assets/js/plugins/tilt.js"></script>
+  <script src="../assets/js/plugins/charts.js"></script>
+  <script src="../assets/js/main.js"></script>
+  <script src="../assets/js/dashboard.js"></script>
+</body>
+</html>
+

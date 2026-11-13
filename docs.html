@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HL7 FHIR R4 API &amp; Module Documentation | MediCore HMS</title>
+  <meta name="description" content="Complete developer and clinical administrator documentation for MediCore HMS: quickstart, module configuration, FHIR R4 REST endpoints, webhooks, and RBAC.">
+  <meta property="og:title" content="MediCore HMS Documentation — HL7 FHIR R4 API &amp; Administrator Guide">
+  <meta property="og:description" content="Integrate LIS analyzers, PACS imaging, and TPA portals with MediCore HMS REST and MLLP endpoints.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://medicorehms.com/docs.html">
+  <meta property="og:image" content="assets/images/misc/docs-architecture-room.jpg">
+  <link rel="canonical" href="https://medicorehms.com/docs.html">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/dark-mode.css">
+  <link rel="stylesheet" href="assets/css/rtl.css">
+</head>
+<body class="bg-clinical-grid">
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- ==================== GLOBAL MARKETING HEADER ==================== -->
+  <header class="site-header">
+    <div class="container nav-bar">
+      <a href="index.html" class="brand-logo" aria-label="MediCore HMS Home">
+        <span class="brand-logo-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+        </span>
+        <span>MediCore <em>HMS</em></span>
+      </a>
+
+      <nav aria-label="Primary Navigation">
+        <ul class="nav-menu">
+          <li class="nav-item">
+            <a href="index.html" class="nav-link" aria-haspopup="true">
+              Home
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+            </a>
+            <ul class="dropdown-menu" aria-label="Home Variations">
+              <li><a href="index.html" class="dropdown-link"><span>Home 1 — Clinical Outcomes</span><span class="dropdown-tag">Bright</span></a></li>
+              <li><a href="home-2.html" class="dropdown-link"><span>Home 2 — Platform Suite</span><span class="dropdown-tag">Dark UI</span></a></li>
+            </ul>
+          </li>
+          <li class="nav-item"><a href="features.html" class="nav-link">Features</a></li>
+          <li class="nav-item"><a href="pricing.html" class="nav-link">Pricing</a></li>
+          <li class="nav-item"><a href="docs.html" class="nav-link active">Docs</a></li>
+          <li class="nav-item">
+            <a href="about.html" class="nav-link" aria-haspopup="true">
+              Company / Resources
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+            </a>
+            <ul class="dropdown-menu" aria-label="Company and Resources">
+              <li><a href="about.html" class="dropdown-link"><span>About MediCore</span><span class="dropdown-tag">Story</span></a></li>
+              <li><a href="integrations.html" class="dropdown-link"><span>Integrations Hub</span><span class="dropdown-tag">HL7/FHIR</span></a></li>
+              <li><a href="changelog.html" class="dropdown-link"><span>Changelog</span><span class="dropdown-tag">v4.8</span></a></li>
+              <li><a href="status.html" class="dropdown-link"><span>System Status</span><span class="dropdown-tag">99.99%</span></a></li>
+              <li><a href="contact.html" class="dropdown-link"><span>Contact &amp; Support</span><span class="dropdown-tag">24/7</span></a></li>
+              <li><a href="coming-soon.html" class="dropdown-link"><span>AI Ambient Scribe</span><span class="dropdown-tag">Labs</span></a></li>
+            </ul>
+          </li>
+          <li class="nav-item"><a href="login.html" class="nav-link">Login</a></li>
+          <li class="nav-item"><a href="signup.html" class="nav-link">Sign Up</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <button type="button" class="btn btn-icon btn-sm" data-action="toggle-rtl" aria-label="Toggle RTL layout">RTL</button>
+        <button type="button" class="btn btn-icon btn-sm" data-action="toggle-theme" aria-label="Toggle color theme">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2m-7.07-14.93 1.41 1.41m11.32 11.32 1.41 1.41M2 12h2m16 0h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+        </button>
+        <a href="demo-request.html" class="btn btn-primary btn-sm">Request Demo</a>
+        <button type="button" class="btn btn-icon btn-sm mobile-menu-toggle" data-action="toggle-mobile-nav" aria-expanded="false" aria-controls="mobile-nav-drawer" aria-label="Open navigation menu">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <div id="mobile-nav-drawer" class="mobile-nav-drawer" aria-label="Mobile Navigation">
+      <ul class="mobile-nav-list">
+        <li><a href="index.html">Home 1 — Clinical Outcomes</a></li>
+        <li><a href="home-2.html">Home 2 — Dark Product Suite</a></li>
+        <li><a href="features.html">Features</a></li>
+        <li><a href="pricing.html">Pricing</a></li>
+        <li><a href="docs.html">Documentation &amp; API</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="integrations.html">Integrations</a></li>
+        <li><a href="changelog.html">Changelog</a></li>
+        <li><a href="status.html">System Status</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="login.html">Hospital Login Portal</a></li>
+        <li><a href="signup.html">Hospital Sign Up</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <!-- ==================== DOCS HERO & LIVE SEARCH ==================== -->
+    <section class="section" style="padding-block:var(--sp-5);border-bottom:1px solid var(--border-subtle);" aria-labelledby="docs-title">
+      <div class="container" style="max-width:860px;text-align:center;">
+        <span class="eyebrow"><span class="eyebrow-dot"></span>Developer &amp; Clinical IT Reference · v4.8</span>
+        <h1 id="docs-title">MediCore HMS Documentation &amp; FHIR R4 API</h1>
+        <p style="margin-top:var(--sp-2);">Search administrator configuration guides, HL7 v2.5.1 MLLP ports, FHIR R4 REST schemas, and webhook payload signatures.</p>
+
+        <div style="margin-top:var(--sp-4);max-width:560px;margin-inline:auto;">
+          <label for="docs-search-box" class="form-label" style="text-align:center;">Search Documentation</label>
+          <input type="search" id="docs-search-box" class="form-control" placeholder="Filter docs (e.g., Patient, Encounter, Webhook, RBAC, DICOM)..." data-live-filter=".docs-section">
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== DOCS SIDEBAR + CONTENT LAYOUT ==================== -->
+    <section class="section" style="padding-top:var(--sp-5);" aria-label="Documentation Content">
+      <div class="container docs-layout">
+        <!-- Left Sidebar Navigation -->
+        <aside class="docs-sidebar" aria-label="Documentation Sections">
+          <div class="mono" style="font-size:0.74rem;text-transform:uppercase;color:var(--primary-600);padding:6px 10px;">Documentation Index</div>
+          <ul class="mobile-nav-list" style="gap:4px;">
+            <li><a href="#getting-started">1. Getting Started</a></li>
+            <li><a href="#modules-guide">2. Modules Configuration</a></li>
+            <li><a href="#api-reference">3. FHIR R4 API Reference</a></li>
+            <li><a href="#webhooks">4. Real-Time Webhooks</a></li>
+            <li><a href="#security">5. Security &amp; RBAC Scopes</a></li>
+            <li><a href="#video-tutorials">6. Video Architecture Guides</a></li>
+          </ul>
+        </aside>
+
+        <!-- Main Documentation Content -->
+        <div>
+          <!-- 1. Getting Started -->
+          <article id="getting-started" class="dash-panel docs-section">
+            <span class="badge badge-teal">01 · QUICKSTART</span>
+            <h2 style="font-size:1.6rem;margin-top:var(--sp-2);">Getting Started &amp; Tenant Provisioning</h2>
+            <p style="margin-top:var(--sp-2);">Every MediCore HMS hospital tenant receives an isolated FHIR R4 base URL, an MLLP listener endpoint for laboratory/radiology equipment, and a dedicated SAML 2.0 realm.</p>
+            <div class="code-block-wrap">
+              <button type="button" class="copy-code-btn">Copy</button>
+              <pre class="mono" style="font-size:0.84rem;"># Base FHIR R4 Endpoint (Production Cluster)
+https://api.medicorehms.com/v4/fhir/{hospital_tenant_id}
+
+# Authenticate with OAuth 2.0 Client Credentials (SMART-on-FHIR)
+curl -X POST https://auth.medicorehms.com/oauth2/token \
+  -H "Content-Type: application/x-www-form-urlencoded" \
+  -d "grant_type=client_credentials&amp;client_id=HOSP_APEX_01&amp;scope=system/Patient.read system/Encounter.write"</pre>
+            </div>
+          </article>
+
+          <!-- 2. Modules Guide -->
+          <article id="modules-guide" class="dash-panel docs-section">
+            <span class="badge badge-mint">02 · MODULES CONFIGURATION</span>
+            <h2 style="font-size:1.6rem;margin-top:var(--sp-2);">Core Hospital Modules Setup Guide</h2>
+            <p style="margin-top:var(--sp-2);">Configure your Ward &amp; Bed Master, Tariff Schedules, and LIS Analyzer ports in three declarative steps before admitting your first patient.</p>
+            <div class="grid grid-3" style="margin-top:var(--sp-3);">
+              <div class="mc-card card-anim-ring">
+                <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 4v16M2 8h18a2 2 0 0 1 2 2v10M2 17h20"/></svg></div>
+                <h3>Ward &amp; Bed Master</h3>
+                <p>Define ICU, NICU, Private, and General ward codes along with oxygen/ventilator telemetry attributes and daily nursing charges.</p>
+              </div>
+              <div class="mc-card card-anim-shimmer">
+                <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg></div>
+                <h3>TPA Tariff Upload</h3>
+                <p>Import insurer-specific CPT/ICD surgical package rates, room-rent sub-limits, and non-payable consumable exclusions via CSV or JSON.</p>
+              </div>
+              <div class="mc-card card-anim-scan">
+                <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 3h6m-5 0v6.2L5.2 17A2 2 0 0 0 6.9 20h10.2a2 2 0 0 0 1.7-3L14 9.2V3"/></svg></div>
+                <h3>LIS &amp; PACS Routing</h3>
+                <p>Bind local ASTM/HL7 serial-to-IP gateways for pathology analyzers and configure DICOM Modality Worklist AE Titles.</p>
+              </div>
+            </div>
+          </article>
+
+          <!-- 3. API Reference Sample -->
+          <article id="api-reference" class="dash-panel docs-section">
+            <span class="badge badge-teal">03 · REST &amp; FHIR R4 API REFERENCE</span>
+            <h2 style="font-size:1.6rem;margin-top:var(--sp-2);">Create Inpatient Admission (`POST /Encounter`)</h2>
+            <p style="margin-top:var(--sp-2);">Admits a registered UHID patient into an available ICU or ward bed and automatically locks the bed tile on the real-time ADT board.</p>
+            <div class="code-block-wrap">
+              <button type="button" class="copy-code-btn">Copy</button>
+              <pre class="mono" style="font-size:0.83rem;">POST /v4/fhir/hosp-apex/Encounter HTTP/1.1
+Host: api.medicorehms.com
+Authorization: Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6Im1jLTIwMjYifQ...
+Content-Type: application/fhir+json
+
+{
+  "resourceType": "Encounter",
+  "status": "in-progress",
+  "class": { "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode", "code": "IMP", "display": "inpatient encounter" },
+  "subject": { "reference": "Patient/UHID-2026-9041", "display": "Aarav Sharma" },
+  "participant": [{ "individual": { "reference": "Practitioner/EMP-101", "display": "Dr. Kabir Sen" } }],
+  "location": [{ "location": { "reference": "Location/ICU-A-BED-04", "display": "ICU-A Bed 04" }, "status": "active" }],
+  "reasonCode": [{ "coding": [{ "system": "http://id.who.int/icd/release/11/mms", "code": "BA41.0", "display": "Acute STEMI" }] }]
+}</pre>
+            </div>
+          </article>
+
+          <!-- 4. Webhooks -->
+          <article id="webhooks" class="dash-panel docs-section">
+            <span class="badge badge-amber">04 · EVENT WEBHOOKS</span>
+            <h2 style="font-size:1.6rem;margin-top:var(--sp-2);">Real-Time Clinical &amp; Billing Event Webhooks</h2>
+            <p style="margin-top:var(--sp-2);">Subscribe your hospital ERP, patient mobile app, or external BI warehouse to signed HMAC-SHA256 webhook events.</p>
+            <div class="code-block-wrap">
+              <button type="button" class="copy-code-btn">Copy</button>
+              <pre class="mono" style="font-size:0.83rem;">// Event: bed.discharge_cleared (Signed with X-MediCore-Signature-256)
+{
+  "eventId": "evt_20261113_99481",
+  "eventType": "bed.discharge_cleared",
+  "timestamp": "2026-11-13T11:42:08Z",
+  "data": {
+    "uhid": "UHID-2026-9043",
+    "encounterId": "ENC-88210",
+    "bedId": "PVT-302",
+    "invoiceId": "INV-2026-8843",
+    "tpaSettlementStatus": "PAID_FULL",
+    "housekeepingTrigger": "UV_TERMINAL_CLEAN_QUEUED"
+  }
+}</pre>
+            </div>
+          </article>
+
+          <!-- 5. Security & RBAC -->
+          <article id="security" class="dash-panel docs-section">
+            <span class="badge badge-emerald">05 · SECURITY &amp; RBAC SCOPES</span>
+            <h2 style="font-size:1.6rem;margin-top:var(--sp-2);">SMART-on-FHIR Scopes &amp; Audit Compliance</h2>
+            <p style="margin-top:var(--sp-2);">All API tokens enforce least-privilege clinical scopes (`patient/*.read`, `user/Observation.write`, `system/Claim.write`). Every request is logged to an immutable WORM audit bucket retained for 10 years under HIPAA §164.312(b).</p>
+          </article>
+
+          <!-- 6. Video Tutorials -->
+          <article id="video-tutorials" class="dash-panel docs-section">
+            <span class="badge badge-teal">06 · VIDEO ARCHITECTURE TUTORIALS</span>
+            <h2 style="font-size:1.6rem;margin-top:var(--sp-2);">Watch: Connecting Abbott &amp; Roche Analyzers via HL7 MLLP</h2>
+            <div class="grid grid-2" style="align-items:center;margin-top:var(--sp-3);">
+              <div>
+                <p>Follow our 12-minute engineering walkthrough demonstrating how to pair an on-premise LIS serial gateway with the MediCore HMS cloud listener and configure automatic panic-value SMS rules.</p>
+                <div style="margin-top:var(--sp-3);display:flex;gap:12px;flex-wrap:wrap;">
+                  <a href="integrations.html" class="btn btn-primary btn-sm">Explore Supported Analyzers</a>
+                  <a href="dashboard/dashboard.html" class="btn btn-secondary btn-sm">Test in Live Dashboard</a>
+                </div>
+              </div>
+              <div class="hero-photo-stage">
+                <picture>
+                  <source type="image/webp" srcset="assets/images/misc/docs-architecture-room-640w.webp 640w, assets/images/misc/docs-architecture-room.webp 1200w" sizes="(max-width: 1024px) 100vw, 40vw">
+                  <img src="assets/images/misc/docs-architecture-room.jpg" alt="HL7 FHIR and DICOM cloud infrastructure server room" width="1200" height="673" loading="lazy" style="height:220px;">
+                </picture>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==================== GLOBAL MARKETING FOOTER ==================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a href="index.html" class="brand-logo" style="color:#FFFFFF;margin-bottom:var(--sp-3);">
+            <span class="brand-logo-mark" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+            </span>
+            <span>MediCore <em>HMS</em></span>
+          </a>
+          <p style="margin-bottom:var(--sp-3);">One platform. Every ward. Zero friction. Cloud-native Hospital Information &amp; EMR System built for NABH, JCI, and HIPAA-accredited healthcare institutions.</p>
+          <div class="mono" style="font-size:0.78rem;color:var(--accent);">● ALL CLINICAL CLUSTERS OPERATIONAL (99.99%)</div>
+        </div>
+
+        <div>
+          <h4>Platform</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home 1 (Clinical Outcomes)</a></li>
+            <li><a href="home-2.html">Home 2 (Dark Product Suite)</a></li>
+            <li><a href="features.html">All 10 Clinical Modules</a></li>
+            <li><a href="integrations.html">HL7 / FHIR / LIS Integrations</a></li>
+            <li><a href="dashboard/dashboard.html">Live Admin Dashboard</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>Commercial &amp; Auth</h4>
+          <ul class="footer-links">
+            <li><a href="pricing.html">Bed-Tiered Pricing</a></li>
+            <li><a href="demo-request.html">Request a 30-Min Demo</a></li>
+            <li><a href="login.html">Hospital Staff Login</a></li>
+            <li><a href="signup.html">Register Your Hospital</a></li>
+            <li><a href="coming-soon.html">AI Ambient Scribe (Preview)</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>Resources &amp; Docs</h4>
+          <ul class="footer-links">
+            <li><a href="docs.html">API &amp; Module Documentation</a></li>
+            <li><a href="changelog.html">Release Changelog (v4.8)</a></li>
+            <li><a href="status.html">Real-Time System Status</a></li>
+            <li><a href="404.html">Emergency Route Recovery (404)</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>Company</h4>
+          <ul class="footer-links">
+            <li><a href="about.html">About &amp; Clinical Board</a></li>
+            <li><a href="contact.html">Contact &amp; Regional Offices</a></li>
+            <li><a href="contact.html#priority-desk">24/7 Code-Blue IT Support</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2026 MediCore Health Systems Inc. All rights reserved. HIPAA · ISO 27001 · NABH Ready.</span>
+        <div style="display:flex;gap:16px;">
+          <a href="docs.html#security">Security &amp; BAA</a>
+          <a href="status.html">SLA 99.99%</a>
+          <a href="sitemap.xml">Sitemap</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/plugins/tilt.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ward &amp; ICU Bed Telemetry Board | MediCore HMS Dashboard</title>
+  <meta name="description" content="Real-time hospital ward and ICU bed status board across ICU, General, Private, Maternity, Pediatrics, and Emergency bays with instant ADT transfers.">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/dark-mode.css">
+  <link rel="stylesheet" href="../assets/css/rtl.css">
+  <link rel="stylesheet" href="../assets/css/dashboard.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <div class="dash-shell">
+    <!-- ==================== SHARED COLLAPSIBLE SIDEBAR ==================== -->
+    <aside id="dash-sidebar" class="dash-sidebar" aria-label="Hospital Dashboard Navigation">
+      <div class="sidebar-brand">
+        <a href="../index.html" class="brand-logo" style="color:#FFFFFF;font-size:1.1rem;">
+          <span class="brand-logo-mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+          </span>
+          <span class="sidebar-label">MediCore <em>HMS</em></span>
+        </a>
+        <button type="button" class="btn btn-icon btn-sm" data-action="collapse-sidebar" aria-label="Collapse or expand sidebar" style="background:rgba(255,255,255,0.08);color:#FFFFFF;border:none;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+        </button>
+      </div>
+
+      <nav class="sidebar-nav" aria-label="Clinical Modules">
+        <div class="sidebar-section-title">Clinical Command</div>
+        <a href="dashboard.html" class="sidebar-link" data-nav-module="overview">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+          <span class="sidebar-label">Overview &amp; KPIs</span>
+        </a>
+        <a href="patients.html" class="sidebar-link" data-nav-module="patients">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+          <span class="sidebar-label">Patient Records (EMR)</span>
+        </a>
+        <a href="beds.html" class="sidebar-link active" data-nav-module="beds">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 4v16M2 8h18a2 2 0 0 1 2 2v10M2 17h20"/></svg>
+          <span class="sidebar-label">Bed &amp; Ward Status</span>
+        </a>
+        <a href="appointments.html" class="sidebar-link" data-nav-module="appointments">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          <span class="sidebar-label">Appointments &amp; OPD</span>
+        </a>
+
+        <div class="sidebar-section-title">Operations &amp; Finance</div>
+        <a href="billing.html" class="sidebar-link" data-nav-module="billing">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
+          <span class="sidebar-label">Billing &amp; TPA Claims</span>
+        </a>
+        <a href="staff-schedule.html" class="sidebar-link" data-nav-module="staff">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          <span class="sidebar-label">Staff Shift Roster</span>
+        </a>
+        <a href="messages.html" class="sidebar-link" data-nav-module="messages">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          <span class="sidebar-label">Clinical Messages</span>
+        </a>
+        <a href="reports.html" class="sidebar-link" data-nav-module="reports">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+          <span class="sidebar-label">Reports &amp; NABH KPIs</span>
+        </a>
+        <a href="settings.html" class="sidebar-link" data-nav-module="settings">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4"/></svg>
+          <span class="sidebar-label">Hospital Settings</span>
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="sidebar-footer-text">
+          <div class="mono" style="color:var(--accent);font-size:0.74rem;">● ADT WEBSOCKET LIVE</div>
+          <div>6 Wings Monitored</div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- ==================== MAIN WORKSPACE ==================== -->
+    <div class="dash-main-wrap">
+      <header class="dash-topbar">
+        <div class="topbar-left">
+          <button type="button" class="btn btn-icon btn-sm mobile-menu-toggle" data-action="mobile-sidebar" aria-label="Open sidebar menu">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+          </button>
+          <div class="global-search-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <input type="search" id="dash-global-search" placeholder="Filter bed tiles by bed ID, patient name, or ward..." aria-label="Search beds">
+          </div>
+        </div>
+
+        <div class="topbar-right">
+          <div class="role-switcher-wrap">
+            <span>Role:</span>
+            <select id="dash-role-switcher" class="role-switcher-select" aria-label="Switch Active Hospital Role">
+              <option value="Admin">Admin</option>
+              <option value="Doctor">Doctor</option>
+              <option value="Nurse">Nurse</option>
+              <option value="Billing">Billing</option>
+            </select>
+          </div>
+          <button type="button" class="btn btn-icon btn-sm" data-action="toggle-rtl" aria-label="Toggle RTL layout">RTL</button>
+          <button type="button" class="btn btn-icon btn-sm" data-action="toggle-theme" aria-label="Toggle color theme">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2m-7.07-14.93 1.41 1.41m11.32 11.32 1.41 1.41M2 12h2m16 0h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+          </button>
+          <a href="settings.html" class="user-monogram-pill">
+            <span class="monogram-circle">SD</span>
+            <span id="active-role-badge">Admin View</span>
+          </a>
+        </div>
+      </header>
+
+      <main id="main-content" class="dash-content">
+        <div class="dash-page-header">
+          <div>
+            <span class="eyebrow" style="margin-bottom:4px;"><span class="eyebrow-dot"></span>Click Any Bed Tile to Assign, Discharge or Transfer</span>
+            <h1>Live Ward &amp; ICU Bed Telemetry Board</h1>
+          </div>
+          <div class="filter-chips" aria-label="Live Bed Status Counters">
+            <span class="badge badge-signal">Occupied: 14</span>
+            <span class="badge badge-emerald">Available: 6</span>
+            <span class="badge badge-amber">UV Cleaning: 2</span>
+            <span class="badge badge-teal">Reserved: 1</span>
+            <span class="badge badge-mint">Maintenance: 1</span>
+          </div>
+        </div>
+
+        <!-- ==================== WARD & STATUS FILTER CHIPS ==================== -->
+        <section class="dash-panel" aria-label="Ward and Status Filters">
+          <div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:14px;">
+            <div class="filter-chips" role="group" aria-label="Filter by Hospital Ward">
+              <button type="button" class="filter-chip active" data-ward-filter="all">All 6 Wards</button>
+              <button type="button" class="filter-chip" data-ward-filter="ICU">ICU (Critical Care)</button>
+              <button type="button" class="filter-chip" data-ward-filter="General">General Ward</button>
+              <button type="button" class="filter-chip" data-ward-filter="Private">Private Suites</button>
+              <button type="button" class="filter-chip" data-ward-filter="Maternity">Maternity &amp; LDRP</button>
+              <button type="button" class="filter-chip" data-ward-filter="Pediatrics">Pediatrics</button>
+              <button type="button" class="filter-chip" data-ward-filter="Emergency">Emergency Bays</button>
+            </div>
+
+            <div class="filter-chips" role="group" aria-label="Filter by Bed Status">
+              <button type="button" class="filter-chip active" data-bedstatus-filter="all">All States</button>
+              <button type="button" class="filter-chip" data-bedstatus-filter="Available">Available</button>
+              <button type="button" class="filter-chip" data-bedstatus-filter="Occupied">Occupied</button>
+              <button type="button" class="filter-chip" data-bedstatus-filter="Cleaning">Cleaning</button>
+              <button type="button" class="filter-chip" data-bedstatus-filter="Reserved">Reserved</button>
+              <button type="button" class="filter-chip" data-bedstatus-filter="Maintenance">Maintenance</button>
+            </div>
+          </div>
+        </section>
+
+        <!-- ==================== INTERACTIVE BED TILES GRID ==================== -->
+        <section id="bed-board-grid" class="bed-board-grid" aria-label="Interactive Ward Bed Tiles">
+          <!-- ICU Beds -->
+          <article class="mc-card card-anim-ring bed-tile status-Occupied" data-ward="ICU" data-status="Occupied" data-bed-id="ICU-01" data-patient="Ramesh Gupta (UHID-8991)">
+            <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
+            <span class="badge badge-signal bed-status-badge">Occupied</span>
+            <h3 style="margin-top:8px;">ICU-01 · Critical Care</h3>
+            <p class="bed-patient-name">Ramesh Gupta (UHID-8991)</p>
+            <div class="card-meta"><span class="mono" style="font-size:0.75rem;">Ventilator · SpO2 96%</span></div>
+          </article>
+
+          <article class="mc-card card-anim-ring bed-tile status-Occupied" data-ward="ICU" data-status="Occupied" data-bed-id="ICU-04" data-patient="Aarav Sharma (UHID-9041)">
+            <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
+            <span class="badge badge-signal bed-status-badge">Occupied</span>
+            <h3 style="margin-top:8px;">ICU-04 · Critical Care</h3>
+            <p class="bed-patient-name">Aarav Sharma (UHID-9041)</p>
+            <div class="card-meta"><span class="mono" style="font-size:0.75rem;">Post-PCI · Dr. Kabir Sen</span></div>
+          </article>
+
+          <article class="mc-card card-anim-ring bed-tile status-Available" data-ward="ICU" data-status="Available" data-bed-id="ICU-03" data-patient="">
+            <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 4v16M2 8h18a2 2 0 0 1 2 2v10M2 17h20"/></svg></div>
+            <span class="badge badge-emerald bed-status-badge">Available</span>
+            <h3 style="margin-top:8px;">ICU-03 · Critical Care</h3>
+            <p class="bed-patient-name">Sterile &amp; Ready for Admission</p>
+            <div class="card-meta"><span class="mono" style="font-size:0.75rem;">O2 &amp; Multipara Ready</span></div>
+          </article>
+
+          <article class="mc-card card-anim-ring bed-tile status-Cleaning" data-ward="ICU" data-status="Cleaning" data-bed-id="ICU-05" data-patient="">
+            <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+            <span class="badge badge-amber bed-status-badge">Cleaning</span>
+            <h3 style="margin-top:8px;">ICU-05 · Critical Care</h3>
+            <p class="bed-patient-name">UV-C Terminal Sanitization</p>
+            <div class="card-meta"><span class="mono" style="font-size:0.75rem;">Release in 06 mins</span></div>
+          </article>
+
+          <!-- General Ward Beds -->
+          <article class="mc-card card-anim-ring bed-tile status-Occupied" data-ward="General" data-status="Occupied" data-bed-id="GEN-B09" data-patient="Carlos Mendoza (UHID-9048)">
+            <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 4v16M2 8h18a2 2 0 0 1 2 2v10M2 17h20"/></svg></div>
+            <span class="badge badge-signal bed-status-badge">Occupied</span>
+            <h3 style="margin-top:8px;">GEN-B09 · General Ward</h3>
+            <p class="bed-patient-name">Carlos Mendoza (UHID-9048)</p>
+            <div class="card-meta"><span class="mono" style="font-size:0.75rem;">Post-Op Day 2 · Dr. Wright</span></div>
+          </article>
+
+          <article class="mc-card card-anim-ring bed-tile status-Available" data-ward="General" data-status="Available" data-bed-id="GEN-B02" data-patient="">
+            <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 4v16M2 8h18a2 2 0 0 1 2 2v10M2 17h20"/></svg></div>
+            <span class="badge badge-emerald bed-status-badge">Available</span>
+            <h3 style="margin-top:8px;">GEN-B02 · General Ward</h3>
+            <p class="bed-patient-name">Sterile &amp; Ready for Admission</p>
+            <div class="card-meta"><span class="mono" style="font-size:0.75rem;">Standard Telemetry</span></div>
+          </article>
+
+          <article class="mc-card card-anim-ring bed-tile status-Maintenance" data-ward="General" data-status="Maintenance" data-bed-id="GEN-B05" data-patient="">
+            <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/></svg></div>
+            <span class="badge badge-teal bed-status-badge">Maintenance</span>
+            <h3 style="margin-top:8px;">GEN-B05 · General Ward</h3>
+            <p class="bed-patient-name">Suction Regulator Calibration</p>
+            <div class="card-meta"><span class="mono" style="font-size:0.75rem;">Biomedical Ticket #BM-19</span></div>
+          </article>
+
+          <!-- Private Suites -->
+          <article class="mc-card card-anim-ring bed-tile status-Occupied" data-ward="Private" data-status="Occupied" data-bed-id="PVT-302" data-patient="Robert Chen (UHID-9043)">
+            <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 4v16M2 8h18a2 2 0 0 1 2 2v10M2 17h20"/></svg></div>
+            <span class="badge badge-signal bed-status-badge">Occupied</span>
+            <h3 style="margin-top:8px;">PVT-302 · Private Suite</h3>
+            <p class="bed-patient-name">Robert Chen (UHID-9043)</p>
+            <div class="card-meta"><span class="mono" style="font-size:0.75rem;">Discharge Summary Signed</span></div>
+          </article>
+
+          <article class="mc-card card-anim-ring bed-tile status-Reserved" data-ward="Private" data-status="Reserved" data-bed-id="PVT-304" data-patient="International Desk Direct Admit">
+            <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+            <span class="badge badge-teal bed-status-badge">Reserved</span>
+            <h3 style="margin-top:8px;">PVT-304 · Private Suite</h3>
+            <p class="bed-patient-name">International Desk Direct Admit</p>
+            <div class="card-meta"><span class="mono" style="font-size:0.75rem;">ETA 16:00 · Dr. Farooq</span></div>
+          </article>
+
+          <!-- Maternity -->
+          <article class="mc-card card-anim-ring bed-tile status-Occupied" data-ward="Maternity" data-status="Occupied" data-bed-id="MAT-12" data-patient="Meera Patel (UHID-9042)">
+            <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
+            <span class="badge badge-signal bed-status-badge">Occupied</span>
+            <h3 style="margin-top:8px;">MAT-12 · Maternity LDRP</h3>
+            <p class="bed-patient-name">Meera Patel (UHID-9042)</p>
+            <div class="card-meta"><span class="mono" style="font-size:0.75rem;">CTG Fetal Trace · Dr. Kapoor</span></div>
+          </article>
+
+          <!-- Pediatrics -->
+          <article class="mc-card card-anim-ring bed-tile status-Occupied" data-ward="Pediatrics" data-status="Occupied" data-bed-id="PED-01" data-patient="Vihaan Malhotra (UHID-9035)">
+            <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div>
+            <span class="badge badge-signal bed-status-badge">Occupied</span>
+            <h3 style="margin-top:8px;">PED-01 · Pediatrics</h3>
+            <p class="bed-patient-name">Vihaan Malhotra (UHID-9035)</p>
+            <div class="card-meta"><span class="mono" style="font-size:0.75rem;">Nebulization q6h · Grace RN</span></div>
+          </article>
+
+          <!-- Emergency -->
+          <article class="mc-card card-anim-ring bed-tile status-Occupied" data-ward="Emergency" data-status="Occupied" data-bed-id="ER-BAY02" data-patient="David Kowalski (UHID-9045)">
+            <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+            <span class="badge badge-signal bed-status-badge">Occupied</span>
+            <h3 style="margin-top:8px;">ER-BAY02 · Emergency</h3>
+            <p class="bed-patient-name">David Kowalski (UHID-9045)</p>
+            <div class="card-meta"><span class="mono" style="font-size:0.75rem;">OR Transfer Scheduled</span></div>
+          </article>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <!-- ==================== BED ASSIGN / DISCHARGE / TRANSFER MODAL ==================== -->
+  <div id="bed-action-modal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="bed-modal-title">
+    <div class="modal-dialog">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:var(--sp-3);">
+        <h2 id="bed-modal-title" style="font-size:1.35rem;">Manage Bed <span id="modal-bed-id" class="mono" style="color:var(--primary);">ICU-01</span></h2>
+        <button type="button" class="btn btn-ghost btn-sm" data-close-modal>✕</button>
+      </div>
+      <form id="bed-action-form" novalidate>
+        <div class="form-group">
+          <label for="modal-bed-status" class="form-label">Update Bed Operational Status *</label>
+          <select id="modal-bed-status" class="form-select" required>
+            <option value="Available">Available (Sterile &amp; Ready)</option>
+            <option value="Occupied">Occupied (Active Inpatient)</option>
+            <option value="Cleaning">Cleaning (UV-C Housekeeping Turnaround)</option>
+            <option value="Reserved">Reserved (Incoming OT / Cath Transfer)</option>
+            <option value="Maintenance">Maintenance (Biomedical Engineering Hold)</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="modal-bed-patient" class="form-label">Assigned Patient Name &amp; UHID (Leave blank if discharging)</label>
+          <input type="text" id="modal-bed-patient" class="form-control" placeholder="e.g., Aarav Sharma (UHID-9041)">
+        </div>
+        <div style="display:flex;justify-content:flex-end;gap:10px;margin-top:var(--sp-3);">
+          <button type="button" class="btn btn-secondary" data-close-modal>Cancel</button>
+          <button type="submit" class="btn btn-primary">Commit ADT Bed Update</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="../assets/js/plugins/tilt.js"></script>
+  <script src="../assets/js/main.js"></script>
+  <script src="../assets/js/dashboard.js"></script>
+</body>
+</html>
+

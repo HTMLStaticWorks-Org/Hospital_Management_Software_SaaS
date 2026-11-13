@@ -1,0 +1,129 @@
+{
+  "summary": {
+    "mtdBilledINR": 52400000,
+    "mtdCollectedINR": 50820000,
+    "tpaPendingINR": 4120000,
+    "overdueINR": 685000,
+    "paymentMethods": {
+      "Insurance / TPA Cashless": 62,
+      "UPI / Instant Bank QR": 18,
+      "Corporate Credit / Stripe Card": 14,
+      "Cash / Hospital Deposit": 6
+    }
+  },
+  "invoices": [
+    {
+      "invoiceId": "INV-2026-8841",
+      "uhid": "UHID-2026-9041",
+      "patient": "Aarav Sharma",
+      "department": "Cardiology & Cath Lab",
+      "date": "2026-11-13",
+      "amountINR": 248500,
+      "paidINR": 210000,
+      "balanceINR": 38500,
+      "payer": "Star Health TPA",
+      "claimId": "CLM-SH-99214",
+      "claimStage": "Pre-Auth Approved (84%)",
+      "status": "Partial",
+      "items": [
+        { "desc": "Drug-Eluting Coronary Stent (DES) Package", "qty": 1, "rate": 145000 },
+        { "desc": "Cath Lab Angiography & PCI Procedure", "qty": 1, "rate": 68000 },
+        { "desc": "ICU-A Cardiac Telemetry Bed (2 Days)", "qty": 2, "rate": 14000 },
+        { "desc": "Cardiac Biomarkers & Pharmacy Consumables", "qty": 1, "rate": 7500 }
+      ]
+    },
+    {
+      "invoiceId": "INV-2026-8842",
+      "uhid": "UHID-2026-9042",
+      "patient": "Meera Patel",
+      "department": "Obstetrics & Maternity",
+      "date": "2026-11-13",
+      "amountINR": 95000,
+      "paidINR": 95000,
+      "balanceINR": 0,
+      "payer": "ICICI Lombard Corporate",
+      "claimId": "CLM-IL-77410",
+      "claimStage": "Settled 100% Cashless",
+      "status": "Paid",
+      "items": [
+        { "desc": "Maternity LSCS Comprehensive Package", "qty": 1, "rate": 78000 },
+        { "desc": "LDRP Maternity Suite & Neonatal Care", "qty": 1, "rate": 17000 }
+      ]
+    },
+    {
+      "invoiceId": "INV-2026-8843",
+      "uhid": "UHID-2026-9043",
+      "patient": "Robert Chen",
+      "department": "Orthopedics",
+      "date": "2026-11-13",
+      "amountINR": 164000,
+      "paidINR": 164000,
+      "balanceINR": 0,
+      "payer": "Aetna Global International",
+      "claimId": "CLM-AET-30119",
+      "claimStage": "Direct Wire Settled",
+      "status": "Paid",
+      "items": [
+        { "desc": "Arthroscopic ACL Reconstruction Theater Charge", "qty": 1, "rate": 112000 },
+        { "desc": "Titanium Endobutton & Bio-Screw Implants", "qty": 1, "rate": 34000 },
+        { "desc": "Executive Private Suite 302 (2 Days)", "qty": 2, "rate": 9000 }
+      ]
+    },
+    {
+      "invoiceId": "INV-2026-8844",
+      "uhid": "UHID-2026-9044",
+      "patient": "Fatima Al-Mansoor",
+      "department": "Neurology",
+      "date": "2026-11-12",
+      "amountINR": 118000,
+      "paidINR": 0,
+      "balanceINR": 118000,
+      "payer": "MediAssist TPA",
+      "claimId": "CLM-MA-55201",
+      "claimStage": "Query Raised: Upload MRI DICOM Note",
+      "status": "Pending",
+      "items": [
+        { "desc": "3T Brain MRI + MRA Neuro-Angiography", "qty": 1, "rate": 42000 },
+        { "desc": "Neuro Stroke Unit Telemetry Bed (3 Days)", "qty": 3, "rate": 18000 },
+        { "desc": "Neurology Specialist Consultations & Labs", "qty": 1, "rate": 22000 }
+      ]
+    },
+    {
+      "invoiceId": "INV-2026-8845",
+      "uhid": "UHID-2026-9045",
+      "patient": "David Kowalski",
+      "department": "Emergency & Surgery",
+      "date": "2026-11-13",
+      "amountINR": 72500,
+      "paidINR": 50000,
+      "balanceINR": 22500,
+      "payer": "Self-Pay (Stripe Card Deposit)",
+      "claimId": "N/A-SELF",
+      "claimStage": "Initial Surgical Deposit Collected",
+      "status": "Partial",
+      "items": [
+        { "desc": "Emergency Triage + Contrast CT Abdomen", "qty": 1, "rate": 22500 },
+        { "desc": "Laparoscopic Appendectomy Surgical Advance", "qty": 1, "rate": 50000 }
+      ]
+    },
+    {
+      "invoiceId": "INV-2026-8848",
+      "uhid": "UHID-2026-9048",
+      "patient": "Carlos Mendoza",
+      "department": "General Surgery",
+      "date": "2026-11-10",
+      "amountINR": 88400,
+      "paidINR": 74000,
+      "balanceINR": 14400,
+      "payer": "Niva Bupa Health",
+      "claimId": "CLM-NB-61904",
+      "claimStage": "Co-Pay Balance Overdue (>48h)",
+      "status": "Overdue",
+      "items": [
+        { "desc": "Laparoscopic Cholecystectomy Package", "qty": 1, "rate": 74000 },
+        { "desc": "Non-Payable Consumables & Co-Pay Difference", "qty": 1, "rate": 14400 }
+      ]
+    }
+  ]
+}
+

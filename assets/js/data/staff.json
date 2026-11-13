@@ -1,0 +1,146 @@
+{
+  "roster": [
+    {
+      "staffId": "EMP-101",
+      "name": "Dr. Kabir Sen",
+      "role": "Senior Cardiologist",
+      "department": "Cardiology & Cath Lab",
+      "availability": "On Duty (Cath Lab)",
+      "conflict": false,
+      "avatarWebp": "../assets/images/dashboard/staff-01-dr-kabir-sen.webp",
+      "avatarSmWebp": "../assets/images/dashboard/staff-01-dr-kabir-sen-640w.webp",
+      "avatarJpg": "../assets/images/dashboard/staff-01-dr-kabir-sen.jpg",
+      "shifts": {
+        "Mon": "Morning (07:00-15:00)",
+        "Tue": "Morning (07:00-15:00)",
+        "Wed": "On-call (24h Cath)",
+        "Thu": "Morning (07:00-15:00)",
+        "Fri": "Evening (15:00-23:00)",
+        "Sat": "Morning (07:00-15:00)",
+        "Sun": "Off"
+      }
+    },
+    {
+      "staffId": "EMP-104",
+      "name": "Dr. Claire Dupont",
+      "role": "Emergency Medicine Lead",
+      "department": "Emergency & Trauma",
+      "availability": "On Duty (ER Triage)",
+      "conflict": true,
+      "conflictReason": "Back-to-back Night → Morning turnaround < 8h on Thu/Fri",
+      "avatarWebp": "../assets/images/dashboard/staff-02-dr-claire-dupont.webp",
+      "avatarSmWebp": "../assets/images/dashboard/staff-02-dr-claire-dupont-640w.webp",
+      "avatarJpg": "../assets/images/dashboard/staff-02-dr-claire-dupont.jpg",
+      "shifts": {
+        "Mon": "Evening (15:00-23:00)",
+        "Tue": "Evening (15:00-23:00)",
+        "Wed": "Off",
+        "Thu": "Night (23:00-07:00)",
+        "Fri": "Morning (07:00-15:00)",
+        "Sat": "Night (23:00-07:00)",
+        "Sun": "On-call (Trauma)"
+      }
+    },
+    {
+      "staffId": "EMP-208",
+      "name": "Kavita Reddy, RN",
+      "role": "ICU Charge Nurse",
+      "department": "Critical Care (ICU)",
+      "availability": "On Duty (ICU-A)",
+      "conflict": false,
+      "avatarWebp": "../assets/images/dashboard/staff-03-nurse-kavita-reddy.webp",
+      "avatarSmWebp": "../assets/images/dashboard/staff-03-nurse-kavita-reddy-640w.webp",
+      "avatarJpg": "../assets/images/dashboard/staff-03-nurse-kavita-reddy.jpg",
+      "shifts": {
+        "Mon": "Morning (07:00-15:00)",
+        "Tue": "Morning (07:00-15:00)",
+        "Wed": "Morning (07:00-15:00)",
+        "Thu": "Off",
+        "Fri": "Night (23:00-07:00)",
+        "Sat": "Night (23:00-07:00)",
+        "Sun": "Night (23:00-07:00)"
+      }
+    },
+    {
+      "staffId": "EMP-112",
+      "name": "Dr. Omar Farooq",
+      "role": "Consultant Neurologist",
+      "department": "Neurology & Stroke Unit",
+      "availability": "In OPD Consultation",
+      "conflict": false,
+      "avatarWebp": "../assets/images/dashboard/staff-04-dr-omar-farooq.webp",
+      "avatarSmWebp": "../assets/images/dashboard/staff-04-dr-omar-farooq-640w.webp",
+      "avatarJpg": "../assets/images/dashboard/staff-04-dr-omar-farooq.jpg",
+      "shifts": {
+        "Mon": "Morning (07:00-15:00)",
+        "Tue": "Evening (15:00-23:00)",
+        "Wed": "Morning (07:00-15:00)",
+        "Thu": "Evening (15:00-23:00)",
+        "Fri": "On-call (Stroke Code)",
+        "Sat": "Off",
+        "Sun": "Morning (07:00-15:00)"
+      }
+    },
+    {
+      "staffId": "EMP-219",
+      "name": "Grace Okafor, RN",
+      "role": "Pediatric Ward Supervisor",
+      "department": "Pediatrics & NICU",
+      "availability": "On Duty (Pediatrics)",
+      "conflict": false,
+      "avatarWebp": "../assets/images/dashboard/staff-05-nurse-grace-okafor.webp",
+      "avatarSmWebp": "../assets/images/dashboard/staff-05-nurse-grace-okafor-640w.webp",
+      "avatarJpg": "../assets/images/dashboard/staff-05-nurse-grace-okafor.jpg",
+      "shifts": {
+        "Mon": "Evening (15:00-23:00)",
+        "Tue": "Evening (15:00-23:00)",
+        "Wed": "Evening (15:00-23:00)",
+        "Thu": "Evening (15:00-23:00)",
+        "Fri": "Off",
+        "Sat": "Morning (07:00-15:00)",
+        "Sun": "Morning (07:00-15:00)"
+      }
+    },
+    {
+      "staffId": "EMP-118",
+      "name": "Dr. Sanjay Verma",
+      "role": "Head of Orthopedic Surgery",
+      "department": "Orthopedics",
+      "availability": "In OR Theater 03",
+      "conflict": false,
+      "avatarWebp": "../assets/images/dashboard/staff-06-dr-sanjay-verma.webp",
+      "avatarSmWebp": "../assets/images/dashboard/staff-06-dr-sanjay-verma-640w.webp",
+      "avatarJpg": "../assets/images/dashboard/staff-06-dr-sanjay-verma.jpg",
+      "shifts": {
+        "Mon": "Morning (07:00-15:00)",
+        "Tue": "On-call (OR Trauma)",
+        "Wed": "Morning (07:00-15:00)",
+        "Thu": "Morning (07:00-15:00)",
+        "Fri": "Morning (07:00-15:00)",
+        "Sat": "Evening (15:00-23:00)",
+        "Sun": "Off"
+      }
+    }
+  ],
+  "leaveRequests": [
+    {
+      "requestId": "LVR-401",
+      "staffName": "Dr. Omar Farooq",
+      "department": "Neurology",
+      "dates": "20 Nov – 22 Nov 2026",
+      "reason": "Annual Indian Academy of Neurology Conference Speaker",
+      "coverAssigned": "Dr. Kabir Sen (Cross-Cover)",
+      "status": "Pending Approval"
+    },
+    {
+      "requestId": "LVR-402",
+      "staffName": "Kavita Reddy, RN",
+      "department": "Critical Care (ICU)",
+      "dates": "25 Nov 2026",
+      "reason": "Personal / Compensatory Off",
+      "coverAssigned": "Grace Okafor, RN",
+      "status": "Approved"
+    }
+  ]
+}
+

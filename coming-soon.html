@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MediCore AI Ambient Scribe — Coming Soon | MediCore HMS</title>
+  <meta name="description" content="Coming January 2027: MediCore Ambient Voice Scribe converts bedside doctor-patient conversations into structured ICD-11 SOAP notes and FHIR R4 orders.">
+  <meta property="og:title" content="MediCore AI Ambient Clinical Scribe — Early Access Waitlist">
+  <meta property="og:description" content="Zero-click ambient clinical documentation built directly into MediCore HMS.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://medicorehms.com/coming-soon.html">
+  <link rel="canonical" href="https://medicorehms.com/coming-soon.html">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/dark-mode.css">
+  <link rel="stylesheet" href="assets/css/rtl.css">
+</head>
+<body class="bg-clinical-grid">
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="container nav-bar">
+      <a href="index.html" class="brand-logo" aria-label="MediCore HMS Home">
+        <span class="brand-logo-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+        </span>
+        <span>MediCore <em>HMS</em></span>
+      </a>
+      <div class="nav-actions">
+        <button type="button" class="btn btn-icon btn-sm" data-action="toggle-rtl" aria-label="Toggle RTL layout">RTL</button>
+        <button type="button" class="btn btn-icon btn-sm" data-action="toggle-theme" aria-label="Toggle color theme">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2m-7.07-14.93 1.41 1.41m11.32 11.32 1.41 1.41M2 12h2m16 0h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+        </button>
+        <a href="index.html" class="btn btn-secondary btn-sm">Back to Main Site</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content" class="section" style="display:flex;align-items:center;justify-content:center;flex:1;">
+    <div class="container" style="max-width:860px;">
+      <article class="mc-card card-anim-pulse" style="padding:var(--sp-6);">
+        <span class="eyebrow"><span class="eyebrow-dot"></span>MediCore Clinical Labs · v5.0 Preview</span>
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
+        </div>
+        <h1 style="font-size:2.35rem;">Ambient Clinical Voice Scribe Is Launching Soon.</h1>
+        <p style="margin-top:var(--sp-2);max-width:60ch;">
+          Speak naturally with your patient in English, Hindi, Arabic, or Spanish—MediCore AI automatically drafts structured SOAP notes, ICD-11 codes, and CPOE lab orders ready for your one-tap signature.
+        </p>
+
+        <!-- Live Countdown Timer -->
+        <div class="grid grid-4" style="width:100%;max-width:580px;margin-top:var(--sp-4);" role="timer" aria-label="Countdown to General Availability">
+          <div class="dash-panel" style="margin:0;padding:14px;">
+            <div id="cd-days" class="kpi-value" style="font-size:2rem;color:var(--accent);">63</div>
+            <div class="mono" style="font-size:0.74rem;color:var(--text-muted);">DAYS</div>
+          </div>
+          <div class="dash-panel" style="margin:0;padding:14px;">
+            <div id="cd-hours" class="kpi-value" style="font-size:2rem;color:var(--accent);">14</div>
+            <div class="mono" style="font-size:0.74rem;color:var(--text-muted);">HOURS</div>
+          </div>
+          <div class="dash-panel" style="margin:0;padding:14px;">
+            <div id="cd-mins" class="kpi-value" style="font-size:2rem;color:var(--accent);">28</div>
+            <div class="mono" style="font-size:0.74rem;color:var(--text-muted);">MINUTES</div>
+          </div>
+          <div class="dash-panel" style="margin:0;padding:14px;">
+            <div id="cd-secs" class="kpi-value" style="font-size:2rem;color:var(--accent);">45</div>
+            <div class="mono" style="font-size:0.74rem;color:var(--text-muted);">SECONDS</div>
+          </div>
+        </div>
+
+        <!-- Notify-Me Form -->
+        <form data-validate data-form-type="waitlist" action="#waitlist-joined" method="post" style="width:100%;max-width:520px;margin-top:var(--sp-4);" novalidate>
+          <div class="form-group">
+            <label for="waitlist-email" class="form-label" style="text-align:center;">Join the Hospital Pilot Waitlist *</label>
+            <div style="display:flex;flex-wrap:wrap;gap:10px;">
+              <input type="email" id="waitlist-email" class="form-control" placeholder="cmo@hospital-network.org" required style="flex:1;min-width:210px;">
+              <button type="submit" class="btn btn-primary">Notify My Hospital</button>
+            </div>
+            <div class="form-error">Please enter a valid hospital email address.</div>
+          </div>
+          <div class="form-success-banner" role="status">
+            ✓ Your hospital has been added to the v5.0 Ambient Scribe Early Access Cohort!
+          </div>
+        </form>
+      </article>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom" style="padding-top:0;">
+        <span>© 2026 MediCore Health Systems Inc. One platform. Every ward. Zero friction.</span>
+        <a href="dashboard/dashboard.html">Open Current v4.8 Dashboard</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/plugins/tilt.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
+

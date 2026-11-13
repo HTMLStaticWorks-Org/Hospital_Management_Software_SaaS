@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clinical Command Overview | MediCore HMS Dashboard</title>
+  <meta name="description" content="Real-time hospital command dashboard displaying inpatient bed occupancy, OPD/IPD admissions trend, department load, TPA collections, and ICU alerts.">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/dark-mode.css">
+  <link rel="stylesheet" href="../assets/css/rtl.css">
+  <link rel="stylesheet" href="../assets/css/dashboard.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <div class="dash-shell">
+    <!-- ==================== SHARED COLLAPSIBLE SIDEBAR ==================== -->
+    <aside id="dash-sidebar" class="dash-sidebar" aria-label="Hospital Dashboard Navigation">
+      <div class="sidebar-brand">
+        <a href="../index.html" class="brand-logo" style="color:#FFFFFF;font-size:1.1rem;">
+          <span class="brand-logo-mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+          </span>
+          <span class="sidebar-label">MediCore <em>HMS</em></span>
+        </a>
+        <button type="button" class="btn btn-icon btn-sm" data-action="collapse-sidebar" aria-label="Collapse or expand sidebar" style="background:rgba(255,255,255,0.08);color:#FFFFFF;border:none;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+        </button>
+      </div>
+
+      <nav class="sidebar-nav" aria-label="Clinical Modules">
+        <div class="sidebar-section-title">Clinical Command</div>
+        <a href="dashboard.html" class="sidebar-link active" data-nav-module="overview">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+          <span class="sidebar-label">Overview &amp; KPIs</span>
+        </a>
+        <a href="patients.html" class="sidebar-link" data-nav-module="patients">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+          <span class="sidebar-label">Patient Records (EMR)</span>
+        </a>
+        <a href="beds.html" class="sidebar-link" data-nav-module="beds">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 4v16M2 8h18a2 2 0 0 1 2 2v10M2 17h20"/></svg>
+          <span class="sidebar-label">Bed &amp; Ward Status</span>
+        </a>
+        <a href="appointments.html" class="sidebar-link" data-nav-module="appointments">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          <span class="sidebar-label">Appointments &amp; OPD</span>
+        </a>
+
+        <div class="sidebar-section-title">Operations &amp; Finance</div>
+        <a href="billing.html" class="sidebar-link" data-nav-module="billing">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
+          <span class="sidebar-label">Billing &amp; TPA Claims</span>
+        </a>
+        <a href="staff-schedule.html" class="sidebar-link" data-nav-module="staff">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          <span class="sidebar-label">Staff Shift Roster</span>
+        </a>
+        <a href="messages.html" class="sidebar-link" data-nav-module="messages">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          <span class="sidebar-label">Clinical Messages</span>
+        </a>
+        <a href="reports.html" class="sidebar-link" data-nav-module="reports">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+          <span class="sidebar-label">Reports &amp; NABH KPIs</span>
+        </a>
+        <a href="settings.html" class="sidebar-link" data-nav-module="settings">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9"/></svg>
+          <span class="sidebar-label">Hospital Settings</span>
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="sidebar-footer-text">
+          <div class="mono" style="color:var(--accent);font-size:0.74rem;">● APEX METRO · 250 BEDS</div>
+          <div>NABH #HCO-2026-0419</div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- ==================== MAIN WORKSPACE ==================== -->
+    <div class="dash-main-wrap">
+      <!-- Topbar -->
+      <header class="dash-topbar">
+        <div class="topbar-left">
+          <button type="button" class="btn btn-icon btn-sm mobile-menu-toggle" data-action="mobile-sidebar" aria-label="Open sidebar menu">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+          </button>
+          <div class="global-search-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <input type="search" id="dash-global-search" placeholder="Filter current table by UHID, patient, doctor, or ward..." aria-label="Global workspace search">
+          </div>
+        </div>
+
+        <div class="topbar-right">
+          <div class="role-switcher-wrap">
+            <span>Role:</span>
+            <select id="dash-role-switcher" class="role-switcher-select" aria-label="Switch Active Hospital Role">
+              <option value="Admin">Admin</option>
+              <option value="Doctor">Doctor</option>
+              <option value="Nurse">Nurse</option>
+              <option value="Billing">Billing</option>
+            </select>
+          </div>
+
+          <a href="patients.html" class="btn btn-primary btn-sm">+ Quick Admit</a>
+          <a href="messages.html" class="btn btn-icon btn-sm" aria-label="Clinical Notifications (2 Unread)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/></svg>
+          </a>
+          <button type="button" class="btn btn-icon btn-sm" data-action="toggle-rtl" aria-label="Toggle RTL layout">RTL</button>
+          <button type="button" class="btn btn-icon btn-sm" data-action="toggle-theme" aria-label="Toggle color theme">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2m-7.07-14.93 1.41 1.41m11.32 11.32 1.41 1.41M2 12h2m16 0h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+          </button>
+          <a href="settings.html" class="user-monogram-pill" aria-label="Hospital Profile Settings">
+            <span class="monogram-circle">SD</span>
+            <span id="active-role-badge">Admin View</span>
+          </a>
+        </div>
+      </header>
+
+      <!-- Main Content Area -->
+      <main id="main-content" class="dash-content">
+        <div class="dash-page-header">
+          <div>
+            <span class="eyebrow" style="margin-bottom:4px;"><span class="eyebrow-dot"></span>Shift Command · 13 Nov 2026</span>
+            <h1>Hospital Clinical &amp; Operational Overview</h1>
+          </div>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;">
+            <a href="beds.html" class="btn btn-secondary btn-sm">Open Live Bed Board</a>
+            <a href="reports.html" class="btn btn-primary btn-sm">Export Shift Handover</a>
+          </div>
+        </div>
+
+        <!-- ==================== 6 KPI CARDS (CENTERED ICON & TEXT + 3D TILT) ==================== -->
+        <section class="kpi-grid" aria-label="Key Performance Indicators">
+          <article class="mc-card card-anim-pulse">
+            <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div>
+            <div class="kpi-value" data-countup="1482">1,482</div>
+            <h3>Active Patient Census</h3>
+            <p class="mono" style="font-size:0.75rem;color:var(--emerald);">▲ +12.4% vs last week</p>
+          </article>
+
+          <article class="mc-card card-anim-ecg">
+            <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
+            <div class="kpi-value" data-countup="46">46</div>
+            <h3>Admissions Today</h3>
+            <p class="mono" style="font-size:0.75rem;color:var(--primary);">38 Discharges Cleared</p>
+          </article>
+
+          <article class="mc-card card-anim-ring">
+            <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 4v16M2 8h18a2 2 0 0 1 2 2v10M2 17h20"/></svg></div>
+            <div class="kpi-value" data-countup="86.4" data-decimals="1" data-suffix="%">86.4%</div>
+            <h3>Bed Occupancy</h3>
+            <p class="mono" style="font-size:0.75rem;color:var(--signal);">216 / 250 Beds Occupied</p>
+          </article>
+
+          <article class="mc-card card-anim-shimmer">
+            <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+            <div class="kpi-value" data-countup="18.45" data-decimals="2" data-prefix="₹" data-suffix="L">₹18.45L</div>
+            <h3>Revenue Today</h3>
+            <p class="mono" style="font-size:0.75rem;color:var(--emerald);">97.4% Cashless TPA</p>
+          </article>
+
+          <article class="mc-card card-anim-scan">
+            <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg></div>
+            <div class="kpi-value" data-countup="19">19</div>
+            <h3>Pending TPA Bills</h3>
+            <p class="mono" style="font-size:0.75rem;color:var(--amber);">3 Pre-Auths Near SLA</p>
+          </article>
+
+          <article class="mc-card card-anim-cross">
+            <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+            <div class="kpi-value" data-countup="164">164</div>
+            <h3>Staff on Duty</h3>
+            <p class="mono" style="font-size:0.75rem;color:var(--emerald);">42 Doctors · 98 Nurses</p>
+          </article>
+        </section>
+
+        <!-- ==================== CHARTS ROW 1: ADMISSIONS TREND & DEPARTMENT LOAD ==================== -->
+        <div class="grid grid-2">
+          <section class="dash-panel" aria-labelledby="chart-adm-title">
+            <div class="dash-panel-header">
+              <h2 id="chart-adm-title" style="font-size:1.1rem;">7-Day Admissions, OPD &amp; Discharge Velocity</h2>
+              <span class="badge badge-teal">Live ADT Telemetry</span>
+            </div>
+            <div id="chart-admissions-trend" class="chart-canvas-wrap"></div>
+          </section>
+
+          <section class="dash-panel" aria-labelledby="chart-dept-title">
+            <div class="dash-panel-header">
+              <h2 id="chart-dept-title" style="font-size:1.1rem;">Specialty Department Census &amp; Acuity Load</h2>
+              <span class="badge badge-mint">6 Active Wings</span>
+            </div>
+            <div id="chart-department-load" class="chart-canvas-wrap"></div>
+          </section>
+        </div>
+
+        <!-- ==================== CHARTS ROW 2: REVENUE VS COLLECTIONS & BED DONUT ==================== -->
+        <div class="grid grid-2">
+          <section class="dash-panel" aria-labelledby="chart-rev-title">
+            <div class="dash-panel-header">
+              <h2 id="chart-rev-title" style="font-size:1.1rem;">Revenue Billed vs. TPA Collections (6-Month Trend)</h2>
+              <span class="badge badge-emerald">96.9% Realization</span>
+            </div>
+            <div id="chart-revenue-collections" class="chart-canvas-wrap"></div>
+          </section>
+
+          <section class="dash-panel" aria-labelledby="chart-bed-title">
+            <div class="dash-panel-header">
+              <h2 id="chart-bed-title" style="font-size:1.1rem;">Inpatient Bed Status Breakdown (250 Total)</h2>
+              <a href="beds.html" class="btn btn-ghost btn-sm">Manage Wards →</a>
+            </div>
+            <div id="chart-bed-donut" class="chart-canvas-wrap"></div>
+          </section>
+        </div>
+
+        <!-- ==================== RECENT ADMISSIONS TABLE & ALERTS PANEL ==================== -->
+        <div class="grid grid-2" style="align-items:start;">
+          <section class="dash-panel" aria-labelledby="recent-adm-heading">
+            <div class="dash-panel-header">
+              <h2 id="recent-adm-heading" style="font-size:1.1rem;">Recent Inpatient &amp; ER Admissions</h2>
+              <a href="patients.html" class="btn btn-ghost btn-sm">View Full EMR →</a>
+            </div>
+            <div class="table-responsive">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>UHID &amp; Patient</th>
+                    <th>Ward / Bed</th>
+                    <th>Attending</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td data-label="Patient"><strong>Aarav Sharma</strong><div class="mono" style="font-size:0.75rem;color:var(--text-muted);">UHID-2026-9041 · 58/M</div></td>
+                    <td data-label="Ward / Bed" class="mono">ICU-A · Bed 04</td>
+                    <td data-label="Attending">Dr. Kabir Sen</td>
+                    <td data-label="Status"><span class="badge badge-signal">ICU Critical</span></td>
+                  </tr>
+                  <tr>
+                    <td data-label="Patient"><strong>Meera Patel</strong><div class="mono" style="font-size:0.75rem;color:var(--text-muted);">UHID-2026-9042 · 34/F</div></td>
+                    <td data-label="Ward / Bed" class="mono">Maternity · Bed 12</td>
+                    <td data-label="Attending">Dr. Neha Kapoor</td>
+                    <td data-label="Status"><span class="badge badge-teal">Admitted</span></td>
+                  </tr>
+                  <tr>
+                    <td data-label="Patient"><strong>Robert Chen</strong><div class="mono" style="font-size:0.75rem;color:var(--text-muted);">UHID-2026-9043 · 45/M</div></td>
+                    <td data-label="Ward / Bed" class="mono">Private · Suite 302</td>
+                    <td data-label="Attending">Dr. Sanjay Verma</td>
+                    <td data-label="Status"><span class="badge badge-emerald">Discharge Ready</span></td>
+                  </tr>
+                  <tr>
+                    <td data-label="Patient"><strong>Fatima Al-Mansoor</strong><div class="mono" style="font-size:0.75rem;color:var(--text-muted);">UHID-2026-9044 · 62/F</div></td>
+                    <td data-label="Ward / Bed" class="mono">Neuro · Bed 08</td>
+                    <td data-label="Attending">Dr. Omar Farooq</td>
+                    <td data-label="Status"><span class="badge badge-teal">Admitted</span></td>
+                  </tr>
+                  <tr>
+                    <td data-label="Patient"><strong>David Kowalski</strong><div class="mono" style="font-size:0.75rem;color:var(--text-muted);">UHID-2026-9045 · 29/M</div></td>
+                    <td data-label="Ward / Bed" class="mono">ER Triage · Bay 02</td>
+                    <td data-label="Attending">Dr. Claire Dupont</td>
+                    <td data-label="Status"><span class="badge badge-amber">Pre-Op Prep</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <section class="dash-panel" aria-labelledby="alerts-heading">
+            <div class="dash-panel-header">
+              <h2 id="alerts-heading" style="font-size:1.1rem;">Real-Time Clinical &amp; Operational Alerts</h2>
+              <span class="badge badge-signal">3 Active</span>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:12px;">
+              <div class="alert-item" style="padding:14px;border-radius:12px;border:1px solid var(--signal);background:var(--signal-soft);display:flex;justify-content:space-between;align-items:flex-start;gap:12px;">
+                <div>
+                  <span class="badge badge-signal" style="margin-bottom:4px;">STAT · ICU TELEMETRY</span>
+                  <h3 style="font-size:0.95rem;">ICU-A Bed 04 SpO2 Watch (Aarav Sharma)</h3>
+                  <p style="font-size:0.84rem;margin-top:2px;">SpO2 dipped to 91% post-PCI. Charge Nurse Kavita Reddy notified at bedside.</p>
+                </div>
+                <button type="button" class="btn btn-secondary btn-sm" data-dismiss-alert>Acknowledge</button>
+              </div>
+
+              <div class="alert-item" style="padding:14px;border-radius:12px;border:1px solid var(--amber);background:var(--amber-soft);display:flex;justify-content:space-between;align-items:flex-start;gap:12px;">
+                <div>
+                  <span class="badge badge-amber" style="margin-bottom:4px;">SLA · TPA PRE-AUTH DESK</span>
+                  <h3 style="font-size:0.95rem;">3 Star Health Pre-Authorizations Expiring</h3>
+                  <p style="font-size:0.84rem;margin-top:2px;">Attach signed 3T MRI and Cath Lab notes before 14:30 to avoid cashless hold.</p>
+                </div>
+                <button type="button" class="btn btn-secondary btn-sm" data-dismiss-alert>Acknowledge</button>
+              </div>
+
+              <div class="alert-item" style="padding:14px;border-radius:12px;border:1px solid var(--primary);background:var(--primary-soft);display:flex;justify-content:space-between;align-items:flex-start;gap:12px;">
+                <div>
+                  <span class="badge badge-teal" style="margin-bottom:4px;">PHARMACY · REORDER TRIGGER</span>
+                  <h3 style="font-size:0.95rem;">Meropenem 1g IV Batch #MRP-2026-11B</h3>
+                  <p style="font-size:0.84rem;margin-top:2px;">42 vials remaining in ICU sub-store. Auto-PO #PO-4490 queued for sign-off.</p>
+                </div>
+                <button type="button" class="btn btn-secondary btn-sm" data-dismiss-alert>Acknowledge</button>
+              </div>
+            </div>
+          </section>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script src="../assets/js/plugins/tilt.js"></script>
+  <script src="../assets/js/plugins/countup.js"></script>
+  <script src="../assets/js/plugins/charts.js"></script>
+  <script src="../assets/js/main.js"></script>
+  <script src="../assets/js/dashboard.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,36 @@
+[
+  { "bedId": "ICU-01", "ward": "ICU", "status": "Occupied", "patient": "Ramesh Gupta", "uhid": "UHID-2026-8991", "doctor": "Dr. Kabir Sen", "admitted": "10 Nov", "telemetry": "Ventilator + SpO2 96%" },
+  { "bedId": "ICU-02", "ward": "ICU", "status": "Occupied", "patient": "Sonia D'Souza", "uhid": "UHID-2026-9012", "doctor": "Dr. Omar Farooq", "admitted": "11 Nov", "telemetry": "BiPAP + Arterial Line" },
+  { "bedId": "ICU-03", "ward": "ICU", "status": "Available", "patient": null, "uhid": null, "doctor": null, "admitted": null, "telemetry": "Sterile & Ready" },
+  { "bedId": "ICU-04", "ward": "ICU", "status": "Occupied", "patient": "Aarav Sharma", "uhid": "UHID-2026-9041", "doctor": "Dr. Kabir Sen", "admitted": "13 Nov", "telemetry": "Cardiac Monitor · Post-PCI" },
+  { "bedId": "ICU-05", "ward": "ICU", "status": "Cleaning", "patient": null, "uhid": null, "doctor": null, "admitted": null, "telemetry": "UV-C Terminal Sanitization" },
+  { "bedId": "ICU-06", "ward": "ICU", "status": "Reserved", "patient": "Incoming Cath Lab Case", "uhid": "PRE-9055", "doctor": "Dr. Kabir Sen", "admitted": "ETA 14:15", "telemetry": "Pre-Warmed & Paced" },
+
+  { "bedId": "GEN-B01", "ward": "General", "status": "Occupied", "patient": "Prakash Joshi", "uhid": "UHID-2026-8970", "doctor": "Dr. Alan Park", "admitted": "09 Nov", "telemetry": "O2 Nasal Cannula 2L" },
+  { "bedId": "GEN-B02", "ward": "General", "status": "Available", "patient": null, "uhid": null, "doctor": null, "admitted": null, "telemetry": "Standard Telemetry" },
+  { "bedId": "GEN-B03", "ward": "General", "status": "Occupied", "patient": "Kavita Menon", "uhid": "UHID-2026-9004", "doctor": "Dr. Zoya Mirza", "admitted": "11 Nov", "telemetry": "Insulin Infusion Protocol" },
+  { "bedId": "GEN-B04", "ward": "General", "status": "Available", "patient": null, "uhid": null, "doctor": null, "admitted": null, "telemetry": "Standard Telemetry" },
+  { "bedId": "GEN-B05", "ward": "General", "status": "Maintenance", "patient": null, "uhid": null, "doctor": null, "admitted": null, "telemetry": "Suction Regulator Calibration" },
+  { "bedId": "GEN-B09", "ward": "General", "status": "Occupied", "patient": "Carlos Mendoza", "uhid": "UHID-2026-9048", "doctor": "Dr. Thomas Wright", "admitted": "12 Nov", "telemetry": "Discharge Clearance Pending" },
+
+  { "bedId": "PVT-301", "ward": "Private", "status": "Occupied", "patient": "Nandini Birla", "uhid": "UHID-2026-9019", "doctor": "Dr. Sanjay Verma", "admitted": "11 Nov", "telemetry": "CPM Knee Rehab Suite" },
+  { "bedId": "PVT-302", "ward": "Private", "status": "Occupied", "patient": "Robert Chen", "uhid": "UHID-2026-9043", "doctor": "Dr. Sanjay Verma", "admitted": "13 Nov", "telemetry": "Discharge Summary Signed" },
+  { "bedId": "PVT-303", "ward": "Private", "status": "Available", "patient": null, "uhid": null, "doctor": null, "admitted": null, "telemetry": "Executive Suite Ready" },
+  { "bedId": "PVT-304", "ward": "Private", "status": "Reserved", "patient": "Direct International Admission", "uhid": "PRE-9058", "doctor": "Dr. Omar Farooq", "admitted": "ETA 16:00", "telemetry": "VIP Concierge Assigned" },
+
+  { "bedId": "MAT-11", "ward": "Maternity", "status": "Occupied", "patient": "Divya Kulkarni", "uhid": "UHID-2026-9030", "doctor": "Dr. Neha Kapoor", "admitted": "12 Nov", "telemetry": "Post-Partum + Infant Warmer" },
+  { "bedId": "MAT-12", "ward": "Maternity", "status": "Occupied", "patient": "Meera Patel", "uhid": "UHID-2026-9042", "doctor": "Dr. Neha Kapoor", "admitted": "13 Nov", "telemetry": "Continuous CTG Fetal Trace" },
+  { "bedId": "MAT-13", "ward": "Maternity", "status": "Cleaning", "patient": null, "uhid": null, "doctor": null, "admitted": null, "telemetry": "Housekeeping Turnaround" },
+  { "bedId": "MAT-14", "ward": "Maternity", "status": "Available", "patient": null, "uhid": null, "doctor": null, "admitted": null, "telemetry": "LDRP Birthing Bed" },
+
+  { "bedId": "PED-01", "ward": "Pediatrics", "status": "Occupied", "patient": "Vihaan Malhotra (6y)", "uhid": "UHID-2026-9035", "doctor": "Grace Okafor RN", "admitted": "12 Nov", "telemetry": "Nebulization q6h" },
+  { "bedId": "PED-02", "ward": "Pediatrics", "status": "Available", "patient": null, "uhid": null, "doctor": null, "admitted": null, "telemetry": "Pediatric Crib Ready" },
+  { "bedId": "PED-03", "ward": "Pediatrics", "status": "Occupied", "patient": "Aanya Sheikh (4y)", "uhid": "UHID-2026-9038", "doctor": "Grace Okafor RN", "admitted": "12 Nov", "telemetry": "IV Hydration Pump" },
+  { "bedId": "PED-04", "ward": "Pediatrics", "status": "Available", "patient": null, "uhid": null, "doctor": null, "admitted": null, "telemetry": "Pediatric Isolation Ready" },
+
+  { "bedId": "ER-BAY01", "ward": "Emergency", "status": "Occupied", "patient": "Trauma Triage #44", "uhid": "UHID-2026-9049", "doctor": "Dr. Claire Dupont", "admitted": "11:05 AM", "telemetry": "FAST Scan Completed" },
+  { "bedId": "ER-BAY02", "ward": "Emergency", "status": "Occupied", "patient": "David Kowalski", "uhid": "UHID-2026-9045", "doctor": "Dr. Claire Dupont", "admitted": "07:30 AM", "telemetry": "OR Transfer Scheduled" },
+  { "bedId": "ER-BAY03", "ward": "Emergency", "status": "Available", "patient": null, "uhid": null, "doctor": null, "admitted": null, "telemetry": "Resuscitation Crash Cart Ready" },
+  { "bedId": "ER-BAY04", "ward": "Emergency", "status": "Cleaning", "patient": null, "uhid": null, "doctor": null, "admitted": null, "telemetry": "Biohazard Turnaround (8m left)" }
+]
+

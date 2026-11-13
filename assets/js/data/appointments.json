@@ -1,0 +1,59 @@
+[
+  {
+    "apptId": "APT-2026-310",
+    "time": "09:30 AM",
+    "patient": "Priyanka Deshmukh",
+    "uhid": "UHID-2026-8812",
+    "doctor": "Dr. Neha Kapoor",
+    "department": "Obstetrics & Gynecology",
+    "type": "OPD In-Person · Cabin 03",
+    "status": "Completed",
+    "notes": "28-week antenatal anomaly review + fetal Doppler normal",
+    "doctorAvatarWebp": "../assets/images/dashboard/appt-01-dr-neha-kapoor.webp",
+    "doctorAvatarSmWebp": "../assets/images/dashboard/appt-01-dr-neha-kapoor-640w.webp",
+    "doctorAvatarJpg": "../assets/images/dashboard/appt-01-dr-neha-kapoor.jpg"
+  },
+  {
+    "apptId": "APT-2026-311",
+    "time": "10:15 AM",
+    "patient": "Lakshmi Narayanan",
+    "uhid": "UHID-2026-9046",
+    "doctor": "Dr. Alan Park",
+    "department": "Pulmonology",
+    "type": "OPD In-Person · Cabin 06",
+    "status": "In Consultation",
+    "notes": "Post-bronchodilator spirometry & inhaler titration",
+    "doctorAvatarWebp": "../assets/images/dashboard/appt-02-dr-alan-park.webp",
+    "doctorAvatarSmWebp": "../assets/images/dashboard/appt-02-dr-alan-park-640w.webp",
+    "doctorAvatarJpg": "../assets/images/dashboard/appt-02-dr-alan-park.jpg"
+  },
+  {
+    "apptId": "APT-2026-312",
+    "time": "11:00 AM",
+    "patient": "Hannah Abbott",
+    "uhid": "UHID-2026-9047",
+    "doctor": "Dr. Zoya Mirza",
+    "department": "Endocrinology",
+    "type": "Telemedicine HD · Room V2",
+    "status": "Checked-In",
+    "notes": "Continuous Glucose Monitor (CGM) 14-day ambulatory profile",
+    "doctorAvatarWebp": "../assets/images/dashboard/appt-03-dr-zoya-mirza.webp",
+    "doctorAvatarSmWebp": "../assets/images/dashboard/appt-03-dr-zoya-mirza-640w.webp",
+    "doctorAvatarJpg": "../assets/images/dashboard/appt-03-dr-zoya-mirza.jpg"
+  },
+  {
+    "apptId": "APT-2026-313",
+    "time": "11:45 AM",
+    "patient": "VikramadityaRao",
+    "uhid": "UHID-2026-8904",
+    "doctor": "Dr. Thomas Wright",
+    "department": "General Surgery",
+    "type": "Post-Op Review · Cabin 01",
+    "status": "Scheduled",
+    "notes": "Laparoscopic hernia mesh repair Day-10 suture inspection",
+    "doctorAvatarWebp": "../assets/images/dashboard/appt-04-dr-thomas-wright.webp",
+    "doctorAvatarSmWebp": "../assets/images/dashboard/appt-04-dr-thomas-wright-640w.webp",
+    "doctorAvatarJpg": "../assets/images/dashboard/appt-04-dr-thomas-wright.jpg"
+  }
+]
+

@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clinical Messages &amp; STAT Alerts | MediCore HMS</title>
+  <meta name="description" content="Secure HIPAA-compliant inter-department clinical messaging, STAT pathology panic alerts, pharmacy stock escalations, and TPA desk threads.">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/dark-mode.css">
+  <link rel="stylesheet" href="../assets/css/rtl.css">
+  <link rel="stylesheet" href="../assets/css/dashboard.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <div class="dash-shell">
+    <!-- ==================== SHARED COLLAPSIBLE SIDEBAR ==================== -->
+    <aside id="dash-sidebar" class="dash-sidebar" aria-label="Hospital Dashboard Navigation">
+      <div class="sidebar-brand">
+        <a href="../index.html" class="brand-logo" style="color:#FFFFFF;font-size:1.1rem;">
+          <span class="brand-logo-mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+          </span>
+          <span class="sidebar-label">MediCore <em>HMS</em></span>
+        </a>
+        <button type="button" class="btn btn-icon btn-sm" data-action="collapse-sidebar" aria-label="Collapse or expand sidebar" style="background:rgba(255,255,255,0.08);color:#FFFFFF;border:none;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+        </button>
+      </div>
+
+      <nav class="sidebar-nav" aria-label="Clinical Modules">
+        <div class="sidebar-section-title">Clinical Command</div>
+        <a href="dashboard.html" class="sidebar-link" data-nav-module="overview">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+          <span class="sidebar-label">Overview &amp; KPIs</span>
+        </a>
+        <a href="patients.html" class="sidebar-link" data-nav-module="patients">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+          <span class="sidebar-label">Patient Records (EMR)</span>
+        </a>
+        <a href="beds.html" class="sidebar-link" data-nav-module="beds">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 4v16M2 8h18a2 2 0 0 1 2 2v10M2 17h20"/></svg>
+          <span class="sidebar-label">Bed &amp; Ward Status</span>
+        </a>
+        <a href="appointments.html" class="sidebar-link" data-nav-module="appointments">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          <span class="sidebar-label">Appointments &amp; OPD</span>
+        </a>
+
+        <div class="sidebar-section-title">Operations &amp; Finance</div>
+        <a href="billing.html" class="sidebar-link" data-nav-module="billing">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
+          <span class="sidebar-label">Billing &amp; TPA Claims</span>
+        </a>
+        <a href="staff-schedule.html" class="sidebar-link" data-nav-module="staff">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          <span class="sidebar-label">Staff Shift Roster</span>
+        </a>
+        <a href="messages.html" class="sidebar-link active" data-nav-module="messages">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          <span class="sidebar-label">Clinical Messages</span>
+        </a>
+        <a href="reports.html" class="sidebar-link" data-nav-module="reports">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+          <span class="sidebar-label">Reports &amp; NABH KPIs</span>
+        </a>
+        <a href="settings.html" class="sidebar-link" data-nav-module="settings">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4"/></svg>
+          <span class="sidebar-label">Hospital Settings</span>
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="sidebar-footer-text">
+          <div class="mono" style="color:var(--accent);font-size:0.74rem;">● E2E ENCRYPTED BUS</div>
+          <div>2 Unread STAT Escalations</div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- ==================== MAIN WORKSPACE ==================== -->
+    <div class="dash-main-wrap">
+      <header class="dash-topbar">
+        <div class="topbar-left">
+          <button type="button" class="btn btn-icon btn-sm mobile-menu-toggle" data-action="mobile-sidebar" aria-label="Open sidebar menu">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+          </button>
+          <div class="global-search-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <input type="search" id="dash-global-search" placeholder="Search clinical broadcasts, UHID tags, or department threads..." aria-label="Search clinical messages">
+          </div>
+        </div>
+
+        <div class="topbar-right">
+          <div class="role-switcher-wrap">
+            <span>Role:</span>
+            <select id="dash-role-switcher" class="role-switcher-select" aria-label="Switch Active Hospital Role">
+              <option value="Admin">Admin</option>
+              <option value="Doctor">Doctor</option>
+              <option value="Nurse">Nurse</option>
+              <option value="Billing">Billing</option>
+            </select>
+          </div>
+          <button type="button" class="btn btn-icon btn-sm" data-action="toggle-rtl" aria-label="Toggle RTL layout">RTL</button>
+          <button type="button" class="btn btn-icon btn-sm" data-action="toggle-theme" aria-label="Toggle color theme">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2m-7.07-14.93 1.41 1.41m11.32 11.32 1.41 1.41M2 12h2m16 0h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+          </button>
+          <a href="settings.html" class="user-monogram-pill">
+            <span class="monogram-circle">SD</span>
+            <span id="active-role-badge">Admin View</span>
+          </a>
+        </div>
+      </header>
+
+      <main id="main-content" class="dash-content">
+        <div class="dash-page-header">
+          <div>
+            <span class="eyebrow" style="margin-bottom:4px;"><span class="eyebrow-dot"></span>HIPAA Audit-Logged Clinical Communications</span>
+            <h1>Inter-Departmental Clinical Messages &amp; STAT Alerts</h1>
+          </div>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;">
+            <span class="badge badge-signal">2 Critical Lab / ICU Escalations</span>
+            <span class="badge badge-teal">Zero Unacknowledged Code Blue</span>
+          </div>
+        </div>
+
+        <!-- ==================== PRIORITY CLINICAL SENDER CARDS (4 UNIQUE PORTRAITS) ==================== -->
+        <section class="grid grid-4" aria-label="Priority Department Threads">
+          <article class="mc-card card-anim-ecg">
+            <picture>
+              <source type="image/webp" srcset="../assets/images/dashboard/msg-01-dr-rhea-bose-640w.webp 640w, ../assets/images/dashboard/msg-01-dr-rhea-bose.webp 400w" sizes="64px">
+              <img src="../assets/images/dashboard/msg-01-dr-rhea-bose.jpg" alt="Dr. Rhea Bose, Critical Care Intensivist" class="avatar-thumb" width="64" height="64" loading="lazy" style="width:64px;height:64px;margin-bottom:var(--sp-2);">
+            </picture>
+            <span class="badge badge-signal">STAT · ICU-A HANDOVER</span>
+            <h3 style="margin-top:8px;">Dr. Rhea Bose</h3>
+            <p>“Bed ICU-A01 (Aarav Sharma) post-PCI heparin infusion titrated to 900 U/hr; repeat APTT ordered for 14:00.”</p>
+            <span class="mono" style="font-size:0.74rem;color:var(--text-muted);">10:12 AM · Verified SBAR</span>
+          </article>
+
+          <article class="mc-card card-anim-pulse">
+            <picture>
+              <source type="image/webp" srcset="../assets/images/dashboard/msg-02-pharmacist-nitin-shah-640w.webp 640w, ../assets/images/dashboard/msg-02-pharmacist-nitin-shah.webp 400w" sizes="64px">
+              <img src="../assets/images/dashboard/msg-02-pharmacist-nitin-shah.jpg" alt="Nitin Shah, Chief Clinical Pharmacist" class="avatar-thumb" width="64" height="64" loading="lazy" style="width:64px;height:64px;margin-bottom:var(--sp-2);">
+            </picture>
+            <span class="badge badge-amber">PHARMACY COLD-CHAIN</span>
+            <h3 style="margin-top:8px;">Nitin Shah, PharmD</h3>
+            <p>“Batch #MER-209 (Meropenem 1g Vial) reached reorder threshold (42 vials left). Auto-PO queued for vendor approval.”</p>
+            <span class="mono" style="font-size:0.74rem;color:var(--text-muted);">09:48 AM · Central Store</span>
+          </article>
+
+          <article class="mc-card card-anim-scan">
+            <picture>
+              <source type="image/webp" srcset="../assets/images/dashboard/msg-03-lab-lead-susan-cho-640w.webp 640w, ../assets/images/dashboard/msg-03-lab-lead-susan-cho.webp 400w" sizes="64px">
+              <img src="../assets/images/dashboard/msg-03-lab-lead-susan-cho.jpg" alt="Susan Cho, Lead Clinical Pathologist" class="avatar-thumb" width="64" height="64" loading="lazy" style="width:64px;height:64px;margin-bottom:var(--sp-2);">
+            </picture>
+            <span class="badge badge-signal">LAB PANIC VALUE</span>
+            <h3 style="margin-top:8px;">Susan Cho, MD (LIS)</h3>
+            <p>“CRITICAL LAB: Serum Potassium 6.1 mEq/L for UHID-2026-9045 (David Kowalski, Ward GEN-C01). Nephrology notified.”</p>
+            <span class="mono" style="font-size:0.74rem;color:var(--text-muted);">09:31 AM · Cobas 8000 Auto</span>
+          </article>
+
+          <article class="mc-card card-anim-ring">
+            <picture>
+              <source type="image/webp" srcset="../assets/images/dashboard/msg-04-tpa-desk-amit-tiwari-640w.webp 640w, ../assets/images/dashboard/msg-04-tpa-desk-amit-tiwari.webp 400w" sizes="64px">
+              <img src="../assets/images/dashboard/msg-04-tpa-desk-amit-tiwari.jpg" alt="Amit Tiwari, Senior TPA & Insurance Desk Lead" class="avatar-thumb" width="64" height="64" loading="lazy" style="width:64px;height:64px;margin-bottom:var(--sp-2);">
+            </picture>
+            <span class="badge badge-emerald">TPA PRE-AUTH APPROVED</span>
+            <h3 style="margin-top:8px;">Amit Tiwari (RCM Desk)</h3>
+            <p>“Star Health NHCX Pre-Auth #SH-99241 approved for ₹1,85,000 (UHID-2026-9041). Final discharge clearance greenlit.”</p>
+            <span class="mono" style="font-size:0.74rem;color:var(--text-muted);">09:05 AM · Insurance Desk</span>
+          </article>
+        </section>
+
+        <!-- ==================== INTERACTIVE THREAD LOG & REPLY COMPOSER ==================== -->
+        <section class="dash-panel" aria-labelledby="thread-composer-heading">
+          <div class="dash-panel-header">
+            <h2 id="thread-composer-heading" style="font-size:1.15rem;">Live Clinical Command Thread: ICU-A &amp; Central Lab Escalation Channel</h2>
+            <span class="badge badge-teal">SBAR Structured Protocol</span>
+          </div>
+
+          <div id="message-thread-log" style="margin-bottom:var(--sp-3);">
+            <div class="dash-panel" style="margin-bottom:12px;">
+              <div style="display:flex;justify-content:space-between;font-size:0.8rem;margin-bottom:6px;">
+                <strong>Susan Cho, MD (Central Pathology LIS)</strong>
+                <span class="mono">09:31 AM</span>
+              </div>
+              <p style="margin:0;">Panic Value Alert logged for UHID-2026-9045 (David Kowalski): Serum K+ 6.1 mEq/L, Creatinine 3.8 mg/dL. Hemolysis ruled out on repeat spin. Please confirm ECG monitoring and calcium gluconate order.</p>
+            </div>
+
+            <div class="dash-panel" style="margin-bottom:12px;">
+              <div style="display:flex;justify-content:space-between;font-size:0.8rem;margin-bottom:6px;">
+                <strong>Dr. Rhea Bose (Critical Care &amp; Rapid Response)</strong>
+                <span class="mono">09:36 AM</span>
+              </div>
+              <p style="margin:0;">Acknowledged panic alert. 12-lead ECG performed at bedside (no Sine wave; mild peaked T-waves). IV Calcium Gluconate 10% 10mL + Dextrose-Insulin infusion initiated. Emergency dialysis slot reserved in Unit B.</p>
+            </div>
+          </div>
+
+          <form id="message-reply-form" novalidate>
+            <div class="form-group">
+              <label for="message-reply-input" class="form-label">Transmit Audited Clinical Response / Handover Note</label>
+              <textarea id="message-reply-input" class="form-textarea" rows="3" placeholder="Type SBAR clinical note, medication confirmation, or discharge clearance instruction..." required></textarea>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;">
+              <span class="mono" style="font-size:0.75rem;color:var(--text-muted);">Signed with SHA-256 Clinical Timestamp · Visible to ICU, Lab &amp; Nursing Duty Station</span>
+              <button type="submit" class="btn btn-primary">Send Audited Reply</button>
+            </div>
+          </form>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <script src="../assets/js/plugins/tilt.js"></script>
+  <script src="../assets/js/main.js"></script>
+  <script src="../assets/js/dashboard.js"></script>
+</body>
+</html>
+

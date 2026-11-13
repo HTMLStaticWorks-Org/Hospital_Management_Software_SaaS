@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Appointments &amp; OPD Queue | MediCore HMS Dashboard</title>
+  <meta name="description" content="Manage OPD consultation slots, telemedicine video sessions, smart queue tokens, and walk-in bookings in MediCore HMS.">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/dark-mode.css">
+  <link rel="stylesheet" href="../assets/css/rtl.css">
+  <link rel="stylesheet" href="../assets/css/dashboard.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <div class="dash-shell">
+    <!-- ==================== SHARED COLLAPSIBLE SIDEBAR ==================== -->
+    <aside id="dash-sidebar" class="dash-sidebar" aria-label="Hospital Dashboard Navigation">
+      <div class="sidebar-brand">
+        <a href="../index.html" class="brand-logo" style="color:#FFFFFF;font-size:1.1rem;">
+          <span class="brand-logo-mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+          </span>
+          <span class="sidebar-label">MediCore <em>HMS</em></span>
+        </a>
+        <button type="button" class="btn btn-icon btn-sm" data-action="collapse-sidebar" aria-label="Collapse or expand sidebar" style="background:rgba(255,255,255,0.08);color:#FFFFFF;border:none;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+        </button>
+      </div>
+
+      <nav class="sidebar-nav" aria-label="Clinical Modules">
+        <div class="sidebar-section-title">Clinical Command</div>
+        <a href="dashboard.html" class="sidebar-link" data-nav-module="overview">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+          <span class="sidebar-label">Overview &amp; KPIs</span>
+        </a>
+        <a href="patients.html" class="sidebar-link" data-nav-module="patients">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+          <span class="sidebar-label">Patient Records (EMR)</span>
+        </a>
+        <a href="beds.html" class="sidebar-link" data-nav-module="beds">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 4v16M2 8h18a2 2 0 0 1 2 2v10M2 17h20"/></svg>
+          <span class="sidebar-label">Bed &amp; Ward Status</span>
+        </a>
+        <a href="appointments.html" class="sidebar-link active" data-nav-module="appointments">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          <span class="sidebar-label">Appointments &amp; OPD</span>
+        </a>
+
+        <div class="sidebar-section-title">Operations &amp; Finance</div>
+        <a href="billing.html" class="sidebar-link" data-nav-module="billing">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
+          <span class="sidebar-label">Billing &amp; TPA Claims</span>
+        </a>
+        <a href="staff-schedule.html" class="sidebar-link" data-nav-module="staff">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          <span class="sidebar-label">Staff Shift Roster</span>
+        </a>
+        <a href="messages.html" class="sidebar-link" data-nav-module="messages">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          <span class="sidebar-label">Clinical Messages</span>
+        </a>
+        <a href="reports.html" class="sidebar-link" data-nav-module="reports">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+          <span class="sidebar-label">Reports &amp; NABH KPIs</span>
+        </a>
+        <a href="settings.html" class="sidebar-link" data-nav-module="settings">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4"/></svg>
+          <span class="sidebar-label">Hospital Settings</span>
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="sidebar-footer-text">
+          <div class="mono" style="color:var(--accent);font-size:0.74rem;">● OPD QUEUE LIVE</div>
+          <div>Avg Wait Time: 7.4 Mins</div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- ==================== MAIN WORKSPACE ==================== -->
+    <div class="dash-main-wrap">
+      <header class="dash-topbar">
+        <div class="topbar-left">
+          <button type="button" class="btn btn-icon btn-sm mobile-menu-toggle" data-action="mobile-sidebar" aria-label="Open sidebar menu">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+          </button>
+          <div class="global-search-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <input type="search" id="dash-global-search" placeholder="Search token, patient name, consultant, or OPD chamber..." aria-label="Search appointments">
+          </div>
+        </div>
+
+        <div class="topbar-right">
+          <div class="role-switcher-wrap">
+            <span>Role:</span>
+            <select id="dash-role-switcher" class="role-switcher-select" aria-label="Switch Active Hospital Role">
+              <option value="Admin">Admin</option>
+              <option value="Doctor">Doctor</option>
+              <option value="Nurse">Nurse</option>
+              <option value="Billing">Billing</option>
+            </select>
+          </div>
+          <button type="button" class="btn btn-primary btn-sm" data-open-modal="book-appointment-modal">+ Book OPD Slot</button>
+          <button type="button" class="btn btn-icon btn-sm" data-action="toggle-rtl" aria-label="Toggle RTL layout">RTL</button>
+          <button type="button" class="btn btn-icon btn-sm" data-action="toggle-theme" aria-label="Toggle color theme">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2m-7.07-14.93 1.41 1.41m11.32 11.32 1.41 1.41M2 12h2m16 0h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+          </button>
+          <a href="settings.html" class="user-monogram-pill">
+            <span class="monogram-circle">SD</span>
+            <span id="active-role-badge">Admin View</span>
+          </a>
+        </div>
+      </header>
+
+      <main id="main-content" class="dash-content">
+        <div class="dash-page-header">
+          <div>
+            <span class="eyebrow" style="margin-bottom:4px;"><span class="eyebrow-dot"></span>Friday, 13 Nov 2026 · 142 Slots Scheduled</span>
+            <h1>OPD &amp; Telemedicine Appointment Queue</h1>
+          </div>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;">
+            <span class="badge badge-emerald">WhatsApp Token Sync Active</span>
+            <button type="button" class="btn btn-primary btn-sm" data-open-modal="book-appointment-modal">+ New Walk-In / Video Slot</button>
+          </div>
+        </div>
+
+        <!-- ==================== ACTIVE CONSULTANT OPD CHAMBERS (4 UNIQUE PORTRAITS) ==================== -->
+        <section class="grid grid-4" aria-label="Active OPD Consultant Chambers">
+          <article class="mc-card card-anim-pulse">
+            <picture>
+              <source type="image/webp" srcset="../assets/images/dashboard/appt-01-dr-neha-kapoor-640w.webp 640w, ../assets/images/dashboard/appt-01-dr-neha-kapoor.webp 400w" sizes="64px">
+              <img src="../assets/images/dashboard/appt-01-dr-neha-kapoor.jpg" alt="Dr. Neha Kapoor, Senior Endocrinologist" class="avatar-thumb" width="64" height="64" loading="lazy" style="width:64px;height:64px;margin-bottom:var(--sp-2);">
+            </picture>
+            <span class="badge badge-teal appt-status-badge">OPD Chamber 104 · Active</span>
+            <h3 style="margin-top:8px;">Dr. Neha Kapoor</h3>
+            <p>Endocrinology &amp; Diabetology · Token <strong>#END-14</strong> in room (3 waiting).</p>
+            <div class="card-actions">
+              <button type="button" class="btn btn-ghost btn-sm" data-appt-next>Call Next Token</button>
+            </div>
+          </article>
+
+          <article class="mc-card card-anim-ecg">
+            <picture>
+              <source type="image/webp" srcset="../assets/images/dashboard/appt-02-dr-alan-park-640w.webp 640w, ../assets/images/dashboard/appt-02-dr-alan-park.webp 400w" sizes="64px">
+              <img src="../assets/images/dashboard/appt-02-dr-alan-park.jpg" alt="Dr. Alan Park, Pulmonology & Sleep Medicine Consultant" class="avatar-thumb" width="64" height="64" loading="lazy" style="width:64px;height:64px;margin-bottom:var(--sp-2);">
+            </picture>
+            <span class="badge badge-emerald appt-status-badge">OPD Chamber 208 · Active</span>
+            <h3 style="margin-top:8px;">Dr. Alan Park</h3>
+            <p>Pulmonology &amp; Respiratory Care · Token <strong>#PUL-09</strong> in room (1 waiting).</p>
+            <div class="card-actions">
+              <button type="button" class="btn btn-ghost btn-sm" data-appt-next>Call Next Token</button>
+            </div>
+          </article>
+
+          <article class="mc-card card-anim-scan">
+            <picture>
+              <source type="image/webp" srcset="../assets/images/dashboard/appt-03-dr-zoya-mirza-640w.webp 640w, ../assets/images/dashboard/appt-03-dr-zoya-mirza.webp 400w" sizes="64px">
+              <img src="../assets/images/dashboard/appt-03-dr-zoya-mirza.jpg" alt="Dr. Zoya Mirza, High-Risk Obstetrics & Gynecology Specialist" class="avatar-thumb" width="64" height="64" loading="lazy" style="width:64px;height:64px;margin-bottom:var(--sp-2);">
+            </picture>
+            <span class="badge badge-amber appt-status-badge">Telemedicine HD · Live</span>
+            <h3 style="margin-top:8px;">Dr. Zoya Mirza</h3>
+            <p>Obstetrics &amp; Maternal Care · Virtual Consult <strong>#OBG-22</strong> connected.</p>
+            <div class="card-actions">
+              <button type="button" class="btn btn-ghost btn-sm" data-appt-next>Check In Next</button>
+            </div>
+          </article>
+
+          <article class="mc-card card-anim-ring">
+            <picture>
+              <source type="image/webp" srcset="../assets/images/dashboard/appt-04-dr-thomas-wright-640w.webp 640w, ../assets/images/dashboard/appt-04-dr-thomas-wright.webp 400w" sizes="64px">
+              <img src="../assets/images/dashboard/appt-04-dr-thomas-wright.jpg" alt="Dr. Thomas Wright, Senior Gastro-Intestinal Surgeon" class="avatar-thumb" width="64" height="64" loading="lazy" style="width:64px;height:64px;margin-bottom:var(--sp-2);">
+            </picture>
+            <span class="badge badge-teal appt-status-badge">OPD Chamber 302 · Active</span>
+            <h3 style="margin-top:8px;">Dr. Thomas Wright</h3>
+            <p>Gastroenterology &amp; Hepatology · Token <strong>#GAS-11</strong> in room (2 waiting).</p>
+            <div class="card-actions">
+              <button type="button" class="btn btn-ghost btn-sm" data-appt-next>Call Next Token</button>
+            </div>
+          </article>
+        </section>
+
+        <!-- ==================== TODAY'S APPOINTMENT SCHEDULE TABLE ==================== -->
+        <section class="dash-panel" aria-labelledby="appt-table-heading">
+          <div class="dash-panel-header">
+            <h2 id="appt-table-heading" style="font-size:1.15rem;">Master OPD &amp; Virtual Consultation Schedule (13 Nov 2026)</h2>
+            <div class="filter-chips">
+              <span class="badge badge-teal">In-Person OPD (114)</span>
+              <span class="badge badge-mint">Telemedicine Video (28)</span>
+            </div>
+          </div>
+
+          <div class="table-responsive">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Token / Time</th>
+                  <th>Patient &amp; UHID</th>
+                  <th>Consulting Specialist</th>
+                  <th>Channel / Chamber</th>
+                  <th>Clinical Reason</th>
+                  <th>Live Status</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td data-label="Token / Time" class="mono"><strong>#END-15</strong> · 10:30 AM</td>
+                  <td data-label="Patient">Rohan Kulkarni <span class="mono" style="font-size:0.75rem;color:var(--text-muted);">(UHID-2026-9102)</span></td>
+                  <td data-label="Specialist">Dr. Neha Kapoor (Endocrinology)</td>
+                  <td data-label="Channel">OPD Chamber 104 (In-Person)</td>
+                  <td data-label="Reason">HbA1c Follow-up &amp; Insulin Titration</td>
+                  <td data-label="Status"><span class="badge badge-amber appt-status-badge">Vitals Checked · Waiting</span></td>
+                  <td data-label="Action"><button type="button" class="btn btn-ghost btn-sm" data-appt-next>Start Consult</button></td>
+                </tr>
+                <tr>
+                  <td data-label="Token / Time" class="mono"><strong>#PUL-10</strong> · 10:45 AM</td>
+                  <td data-label="Patient">Anjali Menon <span class="mono" style="font-size:0.75rem;color:var(--text-muted);">(UHID-2026-9108)</span></td>
+                  <td data-label="Specialist">Dr. Alan Park (Pulmonology)</td>
+                  <td data-label="Channel">OPD Chamber 208 + Spirometry</td>
+                  <td data-label="Reason">Bronchial Asthma &amp; PFT Evaluation</td>
+                  <td data-label="Status"><span class="badge badge-amber appt-status-badge">Arrived at Desk</span></td>
+                  <td data-label="Action"><button type="button" class="btn btn-ghost btn-sm" data-appt-next>Start Consult</button></td>
+                </tr>
+                <tr>
+                  <td data-label="Token / Time" class="mono"><strong>#OBG-23</strong> · 11:00 AM</td>
+                  <td data-label="Patient">Nadia Al-Sabah <span class="mono" style="font-size:0.75rem;color:var(--text-muted);">(UHID-2026-9114)</span></td>
+                  <td data-label="Specialist">Dr. Zoya Mirza (Obstetrics)</td>
+                  <td data-label="Channel">WebRTC Telemedicine Room #4</td>
+                  <td data-label="Reason">2nd Trimester Anomaly Scan Review</td>
+                  <td data-label="Status"><span class="badge badge-teal appt-status-badge">In Consultation</span></td>
+                  <td data-label="Action"><button type="button" class="btn btn-ghost btn-sm" data-appt-next>Update Status</button></td>
+                </tr>
+                <tr>
+                  <td data-label="Token / Time" class="mono"><strong>#GAS-12</strong> · 11:15 AM</td>
+                  <td data-label="Patient">Vikramjit Gill <span class="mono" style="font-size:0.75rem;color:var(--text-muted);">(UHID-2026-9119)</span></td>
+                  <td data-label="Specialist">Dr. Thomas Wright (Gastroenterology)</td>
+                  <td data-label="Channel">OPD Chamber 302 (In-Person)</td>
+                  <td data-label="Reason">Post-Endoscopy Biopsy Discussion</td>
+                  <td data-label="Status"><span class="badge badge-emerald appt-status-badge">Confirmed via WhatsApp</span></td>
+                  <td data-label="Action"><button type="button" class="btn btn-ghost btn-sm" data-appt-next>Check In</button></td>
+                </tr>
+                <tr>
+                  <td data-label="Token / Time" class="mono"><strong>#END-16</strong> · 11:30 AM</td>
+                  <td data-label="Patient">Sunita Deshpande <span class="mono" style="font-size:0.75rem;color:var(--text-muted);">(UHID-2026-9125)</span></td>
+                  <td data-label="Specialist">Dr. Neha Kapoor (Endocrinology)</td>
+                  <td data-label="Channel">OPD Chamber 104 (In-Person)</td>
+                  <td data-label="Reason">Thyroid Nodule Ultrasound Correlation</td>
+                  <td data-label="Status"><span class="badge badge-emerald appt-status-badge">Scheduled</span></td>
+                  <td data-label="Action"><button type="button" class="btn btn-ghost btn-sm" data-appt-next>Check In</button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <!-- ==================== BOOK APPOINTMENT MODAL ==================== -->
+  <div id="book-appointment-modal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="book-appt-title">
+    <div class="modal-dialog">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:var(--sp-3);">
+        <h2 id="book-appt-title" style="font-size:1.35rem;">Book OPD or Telemedicine Slot</h2>
+        <button type="button" class="btn btn-ghost btn-sm" data-close-modal>✕</button>
+      </div>
+      <form id="book-appointment-form" novalidate>
+        <div class="form-group">
+          <label for="appt-pt-name" class="form-label">Patient Full Name or UHID *</label>
+          <input type="text" id="appt-pt-name" class="form-control" placeholder="e.g. Siddharth Malhotra (UHID-2026-9140)" required>
+        </div>
+        <div class="grid grid-2">
+          <div class="form-group">
+            <label for="appt-doc-select" class="form-label">Consulting Specialist *</label>
+            <select id="appt-doc-select" class="form-select" required>
+              <option value="Dr. Neha Kapoor (Endocrinology)">Dr. Neha Kapoor (Endocrinology)</option>
+              <option value="Dr. Alan Park (Pulmonology)">Dr. Alan Park (Pulmonology)</option>
+              <option value="Dr. Zoya Mirza (Obstetrics)">Dr. Zoya Mirza (Obstetrics)</option>
+              <option value="Dr. Thomas Wright (Gastroenterology)">Dr. Thomas Wright (Gastroenterology)</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="appt-time-slot" class="form-label">Preferred Time Slot *</label>
+            <select id="appt-time-slot" class="form-select" required>
+              <option value="11:45 AM (OPD Token)">11:45 AM (In-Person OPD)</option>
+              <option value="12:15 PM (Telemedicine HD)">12:15 PM (Telemedicine Video)</option>
+              <option value="02:30 PM (OPD Token)">02:30 PM (In-Person OPD)</option>
+              <option value="04:00 PM (Priority Walk-In)">04:00 PM (Priority Walk-In)</option>
+            </select>
+          </div>
+        </div>
+        <div style="display:flex;justify-content:flex-end;gap:10px;margin-top:var(--sp-3);">
+          <button type="button" class="btn btn-secondary" data-close-modal>Cancel</button>
+          <button type="submit" class="btn btn-primary">Confirm &amp; Issue Token</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="../assets/js/plugins/tilt.js"></script>
+  <script src="../assets/js/main.js"></script>
+  <script src="../assets/js/dashboard.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,199 @@
+/**
+ * MediCore HMS — Self-Contained Clinical Chart Engine (charts.js)
+ * Renders responsive SVG charts for Dashboard Overview and Reports modules:
+ * - Multi-series Line/Area Chart (Admissions & Discharges Trend)
+ * - Horizontal Progress/Bar Chart (Department Capacity Load)
+ * - Grouped Bar Chart (Revenue Billed vs Collections)
+ * - Multi-Segment Donut Chart (Bed Occupancy Breakdown)
+ */
+(function () {
+  'use strict';
+
+  /**
+   * Render a multi-line + area SVG chart inside target container.
+   * @param {HTMLElement} container
+   * @param {Object} data - { labels: [], ipd: [], opd: [], discharges: [] }
+   */
+  function renderAdmissionsChart(container, data) {
+    if (!container || !data) return;
+    var w = 640;
+    var h = 240;
+    var padL = 44;
+    var padR = 20;
+    var padT = 24;
+    var padB = 36;
+    var plotW = w - padL - padR;
+    var plotH = h - padT - padB;
+    var maxVal = 210;
+
+    function pt(arr) {
+      return arr.map(function (v, i) {
+        var x = padL + (i / (arr.length - 1)) * plotW;
+        var y = padT + plotH - (v / maxVal) * plotH;
+        return x.toFixed(1) + ',' + y.toFixed(1);
+      }).join(' ');
+    }
+
+    var opdPts = pt(data.opd);
+    var ipdPts = pt(data.ipd);
+    var disPts = pt(data.discharges);
+
+    var gridLines = [0, 50, 100, 150, 200].map(function (val) {
+      var y = (padT + plotH - (val / maxVal) * plotH).toFixed(1);
+      return '<line x1="' + padL + '" y1="' + y + '" x2="' + (w - padR) + '" y2="' + y + '" stroke="rgba(15,163,163,0.16)" stroke-dasharray="4 4"/>' +
+             '<text x="' + (padL - 8) + '" y="' + (parseFloat(y) + 4) + '" text-anchor="end" fill="#547A85" font-size="11" font-family="JetBrains Mono">' + val + '</text>';
+    }).join('');
+
+    var xLabels = data.labels.map(function (lbl, i) {
+      var x = (padL + (i / (data.labels.length - 1)) * plotW).toFixed(1);
+      return '<text x="' + x + '" y="' + (h - 10) + '" text-anchor="middle" fill="#547A85" font-size="11" font-family="JetBrains Mono">' + lbl + '</text>';
+    }).join('');
+
+    var dots = data.opd.map(function (v, i) {
+      var x = (padL + (i / (data.opd.length - 1)) * plotW).toFixed(1);
+      var yOpd = (padT + plotH - (v / maxVal) * plotH).toFixed(1);
+      var yIpd = (padT + plotH - (data.ipd[i] / maxVal) * plotH).toFixed(1);
+      return '<circle cx="' + x + '" cy="' + yOpd + '" r="4" fill="#0FA3A3"><title>OPD (' + data.labels[i] + '): ' + v + '</title></circle>' +
+             '<circle cx="' + x + '" cy="' + yIpd + '" r="4" fill="#3EF2C0"><title>IPD (' + data.labels[i] + '): ' + data.ipd[i] + '</title></circle>';
+    }).join('');
+
+    container.innerHTML =
+      '<div style="width:100%;">' +
+      '<div style="display:flex;gap:16px;justify-content:flex-end;margin-bottom:8px;font-size:12px;font-family:var(--font-mono);">' +
+      '<span style="display:inline-flex;align-items:center;gap:6px;"><i style="width:10px;height:10px;border-radius:50%;background:#0FA3A3;display:inline-block;"></i>OPD Visits</span>' +
+      '<span style="display:inline-flex;align-items:center;gap:6px;"><i style="width:10px;height:10px;border-radius:50%;background:#3EF2C0;display:inline-block;"></i>IPD Admissions</span>' +
+      '<span style="display:inline-flex;align-items:center;gap:6px;"><i style="width:10px;height:10px;border-radius:50%;background:#FFB84D;display:inline-block;"></i>Discharges</span>' +
+      '</div>' +
+      '<svg viewBox="0 0 ' + w + ' ' + h + '" style="width:100%;height:auto;overflow:visible;" role="img" aria-label="Weekly Admissions and OPD Visits Chart">' +
+      gridLines +
+      '<polyline fill="none" stroke="#0FA3A3" stroke-width="3" points="' + opdPts + '"/>' +
+      '<polyline fill="none" stroke="#3EF2C0" stroke-width="3" points="' + ipdPts + '"/>' +
+      '<polyline fill="none" stroke="#FFB84D" stroke-width="2.2" stroke-dasharray="5 3" points="' + disPts + '"/>' +
+      dots +
+      xLabels +
+      '</svg>' +
+      '</div>';
+  }
+
+  /**
+   * Render Department Load horizontal bars inside target container.
+   * @param {HTMLElement} container
+   * @param {Array} list
+   */
+  function renderDepartmentLoad(container, list) {
+    if (!container || !list) return;
+    var html = '<div style="width:100%;display:flex;flex-direction:column;gap:14px;">';
+    list.forEach(function (item) {
+      var pct = Math.min(100, Math.round((item.patients / item.capacity) * 100));
+      var barColor = pct >= 90 ? 'var(--signal)' : (pct >= 80 ? 'var(--primary)' : 'var(--emerald)');
+      html +=
+        '<div>' +
+        '<div style="display:flex;justify-content:space-between;font-size:0.86rem;font-weight:600;margin-bottom:5px;">' +
+        '<span>' + item.department + '</span>' +
+        '<span class="mono">' + item.patients + ' / ' + item.capacity + ' (' + pct + '%)</span>' +
+        '</div>' +
+        '<div style="height:10px;background:var(--surface-2);border-radius:999px;overflow:hidden;">' +
+        '<div style="width:' + pct + '%;height:100%;background:' + barColor + ';border-radius:999px;transition:width 0.8s ease;"></div>' +
+        '</div>' +
+        '</div>';
+    });
+    html += '</div>';
+    container.innerHTML = html;
+  }
+
+  /**
+   * Render Revenue vs Collections grouped vertical SVG bar chart.
+   * @param {HTMLElement} container
+   * @param {Object} data - { months: [], billedLakhs: [], collectedLakhs: [] }
+   */
+  function renderRevenueChart(container, data) {
+    if (!container || !data) return;
+    var w = 560;
+    var h = 230;
+    var padL = 44;
+    var padR = 16;
+    var padT = 20;
+    var padB = 34;
+    var plotW = w - padL - padR;
+    var plotH = h - padT - padB;
+    var maxV = 600;
+    var groupW = plotW / data.months.length;
+
+    var bars = data.months.map(function (m, i) {
+      var bVal = data.billedLakhs[i];
+      var cVal = data.collectedLakhs[i];
+      var bH = (bVal / maxV) * plotH;
+      var cH = (cVal / maxV) * plotH;
+      var xBase = padL + i * groupW + groupW * 0.2;
+      var yB = padT + plotH - bH;
+      var yC = padT + plotH - cH;
+      var lblX = padL + i * groupW + groupW * 0.5;
+      return (
+        '<rect x="' + xBase.toFixed(1) + '" y="' + yB.toFixed(1) + '" width="16" height="' + bH.toFixed(1) + '" rx="4" fill="#0FA3A3"><title>' + m + ' Billed: ₹' + bVal + 'L</title></rect>' +
+        '<rect x="' + (xBase + 20).toFixed(1) + '" y="' + yC.toFixed(1) + '" width="16" height="' + cH.toFixed(1) + '" rx="4" fill="#3EF2C0"><title>' + m + ' Collected: ₹' + cVal + 'L</title></rect>' +
+        '<text x="' + lblX.toFixed(1) + '" y="' + (h - 10) + '" text-anchor="middle" fill="#547A85" font-size="11" font-family="JetBrains Mono">' + m + '</text>'
+      );
+    }).join('');
+
+    container.innerHTML =
+      '<div style="width:100%;">' +
+      '<div style="display:flex;gap:16px;justify-content:flex-end;margin-bottom:8px;font-size:12px;font-family:var(--font-mono);">' +
+      '<span style="display:inline-flex;align-items:center;gap:6px;"><i style="width:10px;height:10px;border-radius:3px;background:#0FA3A3;display:inline-block;"></i>Billed (₹ Lakhs)</span>' +
+      '<span style="display:inline-flex;align-items:center;gap:6px;"><i style="width:10px;height:10px;border-radius:3px;background:#3EF2C0;display:inline-block;"></i>Collected (₹ Lakhs)</span>' +
+      '</div>' +
+      '<svg viewBox="0 0 ' + w + ' ' + h + '" style="width:100%;height:auto;" role="img" aria-label="Monthly Revenue vs Collections Chart">' +
+      bars +
+      '</svg></div>';
+  }
+
+  /**
+   * Render Bed Occupancy SVG Donut Chart.
+   * @param {HTMLElement} container
+   * @param {Object} breakdown - { occupied, available, cleaning, reserved, maintenance }
+   */
+  function renderBedDonut(container, breakdown) {
+    if (!container || !breakdown) return;
+    var total = breakdown.occupied + breakdown.available + breakdown.cleaning + breakdown.reserved + breakdown.maintenance;
+    var pctOccupied = ((breakdown.occupied / total) * 100).toFixed(1);
+    var r = 64;
+    var c = 2 * Math.PI * r;
+    var segs = [
+      { label: 'Occupied', count: breakdown.occupied, color: '#FF5C6C' },
+      { label: 'Available', count: breakdown.available, color: '#10B981' },
+      { label: 'Cleaning', count: breakdown.cleaning, color: '#FFB84D' },
+      { label: 'Reserved', count: breakdown.reserved, color: '#0FA3A3' }
+    ];
+
+    var offset = 0;
+    var circles = segs.map(function (s) {
+      var len = (s.count / total) * c;
+      var el = '<circle cx="90" cy="90" r="' + r + '" fill="transparent" stroke="' + s.color + '" stroke-width="20" stroke-dasharray="' + len.toFixed(1) + ' ' + (c - len).toFixed(1) + '" stroke-dashoffset="' + (-offset).toFixed(1) + '"/>';
+      offset += len;
+      return el;
+    }).join('');
+
+    var legend = segs.map(function (s) {
+      return '<div style="display:flex;align-items:center;justify-content:space-between;gap:12px;font-size:0.84rem;">' +
+             '<span style="display:inline-flex;align-items:center;gap:8px;"><i style="width:10px;height:10px;border-radius:50%;background:' + s.color + ';display:inline-block;"></i>' + s.label + '</span>' +
+             '<strong class="mono">' + s.count + '</strong></div>';
+    }).join('');
+
+    container.innerHTML =
+      '<div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-around;gap:20px;width:100%;">' +
+      '<svg width="180" height="180" viewBox="0 0 180 180" role="img" aria-label="Bed Occupancy Donut">' +
+      circles +
+      '<text x="90" y="86" text-anchor="middle" fill="currentColor" font-size="22" font-weight="800" font-family="JetBrains Mono">' + pctOccupied + '%</text>' +
+      '<text x="90" y="106" text-anchor="middle" fill="#547A85" font-size="11" font-family="Inter">Occupied (' + total + ')</text>' +
+      '</svg>' +
+      '<div style="display:flex;flex-direction:column;gap:8px;min-width:150px;">' + legend + '</div>' +
+      '</div>';
+  }
+
+  window.MediCoreCharts = {
+    renderAdmissionsChart: renderAdmissionsChart,
+    renderDepartmentLoad: renderDepartmentLoad,
+    renderRevenueChart: renderRevenueChart,
+    renderBedDonut: renderBedDonut
+  };
+})();
+

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 Ward Route Not Found | MediCore HMS</title>
+  <meta name="description" content="The requested clinical route or hospital module page could not be located on MediCore HMS. Search our directory or return to the main command center.">
+  <meta name="robots" content="noindex, follow">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/dark-mode.css">
+  <link rel="stylesheet" href="assets/css/rtl.css">
+</head>
+<body class="bg-clinical-grid">
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="container nav-bar">
+      <a href="index.html" class="brand-logo" aria-label="MediCore HMS Home">
+        <span class="brand-logo-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+        </span>
+        <span>MediCore <em>HMS</em></span>
+      </a>
+      <div class="nav-actions">
+        <button type="button" class="btn btn-icon btn-sm" data-action="toggle-rtl" aria-label="Toggle RTL layout">RTL</button>
+        <button type="button" class="btn btn-icon btn-sm" data-action="toggle-theme" aria-label="Toggle color theme">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2m-7.07-14.93 1.41 1.41m11.32 11.32 1.41 1.41M2 12h2m16 0h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+        </button>
+        <a href="index.html" class="btn btn-primary btn-sm">Return Home</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content" class="section" style="display:flex;align-items:center;justify-content:center;flex:1;">
+    <div class="container" style="max-width:760px;">
+      <article class="mc-card card-anim-ecg" style="padding:var(--sp-6);">
+        <span class="badge badge-signal">HTTP 404 · CLINICAL ROUTE UNREACHABLE</span>
+        <div class="card-icon" style="margin-top:var(--sp-3);background:var(--signal-soft);color:var(--signal);border-color:var(--signal);">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+        </div>
+        <h1 style="font-size:2.4rem;margin-top:var(--sp-2);">404 — Ward or Page Not Found</h1>
+        <p style="margin-top:var(--sp-2);">The URL you requested has either been transferred to a different hospital wing or does not exist. Filter our quick-route directory below or jump directly to your destination.</p>
+
+        <div style="width:100%;max-width:480px;margin-top:var(--sp-4);">
+          <label for="err-route-search" class="form-label" style="text-align:center;">Quick Route Finder</label>
+          <input type="search" id="err-route-search" class="form-control" placeholder="Type 'dashboard', 'pricing', 'beds', 'docs'..." data-live-filter=".route-pill">
+        </div>
+
+        <div class="card-actions" style="margin-top:var(--sp-4);">
+          <a href="index.html" class="btn btn-primary route-pill">Home 1 (Main Landing)</a>
+          <a href="home-2.html" class="btn btn-secondary route-pill">Home 2 (Dark Product Suite)</a>
+          <a href="dashboard/dashboard.html" class="btn btn-secondary route-pill">Admin Dashboard</a>
+          <a href="features.html" class="btn btn-ghost route-pill">Features &amp; EMR</a>
+          <a href="pricing.html" class="btn btn-ghost route-pill">Pricing Plans</a>
+          <a href="docs.html" class="btn btn-ghost route-pill">API Documentation</a>
+          <a href="contact.html" class="btn btn-ghost route-pill">24/7 Support Desk</a>
+        </div>
+      </article>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom" style="padding-top:0;">
+        <span>© 2026 MediCore Health Systems Inc. All clinical clusters operational.</span>
+        <a href="status.html">View System Status</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/plugins/tilt.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
+

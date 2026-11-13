@@ -1,0 +1,87 @@
+[
+  {
+    "msgId": "MSG-901",
+    "sender": "Dr. Rhea Bose",
+    "role": "ICU Senior Resident (On-Call)",
+    "department": "Critical Care (ICU-A)",
+    "priority": "STAT / Critical",
+    "time": "10:42 AM",
+    "unread": true,
+    "subject": "Post-PCI Telemetry & Heparin Infusion Titration — UHID-2026-9041",
+    "preview": "Aarav Sharma (ICU-A Bed 04) 12-lead ECG shows ST resolution >70%. Requesting cardiology sign-off to step down heparin infusion...",
+    "avatarWebp": "../assets/images/dashboard/msg-01-dr-rhea-bose.webp",
+    "avatarSmWebp": "../assets/images/dashboard/msg-01-dr-rhea-bose-640w.webp",
+    "avatarJpg": "../assets/images/dashboard/msg-01-dr-rhea-bose.jpg",
+    "thread": [
+      {
+        "author": "Dr. Rhea Bose",
+        "timestamp": "10:42 AM",
+        "body": "Aarav Sharma (UHID-2026-9041, ICU-A Bed 04) repeat 12-lead ECG shows >70% ST-segment resolution post-DES placement. ACT is 218 sec. Requesting Dr. Kabir Sen sign-off to transition to Enoxaparin 60mg SC q12h."
+      }
+    ]
+  },
+  {
+    "msgId": "MSG-902",
+    "sender": "Nitin Shah",
+    "role": "Chief Hospital Pharmacist",
+    "department": "Central Pharmacy",
+    "priority": "Pharmacy Stock",
+    "time": "09:58 AM",
+    "unread": true,
+    "subject": "Cold-Chain Biologics & Meropenem Batch Replenishment",
+    "preview": "Batch #MRP-2026-11B (Meropenem 1g IV) has 42 vials remaining in ICU sub-store. Auto-PO #PO-4490 generated for vendor approval.",
+    "avatarWebp": "../assets/images/dashboard/msg-02-pharmacist-nitin-shah.webp",
+    "avatarSmWebp": "../assets/images/dashboard/msg-02-pharmacist-nitin-shah-640w.webp",
+    "avatarJpg": "../assets/images/dashboard/msg-02-pharmacist-nitin-shah.jpg",
+    "thread": [
+      {
+        "author": "Nitin Shah",
+        "timestamp": "09:58 AM",
+        "body": "Batch #MRP-2026-11B (Meropenem 1g IV) reached the 45-unit reorder trigger in ICU-A Narcotics & Antibiotics Vault. Automated purchase order #PO-4490 (300 vials) awaits Medical Superintendent e-signature."
+      }
+    ]
+  },
+  {
+    "msgId": "MSG-903",
+    "sender": "Susan Cho",
+    "role": "Pathology LIS Supervisor",
+    "department": "Central Diagnostic Lab",
+    "priority": "Lab Panic Value",
+    "time": "09:15 AM",
+    "unread": false,
+    "subject": "LIS Auto-Validated Critical Troponin-I & Lactate Panel",
+    "preview": "Abbott Architect i2000SR bi-directional HL7 feed pushed critical Troponin-I directly to ICU-A nursing station.",
+    "avatarWebp": "../assets/images/dashboard/msg-03-lab-lead-susan-cho.webp",
+    "avatarSmWebp": "../assets/images/dashboard/msg-03-lab-lead-susan-cho-640w.webp",
+    "avatarJpg": "../assets/images/dashboard/msg-03-lab-lead-susan-cho.jpg",
+    "thread": [
+      {
+        "author": "Susan Cho",
+        "timestamp": "09:15 AM",
+        "body": "All morning ICU & ER STAT chemistry panels have been auto-verified via HL7 v2.5.1 LIS interface. Turnaround time averaged 19.4 minutes against our 30-minute NABH benchmark."
+      }
+    ]
+  },
+  {
+    "msgId": "MSG-904",
+    "sender": "Amit Tiwari",
+    "role": "Senior TPA Claims Officer",
+    "department": "Revenue Cycle & TPA Desk",
+    "priority": "TPA Pre-Auth",
+    "time": "08:40 AM",
+    "unread": false,
+    "subject": "MediAssist TPA Query on Claim #CLM-MA-55201 (UHID-2026-9044)",
+    "preview": "Insurer medical reviewer requested the signed 3T Brain MRI radiologist addendum to release final cashless enhancement.",
+    "avatarWebp": "../assets/images/dashboard/msg-04-tpa-desk-amit-tiwari.webp",
+    "avatarSmWebp": "../assets/images/dashboard/msg-04-tpa-desk-amit-tiwari-640w.webp",
+    "avatarJpg": "../assets/images/dashboard/msg-04-tpa-desk-amit-tiwari.jpg",
+    "thread": [
+      {
+        "author": "Amit Tiwari",
+        "timestamp": "08:40 AM",
+        "body": "MediAssist TPA raised a routine document query on Claim #CLM-MA-55201 (Fatima Al-Mansoor, Neuro Bed 08). Once Dr. Omar Farooq attaches the 3T MRA summary from RIS, we can close the ₹1,18,000 cashless approval."
+      }
+    ]
+  }
+]
+

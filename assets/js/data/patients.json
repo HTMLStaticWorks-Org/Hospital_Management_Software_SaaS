@@ -1,0 +1,361 @@
+[
+  {
+    "uhid": "UHID-2026-9041",
+    "name": "Aarav Sharma",
+    "age": 58,
+    "gender": "Male",
+    "bloodGroup": "O+",
+    "phone": "+91 98201 44120",
+    "department": "Cardiology",
+    "doctor": "Dr. Kabir Sen",
+    "wardBed": "ICU-A · Bed 04",
+    "status": "ICU Critical",
+    "lastVisit": "2026-11-13",
+    "avatarWebp": "../assets/images/dashboard/patient-01-aarav-sharma.webp",
+    "avatarSmWebp": "../assets/images/dashboard/patient-01-aarav-sharma-640w.webp",
+    "avatarJpg": "../assets/images/dashboard/patient-01-aarav-sharma.jpg",
+    "diagnosis": "Acute Anterior Wall Myocardial Infarction (Post-PCI)",
+    "allergies": ["Penicillin", "Contrast Dye (Mild)"],
+    "payer": "Star Health TPA (Policy #SH-884120)",
+    "vitals": {
+      "bp": "138/86 mmHg",
+      "heartRate": "94 bpm",
+      "spo2": "95%",
+      "temp": "37.1 °C",
+      "respRate": "20 /min",
+      "bloodSugar": "142 mg/dL"
+    },
+    "prescriptions": [
+      { "drug": "Ticagrelor 90mg", "dosage": "1-0-1 Oral", "duration": "12 Months", "prescriber": "Dr. Kabir Sen" },
+      { "drug": "Rosuvastatin 40mg", "dosage": "0-0-1 HS", "duration": "Ongoing", "prescriber": "Dr. Kabir Sen" },
+      { "drug": "Enoxaparin 60mg SC", "dosage": "q12h Subcutaneous", "duration": "5 Days", "prescriber": "Dr. Kabir Sen" }
+    ],
+    "labReports": [
+      { "test": "High-Sensitivity Troponin-I", "result": "1,420 ng/L (High)", "date": "2026-11-13 06:30", "status": "Verified" },
+      { "test": "12-Lead Digital ECG + Echo", "result": "LVEF 48%, LAD Stent Patent", "date": "2026-11-13 08:15", "status": "Verified" },
+      { "test": "Renal Function Panel (RFT)", "result": "Creatinine 1.1 mg/dL (Normal)", "date": "2026-11-13 09:00", "status": "Verified" }
+    ],
+    "billing": {
+      "invoiceId": "INV-2026-8841",
+      "totalINR": 248500,
+      "approvedTpaINR": 210000,
+      "patientBalanceINR": 38500,
+      "billingStatus": "TPA Approved (Partial)"
+    },
+    "documents": [
+      { "title": "Cath Lab Coronary Angiogram Report.pdf", "size": "2.4 MB", "uploaded": "13 Nov 2026" },
+      { "title": "Star Health TPA Pre-Auth Approval Letter.pdf", "size": "840 KB", "uploaded": "13 Nov 2026" }
+    ]
+  },
+  {
+    "uhid": "UHID-2026-9042",
+    "name": "Meera Patel",
+    "age": 34,
+    "gender": "Female",
+    "bloodGroup": "A+",
+    "phone": "+91 98114 77239",
+    "department": "Obstetrics",
+    "doctor": "Dr. Neha Kapoor",
+    "wardBed": "Maternity · Bed 12",
+    "status": "Admitted",
+    "lastVisit": "2026-11-13",
+    "avatarWebp": "../assets/images/dashboard/patient-02-meera-patel.webp",
+    "avatarSmWebp": "../assets/images/dashboard/patient-02-meera-patel-640w.webp",
+    "avatarJpg": "../assets/images/dashboard/patient-02-meera-patel.jpg",
+    "diagnosis": "39 Weeks Gestation — Elective LSCS Delivery Care",
+    "allergies": ["None Known (NKDA)"],
+    "payer": "ICICI Lombard Corporate Health",
+    "vitals": {
+      "bp": "118/76 mmHg",
+      "heartRate": "78 bpm",
+      "spo2": "99%",
+      "temp": "36.7 °C",
+      "respRate": "16 /min",
+      "bloodSugar": "96 mg/dL"
+    },
+    "prescriptions": [
+      { "drug": "Cefazolin 2g IV", "dosage": "Pre-Op Prophylaxis", "duration": "Single Dose", "prescriber": "Dr. Neha Kapoor" },
+      { "drug": "Ferrous Ascorbate + Folic Acid", "dosage": "0-1-0 Oral", "duration": "90 Days", "prescriber": "Dr. Neha Kapoor" }
+    ],
+    "labReports": [
+      { "test": "Complete Blood Count (CBC)", "result": "Hb 12.4 g/dL, Platelets 240k", "date": "2026-11-13 07:45", "status": "Verified" },
+      { "test": "Fetal Non-Stress Test (NST)", "result": "Reactive (140 bpm baseline)", "date": "2026-11-13 09:20", "status": "Verified" }
+    ],
+    "billing": {
+      "invoiceId": "INV-2026-8842",
+      "totalINR": 95000,
+      "approvedTpaINR": 95000,
+      "patientBalanceINR": 0,
+      "billingStatus": "Cashless Covered"
+    },
+    "documents": [
+      { "title": "Antenatal Ultrasound Biometry Scan.pdf", "size": "3.1 MB", "uploaded": "12 Nov 2026" },
+      { "title": "Surgical Informed Consent Signed.pdf", "size": "512 KB", "uploaded": "13 Nov 2026" }
+    ]
+  },
+  {
+    "uhid": "UHID-2026-9043",
+    "name": "Robert Chen",
+    "age": 45,
+    "gender": "Male",
+    "bloodGroup": "B+",
+    "phone": "+1 415 890 3312",
+    "department": "Orthopedics",
+    "doctor": "Dr. Sanjay Verma",
+    "wardBed": "Private · Suite 302",
+    "status": "Discharge Ready",
+    "lastVisit": "2026-11-13",
+    "avatarWebp": "../assets/images/dashboard/patient-03-robert-chen.webp",
+    "avatarSmWebp": "../assets/images/dashboard/patient-03-robert-chen-640w.webp",
+    "avatarJpg": "../assets/images/dashboard/patient-03-robert-chen.jpg",
+    "diagnosis": "Arthroscopic ACL Reconstruction (Right Knee)",
+    "allergies": ["Sulfa Drugs"],
+    "payer": "Aetna Global International Plan",
+    "vitals": {
+      "bp": "122/78 mmHg",
+      "heartRate": "70 bpm",
+      "spo2": "99%",
+      "temp": "36.6 °C",
+      "respRate": "15 /min",
+      "bloodSugar": "104 mg/dL"
+    },
+    "prescriptions": [
+      { "drug": "Celecoxib 200mg", "dosage": "1-0-1 After Meals", "duration": "7 Days", "prescriber": "Dr. Sanjay Verma" },
+      { "drug": "Pantoprazole 40mg", "dosage": "1-0-0 Empty Stomach", "duration": "7 Days", "prescriber": "Dr. Sanjay Verma" }
+    ],
+    "labReports": [
+      { "test": "Post-Op Digital Knee Radiograph (AP/Lat)", "result": "Endobutton & Interference Screw Intact", "date": "2026-11-12 16:00", "status": "Verified" }
+    ],
+    "billing": {
+      "invoiceId": "INV-2026-8843",
+      "totalINR": 164000,
+      "approvedTpaINR": 164000,
+      "patientBalanceINR": 0,
+      "billingStatus": "Paid"
+    },
+    "documents": [
+      { "title": "Discharge Summary & Physiotherapy Protocol.pdf", "size": "1.2 MB", "uploaded": "13 Nov 2026" }
+    ]
+  },
+  {
+    "uhid": "UHID-2026-9044",
+    "name": "Fatima Al-Mansoor",
+    "age": 62,
+    "gender": "Female",
+    "bloodGroup": "AB+",
+    "phone": "+971 50 442 9810",
+    "department": "Neurology",
+    "doctor": "Dr. Omar Farooq",
+    "wardBed": "Neuro · Bed 08",
+    "status": "Admitted",
+    "lastVisit": "2026-11-12",
+    "avatarWebp": "../assets/images/dashboard/patient-04-fatima-al-mansoor.webp",
+    "avatarSmWebp": "../assets/images/dashboard/patient-04-fatima-al-mansoor-640w.webp",
+    "avatarJpg": "../assets/images/dashboard/patient-04-fatima-al-mansoor.jpg",
+    "diagnosis": "Transient Ischemic Attack (TIA) — Neuro Telemetry Observation",
+    "allergies": ["Latex"],
+    "payer": "MediAssist TPA / International Desk",
+    "vitals": {
+      "bp": "134/82 mmHg",
+      "heartRate": "76 bpm",
+      "spo2": "98%",
+      "temp": "36.8 °C",
+      "respRate": "17 /min",
+      "bloodSugar": "118 mg/dL"
+    },
+    "prescriptions": [
+      { "drug": "Clopidogrel 75mg", "dosage": "0-1-0 Oral", "duration": "Ongoing", "prescriber": "Dr. Omar Farooq" },
+      { "drug": "Atorvastatin 40mg", "dosage": "0-0-1 HS", "duration": "Ongoing", "prescriber": "Dr. Omar Farooq" }
+    ],
+    "labReports": [
+      { "test": "3T Brain MRI + MRA Angiography", "result": "No acute infarct; mild carotid plaque", "date": "2026-11-12 19:30", "status": "Verified" },
+      { "test": "Lipid Profile (Fasting)", "result": "LDL 138 mg/dL, HDL 46 mg/dL", "date": "2026-11-13 07:00", "status": "Verified" }
+    ],
+    "billing": {
+      "invoiceId": "INV-2026-8844",
+      "totalINR": 118000,
+      "approvedTpaINR": 90000,
+      "patientBalanceINR": 28000,
+      "billingStatus": "Pending"
+    },
+    "documents": [
+      { "title": "DICOM 3T Brain MRI Summary Report.pdf", "size": "4.5 MB", "uploaded": "12 Nov 2026" }
+    ]
+  },
+  {
+    "uhid": "UHID-2026-9045",
+    "name": "David Kowalski",
+    "age": 29,
+    "gender": "Male",
+    "bloodGroup": "O-",
+    "phone": "+44 7700 900412",
+    "department": "Emergency",
+    "doctor": "Dr. Claire Dupont",
+    "wardBed": "ER Triage · Bay 02",
+    "status": "Admitted",
+    "lastVisit": "2026-11-13",
+    "avatarWebp": "../assets/images/dashboard/patient-05-david-kowalski.webp",
+    "avatarSmWebp": "../assets/images/dashboard/patient-05-david-kowalski-640w.webp",
+    "avatarJpg": "../assets/images/dashboard/patient-05-david-kowalski.jpg",
+    "diagnosis": "Acute Appendicitis — Pre-Operative Laparoscopic Prep",
+    "allergies": ["None Known (NKDA)"],
+    "payer": "Self-Pay / Corporate Reimbursement",
+    "vitals": {
+      "bp": "128/84 mmHg",
+      "heartRate": "92 bpm",
+      "spo2": "98%",
+      "temp": "38.1 °C",
+      "respRate": "19 /min",
+      "bloodSugar": "109 mg/dL"
+    },
+    "prescriptions": [
+      { "drug": "Ceftriaxone 1g + Metronidazole 500mg IV", "dosage": "STAT Pre-Op", "duration": "3 Days", "prescriber": "Dr. Claire Dupont" },
+      { "drug": "Ondansetron 4mg IV", "dosage": "SOS Nausea", "duration": "2 Days", "prescriber": "Dr. Claire Dupont" }
+    ],
+    "labReports": [
+      { "test": "Abdominal Contrast CT Scan", "result": "11mm inflamed retrocecal appendix", "date": "2026-11-13 08:20", "status": "Verified" },
+      { "test": "WBC Total & Differential Count", "result": "15,400 /µL (Neutrophilia 84%)", "date": "2026-11-13 07:55", "status": "Verified" }
+    ],
+    "billing": {
+      "invoiceId": "INV-2026-8845",
+      "totalINR": 72500,
+      "approvedTpaINR": 0,
+      "patientBalanceINR": 22500,
+      "billingStatus": "Partial"
+    },
+    "documents": [
+      { "title": "Emergency Triage & CT Abdomen Report.pdf", "size": "1.9 MB", "uploaded": "13 Nov 2026" }
+    ]
+  },
+  {
+    "uhid": "UHID-2026-9046",
+    "name": "Lakshmi Narayanan",
+    "age": 67,
+    "gender": "Female",
+    "bloodGroup": "B-",
+    "phone": "+91 94440 11892",
+    "department": "Pulmonology",
+    "doctor": "Dr. Alan Park",
+    "wardBed": "OPD · Cabin 06",
+    "status": "OPD Follow-up",
+    "lastVisit": "2026-11-11",
+    "avatarWebp": "../assets/images/dashboard/patient-06-lakshmi-narayanan.webp",
+    "avatarSmWebp": "../assets/images/dashboard/patient-06-lakshmi-narayanan-640w.webp",
+    "avatarJpg": "../assets/images/dashboard/patient-06-lakshmi-narayanan.jpg",
+    "diagnosis": "Bronchial Asthma & COPD — Spirometry Review",
+    "allergies": ["Aspirin / NSAIDs"],
+    "payer": "ABDM / CGHS Empanelled Scheme",
+    "vitals": {
+      "bp": "130/80 mmHg",
+      "heartRate": "74 bpm",
+      "spo2": "96%",
+      "temp": "36.5 °C",
+      "respRate": "18 /min",
+      "bloodSugar": "126 mg/dL"
+    },
+    "prescriptions": [
+      { "drug": "Budesonide + Formoterol 200mcg Inhaler", "dosage": "2 Puffs BD", "duration": "60 Days", "prescriber": "Dr. Alan Park" }
+    ],
+    "labReports": [
+      { "test": "Pulmonary Function Test (Spirometry)", "result": "FEV1/FVC 0.72 (+14% Post-Bronchodilator)", "date": "2026-11-11 11:20", "status": "Verified" }
+    ],
+    "billing": {
+      "invoiceId": "INV-2026-8846",
+      "totalINR": 4800,
+      "approvedTpaINR": 4800,
+      "patientBalanceINR": 0,
+      "billingStatus": "Paid"
+    },
+    "documents": [
+      { "title": "PFT Flow-Volume Loop Graph.pdf", "size": "690 KB", "uploaded": "11 Nov 2026" }
+    ]
+  },
+  {
+    "uhid": "UHID-2026-9047",
+    "name": "Hannah Abbott",
+    "age": 31,
+    "gender": "Female",
+    "bloodGroup": "A-",
+    "phone": "+91 98450 66310",
+    "department": "Endocrinology",
+    "doctor": "Dr. Zoya Mirza",
+    "wardBed": "OPD · Telehealth",
+    "status": "OPD Follow-up",
+    "lastVisit": "2026-11-10",
+    "avatarWebp": "../assets/images/dashboard/patient-07-hannah-abbott.webp",
+    "avatarSmWebp": "../assets/images/dashboard/patient-07-hannah-abbott-640w.webp",
+    "avatarJpg": "../assets/images/dashboard/patient-07-hannah-abbott.jpg",
+    "diagnosis": "Hashimoto Thyroiditis & Continuous Glucose Monitoring",
+    "allergies": ["Shellfish"],
+    "payer": "HDFC ERGO Optima Secure",
+    "vitals": {
+      "bp": "114/72 mmHg",
+      "heartRate": "68 bpm",
+      "spo2": "99%",
+      "temp": "36.6 °C",
+      "respRate": "14 /min",
+      "bloodSugar": "92 mg/dL"
+    },
+    "prescriptions": [
+      { "drug": "Levothyroxine Sodium 75mcg", "dosage": "1-0-0 Early Morning", "duration": "90 Days", "prescriber": "Dr. Zoya Mirza" }
+    ],
+    "labReports": [
+      { "test": "TSH, Free T3 & Free T4 Panel", "result": "TSH 2.14 mIU/L (Optimal Target)", "date": "2026-11-10 09:10", "status": "Verified" }
+    ],
+    "billing": {
+      "invoiceId": "INV-2026-8847",
+      "totalINR": 3200,
+      "approvedTpaINR": 0,
+      "patientBalanceINR": 0,
+      "billingStatus": "Paid"
+    },
+    "documents": [
+      { "title": "Endocrine Panel & Thyroid Ultrasound.pdf", "size": "1.1 MB", "uploaded": "10 Nov 2026" }
+    ]
+  },
+  {
+    "uhid": "UHID-2026-9048",
+    "name": "Carlos Mendoza",
+    "age": 52,
+    "gender": "Male",
+    "bloodGroup": "O+",
+    "phone": "+91 99001 82341",
+    "department": "General Surgery",
+    "doctor": "Dr. Thomas Wright",
+    "wardBed": "General · Ward B-09",
+    "status": "Discharge Ready",
+    "lastVisit": "2026-11-12",
+    "avatarWebp": "../assets/images/dashboard/patient-08-carlos-mendoza.webp",
+    "avatarSmWebp": "../assets/images/dashboard/patient-08-carlos-mendoza-640w.webp",
+    "avatarJpg": "../assets/images/dashboard/patient-08-carlos-mendoza.jpg",
+    "diagnosis": "Laparoscopic Cholecystectomy — Post-Op Day 2",
+    "allergies": ["Codeine"],
+    "payer": "Niva Bupa Health Insurance",
+    "vitals": {
+      "bp": "124/80 mmHg",
+      "heartRate": "72 bpm",
+      "spo2": "99%",
+      "temp": "36.7 °C",
+      "respRate": "16 /min",
+      "bloodSugar": "108 mg/dL"
+    },
+    "prescriptions": [
+      { "drug": "Paracetamol 650mg", "dosage": "1-1-1 Oral", "duration": "5 Days", "prescriber": "Dr. Thomas Wright" },
+      { "drug": "Ursodeoxycholic Acid 300mg", "dosage": "0-0-1 Oral", "duration": "30 Days", "prescriber": "Dr. Thomas Wright" }
+    ],
+    "labReports": [
+      { "test": "Liver Function Test (LFT)", "result": "Total Bilirubin 0.9 mg/dL, ALT 32 U/L", "date": "2026-11-12 08:00", "status": "Verified" }
+    ],
+    "billing": {
+      "invoiceId": "INV-2026-8848",
+      "totalINR": 88400,
+      "approvedTpaINR": 74000,
+      "patientBalanceINR": 14400,
+      "billingStatus": "Overdue"
+    },
+    "documents": [
+      { "title": "Histopathology Specimen Dispatch Slip.pdf", "size": "420 KB", "uploaded": "12 Nov 2026" }
+    ]
+  }
+]
+

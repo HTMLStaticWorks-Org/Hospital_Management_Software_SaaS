@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+
+# Sitemap Reference
+Sitemap: https://medicorehms.io/sitemap.xml
+

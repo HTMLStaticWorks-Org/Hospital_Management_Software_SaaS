@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hospital Settings &amp; RBAC Security | MediCore HMS</title>
+  <meta name="description" content="Configure hospital profile, NABH license details, Role-Based Access Control (RBAC) permissions, HL7/DICOM keys, and audit preferences in MediCore HMS.">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/dark-mode.css">
+  <link rel="stylesheet" href="../assets/css/rtl.css">
+  <link rel="stylesheet" href="../assets/css/dashboard.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <div class="dash-shell">
+    <!-- ==================== SHARED COLLAPSIBLE SIDEBAR ==================== -->
+    <aside id="dash-sidebar" class="dash-sidebar" aria-label="Hospital Dashboard Navigation">
+      <div class="sidebar-brand">
+        <a href="../index.html" class="brand-logo" style="color:#FFFFFF;font-size:1.1rem;">
+          <span class="brand-logo-mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+          </span>
+          <span class="sidebar-label">MediCore <em>HMS</em></span>
+        </a>
+        <button type="button" class="btn btn-icon btn-sm" data-action="collapse-sidebar" aria-label="Collapse or expand sidebar" style="background:rgba(255,255,255,0.08);color:#FFFFFF;border:none;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+        </button>
+      </div>
+
+      <nav class="sidebar-nav" aria-label="Clinical Modules">
+        <div class="sidebar-section-title">Clinical Command</div>
+        <a href="dashboard.html" class="sidebar-link" data-nav-module="overview">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+          <span class="sidebar-label">Overview &amp; KPIs</span>
+        </a>
+        <a href="patients.html" class="sidebar-link" data-nav-module="patients">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+          <span class="sidebar-label">Patient Records (EMR)</span>
+        </a>
+        <a href="beds.html" class="sidebar-link" data-nav-module="beds">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 4v16M2 8h18a2 2 0 0 1 2 2v10M2 17h20"/></svg>
+          <span class="sidebar-label">Bed &amp; Ward Status</span>
+        </a>
+        <a href="appointments.html" class="sidebar-link" data-nav-module="appointments">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          <span class="sidebar-label">Appointments &amp; OPD</span>
+        </a>
+
+        <div class="sidebar-section-title">Operations &amp; Finance</div>
+        <a href="billing.html" class="sidebar-link" data-nav-module="billing">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
+          <span class="sidebar-label">Billing &amp; TPA Claims</span>
+        </a>
+        <a href="staff-schedule.html" class="sidebar-link" data-nav-module="staff">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          <span class="sidebar-label">Staff Shift Roster</span>
+        </a>
+        <a href="messages.html" class="sidebar-link" data-nav-module="messages">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          <span class="sidebar-label">Clinical Messages</span>
+        </a>
+        <a href="reports.html" class="sidebar-link" data-nav-module="reports">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+          <span class="sidebar-label">Reports &amp; NABH KPIs</span>
+        </a>
+        <a href="settings.html" class="sidebar-link active" data-nav-module="settings">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4"/></svg>
+          <span class="sidebar-label">Hospital Settings</span>
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="sidebar-footer-text">
+          <div class="mono" style="color:var(--accent);font-size:0.74rem;">● TENANT #MC-IN-049</div>
+          <div>ISO 27001 &amp; HIPAA Active</div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- ==================== MAIN WORKSPACE ==================== -->
+    <div class="dash-main-wrap">
+      <header class="dash-topbar">
+        <div class="topbar-left">
+          <button type="button" class="btn btn-icon btn-sm mobile-menu-toggle" data-action="mobile-sidebar" aria-label="Open sidebar menu">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+          </button>
+          <div class="global-search-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <input type="search" id="dash-global-search" placeholder="Search RBAC roles, security policy, or license configuration..." aria-label="Search settings">
+          </div>
+        </div>
+
+        <div class="topbar-right">
+          <div class="role-switcher-wrap">
+            <span>Role:</span>
+            <select id="dash-role-switcher" class="role-switcher-select" aria-label="Switch Active Hospital Role">
+              <option value="Admin">Admin</option>
+              <option value="Doctor">Doctor</option>
+              <option value="Nurse">Nurse</option>
+              <option value="Billing">Billing</option>
+            </select>
+          </div>
+          <button type="button" id="reset-demo-data-btn" class="btn btn-secondary btn-sm">Reset Demo State</button>
+          <button type="button" class="btn btn-icon btn-sm" data-action="toggle-rtl" aria-label="Toggle RTL layout">RTL</button>
+          <button type="button" class="btn btn-icon btn-sm" data-action="toggle-theme" aria-label="Toggle color theme">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2m-7.07-14.93 1.41 1.41m11.32 11.32 1.41 1.41M2 12h2m16 0h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+          </button>
+          <a href="settings.html" class="user-monogram-pill">
+            <span class="monogram-circle">SD</span>
+            <span id="active-role-badge">Admin View</span>
+          </a>
+        </div>
+      </header>
+
+      <main id="main-content" class="dash-content">
+        <div class="dash-page-header">
+          <div>
+            <span class="eyebrow" style="margin-bottom:4px;"><span class="eyebrow-dot"></span>Tenant Governance &amp; Security Policy</span>
+            <h1>Hospital Profile, RBAC &amp; System Preferences</h1>
+          </div>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;">
+            <a href="../login.html" class="btn btn-secondary btn-sm">Sign Out of Portal</a>
+          </div>
+        </div>
+
+        <!-- ==================== ADMINISTRATOR PROFILE CARD (UNIQUE IMAGE #54) & HOSPITAL CONFIG ==================== -->
+        <section class="grid grid-3" aria-label="Administrator Identity and Facility Configuration">
+          <article class="mc-card card-anim-pulse">
+            <picture>
+              <source type="image/webp" srcset="../assets/images/dashboard/settings-admin-profile-640w.webp 640w, ../assets/images/dashboard/settings-admin-profile.webp 400w" sizes="84px">
+              <img src="../assets/images/dashboard/settings-admin-profile.jpg" alt="Dr. Siddharth Deshmukh, Chief Medical Superintendent" class="avatar-thumb" width="84" height="84" loading="lazy" style="width:84px;height:84px;margin-bottom:var(--sp-2);">
+            </picture>
+            <span class="badge badge-emerald">SUPER ADMIN · MFA VERIFIED</span>
+            <h2 style="font-size:1.2rem;margin-top:8px;">Dr. Siddharth Deshmukh</h2>
+            <p>Chief Medical Superintendent &amp; Principal NABH Custodian · Apex Metro Multi-Specialty Hospital (250 Beds).</p>
+            <div class="mono" style="font-size:0.76rem;color:var(--text-muted);margin-top:8px;">Session Key: SHA256-9F8A-441C</div>
+          </article>
+
+          <div class="dash-panel" style="grid-column: span 2;">
+            <div class="dash-panel-header">
+              <h2 style="font-size:1.15rem;">Hospital Tenant &amp; Regulatory License Configuration</h2>
+              <span class="badge badge-teal">Enterprise Plan Active</span>
+            </div>
+
+            <form data-validate data-success-message="Hospital facility profile and NABH regulatory metadata saved." novalidate>
+              <div class="grid grid-2">
+                <div class="form-group">
+                  <label for="cfg-hosp-name" class="form-label">Registered Hospital Name *</label>
+                  <input type="text" id="cfg-hosp-name" class="form-control" value="Apex Metro Multi-Specialty Hospital" required>
+                </div>
+                <div class="form-group">
+                  <label for="cfg-nabh-id" class="form-label">NABH / JCI Accreditation ID *</label>
+                  <input type="text" id="cfg-nabh-id" class="form-control mono" value="NABH-H-2024-0892" required>
+                </div>
+                <div class="form-group">
+                  <label for="cfg-abdm-hip" class="form-label">ABDM Health Information Provider (HIP) ID *</label>
+                  <input type="text" id="cfg-abdm-hip" class="form-control mono" value="IN0410009281" required>
+                </div>
+                <div class="form-group">
+                  <label for="cfg-bed-cap" class="form-label">Licensed Inpatient Bed Capacity *</label>
+                  <input type="number" id="cfg-bed-cap" class="form-control mono" value="250" required>
+                </div>
+              </div>
+              <div style="display:flex;justify-content:flex-end;gap:10px;margin-top:var(--sp-2);">
+                <button type="submit" class="btn btn-primary btn-sm">Save Facility Configuration</button>
+              </div>
+            </form>
+          </div>
+        </section>
+
+        <!-- ==================== RBAC PERMISSION MATRIX ==================== -->
+        <section class="dash-panel" aria-labelledby="rbac-heading">
+          <div class="dash-panel-header">
+            <h2 id="rbac-heading" style="font-size:1.15rem;">Role-Based Access Control (RBAC) &amp; Break-Glass Audit Matrix</h2>
+            <span class="badge badge-emerald">HIPAA §164.312(a)(1) Enforced</span>
+          </div>
+
+          <div class="table-responsive">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Role Profile</th>
+                  <th>EMR &amp; CPOE Orders</th>
+                  <th>Bed &amp; ICU Board</th>
+                  <th>Billing &amp; TPA Claims</th>
+                  <th>Staff Roster</th>
+                  <th>Break-Glass Override</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td data-label="Role"><strong>Hospital Admin / Medical Supt.</strong></td>
+                  <td data-label="EMR"><span class="badge badge-emerald">Full Read / Audit</span></td>
+                  <td data-label="Bed Board"><span class="badge badge-emerald">Full Read / Write</span></td>
+                  <td data-label="Billing"><span class="badge badge-emerald">Full Read / Approve</span></td>
+                  <td data-label="Staff Roster"><span class="badge badge-emerald">Full Read / Write</span></td>
+                  <td data-label="Break-Glass"><span class="badge badge-teal">Custodian Approver</span></td>
+                </tr>
+                <tr>
+                  <td data-label="Role"><strong>Attending Consultant / Doctor</strong></td>
+                  <td data-label="EMR"><span class="badge badge-emerald">Full Read / Sign Rx</span></td>
+                  <td data-label="Bed Board"><span class="badge badge-teal">View &amp; Transfer Request</span></td>
+                  <td data-label="Billing"><span class="badge badge-amber">Hidden (Clinical Focus)</span></td>
+                  <td data-label="Staff Roster"><span class="badge badge-teal">View &amp; Leave Request</span></td>
+                  <td data-label="Break-Glass"><span class="badge badge-amber">OTP + Reason Logged</span></td>
+                </tr>
+                <tr>
+                  <td data-label="Role"><strong>Charge Nurse / Ward Sister</strong></td>
+                  <td data-label="EMR"><span class="badge badge-teal">Vitals &amp; MAR Charting</span></td>
+                  <td data-label="Bed Board"><span class="badge badge-emerald">Admit / Clean / Transfer</span></td>
+                  <td data-label="Billing"><span class="badge badge-amber">Hidden</span></td>
+                  <td data-label="Staff Roster"><span class="badge badge-teal">Shift Handover View</span></td>
+                  <td data-label="Break-Glass"><span class="badge badge-signal">Restricted</span></td>
+                </tr>
+                <tr>
+                  <td data-label="Role"><strong>RCM &amp; TPA Billing Desk</strong></td>
+                  <td data-label="EMR"><span class="badge badge-teal">Discharge Summary Only</span></td>
+                  <td data-label="Bed Board"><span class="badge badge-amber">Occupancy Read-Only</span></td>
+                  <td data-label="Billing"><span class="badge badge-emerald">Create / Claim / Receipt</span></td>
+                  <td data-label="Staff Roster"><span class="badge badge-amber">Hidden</span></td>
+                  <td data-label="Break-Glass"><span class="badge badge-signal">Restricted</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <script src="../assets/js/plugins/tilt.js"></script>
+  <script src="../assets/js/main.js"></script>
+  <script src="../assets/js/dashboard.js"></script>
+</body>
+</html>
+
