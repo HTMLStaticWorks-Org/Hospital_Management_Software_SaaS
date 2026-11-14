@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" data-theme="light" dir="ltr">
 <head>
   <meta charset="UTF-8">
@@ -85,11 +85,11 @@
       </nav>
 
       <div class="nav-actions">
-        <button type="button" class="btn btn-icon btn-sm" data-action="toggle-rtl" aria-label="Toggle RTL layout">RTL</button>
-        <button type="button" class="btn btn-icon btn-sm" data-action="toggle-theme" aria-label="Toggle color theme">
+        <button type="button" class="btn btn-icon btn-sm nav-desktop-only" data-action="toggle-rtl" aria-label="Toggle RTL layout">RTL</button>
+        <button type="button" class="btn btn-icon btn-sm nav-desktop-only" data-action="toggle-theme" aria-label="Toggle color theme">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2m-7.07-14.93 1.41 1.41m11.32 11.32 1.41 1.41M2 12h2m16 0h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
         </button>
-        <div class="nav-item has-dropdown nav-account-dropdown">
+        <div class="nav-item has-dropdown nav-account-dropdown nav-desktop-only">
           <button type="button" class="btn btn-icon btn-sm" data-action="toggle-account" aria-haspopup="true" aria-expanded="false" aria-label="Account: Login or Sign Up" title="Account (Login &amp; Sign Up)">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
           </button>
@@ -112,7 +112,7 @@
             </li>
           </ul>
         </div>
-        <a href="dashboard/dashboard.html" class="btn btn-primary btn-sm">Dashboard</a>
+        <a href="dashboard/dashboard.html" class="btn btn-primary btn-sm nav-desktop-only">Dashboard</a>
         <button type="button" class="btn btn-icon btn-sm mobile-menu-toggle" data-action="toggle-mobile-nav" aria-expanded="false" aria-controls="mobile-nav-drawer" aria-label="Open navigation menu">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
         </button>
@@ -155,11 +155,10 @@
         </li>
         <li class="mobile-nav-item has-dropdown">
           <div class="mobile-nav-header">
-            <a href="login.html" style="display:flex;align-items:center;gap:8px;">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-              <span>Account</span>
+            <a href="login.html" aria-label="Staff Login &amp; Portal" title="Login">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
             </a>
-            <button type="button" class="mobile-dropdown-toggle" aria-expanded="false" aria-label="Toggle Account options">
+            <button type="button" class="mobile-dropdown-toggle" aria-expanded="false" aria-label="Toggle Login and Sign Up options">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
             </button>
           </div>
@@ -168,7 +167,7 @@
               <a href="login.html" class="mobile-submenu-link">
                 <span style="display:inline-flex;align-items:center;gap:8px;">
                   <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/></svg>
-                  Login (Staff Portal)
+                  Login
                 </span>
               </a>
             </li>
@@ -176,14 +175,24 @@
               <a href="signup.html" class="mobile-submenu-link">
                 <span style="display:inline-flex;align-items:center;gap:8px;">
                   <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/><line x1="20" y1="8" x2="20" y2="14"/><line x1="23" y1="11" x2="17" y2="11"/></svg>
-                  Sign Up (Register Hospital)
+                  Sign Up
                 </span>
               </a>
             </li>
           </ul>
         </li>
-        <li><a href="dashboard/dashboard.html" class="btn btn-primary" style="width:100%;justify-content:center;margin-top:8px;">Dashboard</a></li>
       </ul>
+
+      <div class="mobile-nav-actions">
+        <div class="mobile-nav-toggles">
+          <button type="button" class="btn btn-secondary btn-sm mobile-toggle-btn" data-action="toggle-rtl" aria-label="Toggle RTL layout">RTL</button>
+          <button type="button" class="btn btn-secondary btn-sm mobile-toggle-btn" data-action="toggle-theme" aria-label="Toggle color theme">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2m-7.07-14.93 1.41 1.41m11.32 11.32 1.41 1.41M2 12h2m16 0h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+            <span class="theme-label">Theme</span>
+          </button>
+        </div>
+        <a href="dashboard/dashboard.html" class="btn btn-primary mobile-dash-btn">Dashboard</a>
+      </div>
     </div>
   </header>
 
@@ -197,7 +206,7 @@
           <p style="font-size:1.15rem;margin-top:var(--sp-3);max-width:58ch;">
             MediCore HMS connects outpatient queues, inpatient nursing stations, LIS/RIS diagnostics, central pharmacy, and cashless TPA insurance desks into one unified clinical command center.
           </p>
-          <div style="display:flex;flex-wrap:wrap;gap:var(--sp-3);margin-top:var(--sp-5);">
+          <div class="hero-actions btn-group-responsive" style="display:flex;flex-wrap:wrap;gap:var(--sp-3);margin-top:var(--sp-5);">
             <a href="demo-request.html" class="btn btn-primary">
               Book 30-Min Hospital Walkthrough
               <svg class="icon-directional" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14m-7-7 7 7-7 7"/></svg>
@@ -768,13 +777,13 @@
     <!-- ==================== SECTION 8: FINAL OUTCOME CTA (UNIQUE TO HOME 1) ==================== -->
     <section class="section" aria-labelledby="home1-cta-heading">
       <div class="container">
-        <div class="mc-card card-anim-ecg reveal-up" style="background:var(--grad-midnight);color:#FFFFFF;padding:var(--sp-7) var(--sp-5);border-color:var(--primary);">
+        <div class="mc-card card-anim-ecg reveal-up cta-card-midnight" style="background:var(--grad-midnight);color:#FFFFFF;padding:var(--sp-7) var(--sp-5);border-color:var(--primary);">
           <span class="eyebrow" style="background:rgba(62,242,192,0.16);color:var(--accent);"><span class="eyebrow-dot"></span>Ready for Clinical Transformation?</span>
           <h2 id="home1-cta-heading" style="color:#FFFFFF;max-width:28ch;margin-inline:auto;">See Your Own Hospital's Bed Board &amp; TPA Workflow Live in 30 Minutes.</h2>
           <p style="color:rgba(243,250,250,0.82);max-width:58ch;margin-top:var(--sp-2);">
             Our clinical implementation architects will configure a custom sandbox with your bed count, specialty departments, and TPA tariff structure.
           </p>
-          <div class="card-actions" style="margin-top:var(--sp-4);">
+          <div class="card-actions btn-group-responsive" style="margin-top:var(--sp-4);">
             <a href="demo-request.html" class="btn btn-primary">Schedule Personalized Demo</a>
             <a href="pricing.html" class="btn btn-secondary">Calculate Bed-Tier Pricing</a>
           </div>

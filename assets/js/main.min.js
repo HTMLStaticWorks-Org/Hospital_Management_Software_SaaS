@@ -62,6 +62,10 @@
    * Mobile navigation drawer and accessible dropdown menus.
    */
   function initNavigation() {
+    if (document.querySelector('.site-header')) {
+      document.body.classList.add('has-site-header');
+    }
+
     var toggleBtn = document.querySelector('[data-action="toggle-mobile-nav"]');
     var drawer = document.getElementById('mobile-nav-drawer');
     if (toggleBtn && drawer) {
@@ -190,7 +194,7 @@
         var mobileParent = mobileCompanyLink.closest('.mobile-nav-item');
         if (mobileParent && mobileParent.querySelector('.mobile-submenu')) {
           var mobileText = (mobileCompanyLink.textContent || '').trim().toLowerCase();
-          if (mobileText.indexOf('company') !== -1 || mobileText.indexOf('account') !== -1) {
+          if (mobileText.indexOf('company') !== -1 || mobileText.indexOf('account') !== -1 || mobileCompanyLink.getAttribute('href') === 'login.html' || (mobileCompanyLink.getAttribute('aria-label') || '').toLowerCase().indexOf('login') !== -1) {
             e.preventDefault();
             e.stopPropagation();
             var mOpen = mobileParent.classList.toggle('open');

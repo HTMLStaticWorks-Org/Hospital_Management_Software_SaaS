@@ -96,10 +96,6 @@
           <button type="button" class="btn btn-icon btn-sm mobile-menu-toggle" data-action="mobile-sidebar" aria-label="Open sidebar menu">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
           </button>
-          <div class="global-search-wrap">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-            <input type="search" id="dash-global-search" placeholder="Filter current table by UHID, patient, doctor, or ward..." aria-label="Global workspace search">
-          </div>
         </div>
 
         <div class="topbar-right">
@@ -122,7 +118,7 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2m-7.07-14.93 1.41 1.41m11.32 11.32 1.41 1.41M2 12h2m16 0h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
           </button>
           <a href="settings.html" class="user-monogram-pill" aria-label="Hospital Profile Settings">
-            <span class="monogram-circle">SD</span>
+            <img id="topbar-user-avatar" src="../assets/images/dashboard/settings-admin-profile.jpg" alt="Active User Avatar" class="avatar-img" width="32" height="32">
             <span id="active-role-badge">Admin View</span>
           </a>
         </div>
@@ -140,6 +136,48 @@
             <a href="reports.html" class="btn btn-primary btn-sm">Export Shift Handover</a>
           </div>
         </div>
+
+        <!-- ==================== DASHBOARD WELCOME MESSAGE BANNER ==================== -->
+        <section class="dash-welcome-banner reveal-up" aria-label="Clinical Shift Welcome">
+          <div class="welcome-text-group">
+            <div class="welcome-banner-header">
+              <div class="welcome-pulse-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="26" height="26"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+              </div>
+              <div class="welcome-header-text">
+                <div class="welcome-badge">
+                  <span class="eyebrow-dot"></span>
+                  <span class="welcome-shift-label">Live Clinical Shift Active · Apex Metro Hospital</span>
+                </div>
+                <h2 class="welcome-title" id="dash-welcome-user">Welcome back, Chief Administrator 👋</h2>
+              </div>
+            </div>
+            <p class="welcome-desc" id="dash-welcome-desc">
+              All 10 hospital clusters are running with <strong>99.99% operational uptime</strong>. Today you have <strong>1,482</strong> active patients, <strong>18</strong> pending triage admissions, and <strong>6</strong> surgical OT handovers today.
+            </p>
+            <div class="welcome-quick-metrics">
+              <div class="welcome-metric-pill">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="15" height="15"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                <span id="dash-welcome-shift">Shift: Morning (07:00 – 15:30 IST)</span>
+              </div>
+              <div class="welcome-metric-pill">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="15" height="15"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+                <span id="dash-welcome-m1">ICU Load: 88% (4 Beds Ready)</span>
+              </div>
+              <div class="welcome-metric-pill">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="15" height="15"><polyline points="20 6 9 17 4 12"/></svg>
+                <span id="dash-welcome-m2">NABH Quality: In Compliance</span>
+              </div>
+            </div>
+          </div>
+          <div class="welcome-actions">
+            <a href="patients.html" class="btn btn-primary btn-sm">+ Quick Admit</a>
+            <a href="beds.html" class="btn btn-secondary btn-sm">Bed Board</a>
+            <button type="button" class="btn btn-icon btn-sm welcome-dismiss-btn" data-action="dismiss-welcome" aria-label="Dismiss welcome banner" title="Dismiss banner">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </button>
+          </div>
+        </section>
 
         <!-- ==================== 6 KPI CARDS (CENTERED ICON & TEXT + 3D TILT) ==================== -->
         <section class="kpi-grid" aria-label="Key Performance Indicators">
@@ -243,33 +281,98 @@
                 </thead>
                 <tbody>
                   <tr>
-                    <td data-label="Patient"><strong>Aarav Sharma</strong><div class="mono" style="font-size:0.75rem;color:var(--text-muted);">UHID-2026-9041 · 58/M</div></td>
+                    <td data-label="Patient">
+                      <div class="avatar-cell">
+                        <img src="../assets/images/dashboard/patient-01-aarav-sharma.jpg" alt="Patient Aarav Sharma portrait" class="avatar-thumb" width="40" height="40" loading="lazy" style="width:40px;height:40px;">
+                        <div>
+                          <strong>Aarav Sharma</strong>
+                          <div class="mono" style="font-size:0.75rem;color:var(--text-muted);">UHID-2026-9041 · 58/M</div>
+                        </div>
+                      </div>
+                    </td>
                     <td data-label="Ward / Bed" class="mono">ICU-A · Bed 04</td>
-                    <td data-label="Attending">Dr. Kabir Sen</td>
+                    <td data-label="Attending">
+                      <div class="avatar-cell">
+                        <img src="../assets/images/dashboard/staff-01-dr-kabir-sen.jpg" alt="Dr. Kabir Sen portrait" class="avatar-thumb" width="34" height="34" loading="lazy" style="width:34px;height:34px;">
+                        <span>Dr. Kabir Sen</span>
+                      </div>
+                    </td>
                     <td data-label="Status"><span class="badge badge-signal">ICU Critical</span></td>
                   </tr>
                   <tr>
-                    <td data-label="Patient"><strong>Meera Patel</strong><div class="mono" style="font-size:0.75rem;color:var(--text-muted);">UHID-2026-9042 · 34/F</div></td>
+                    <td data-label="Patient">
+                      <div class="avatar-cell">
+                        <img src="../assets/images/dashboard/patient-02-meera-patel.jpg" alt="Patient Meera Patel portrait" class="avatar-thumb" width="40" height="40" loading="lazy" style="width:40px;height:40px;">
+                        <div>
+                          <strong>Meera Patel</strong>
+                          <div class="mono" style="font-size:0.75rem;color:var(--text-muted);">UHID-2026-9042 · 34/F</div>
+                        </div>
+                      </div>
+                    </td>
                     <td data-label="Ward / Bed" class="mono">Maternity · Bed 12</td>
-                    <td data-label="Attending">Dr. Neha Kapoor</td>
+                    <td data-label="Attending">
+                      <div class="avatar-cell">
+                        <img src="../assets/images/dashboard/appt-01-dr-neha-kapoor.jpg" alt="Dr. Neha Kapoor portrait" class="avatar-thumb" width="34" height="34" loading="lazy" style="width:34px;height:34px;">
+                        <span>Dr. Neha Kapoor</span>
+                      </div>
+                    </td>
                     <td data-label="Status"><span class="badge badge-teal">Admitted</span></td>
                   </tr>
                   <tr>
-                    <td data-label="Patient"><strong>Robert Chen</strong><div class="mono" style="font-size:0.75rem;color:var(--text-muted);">UHID-2026-9043 · 45/M</div></td>
+                    <td data-label="Patient">
+                      <div class="avatar-cell">
+                        <img src="../assets/images/dashboard/patient-03-robert-chen.jpg" alt="Patient Robert Chen portrait" class="avatar-thumb" width="40" height="40" loading="lazy" style="width:40px;height:40px;">
+                        <div>
+                          <strong>Robert Chen</strong>
+                          <div class="mono" style="font-size:0.75rem;color:var(--text-muted);">UHID-2026-9043 · 45/M</div>
+                        </div>
+                      </div>
+                    </td>
                     <td data-label="Ward / Bed" class="mono">Private · Suite 302</td>
-                    <td data-label="Attending">Dr. Sanjay Verma</td>
+                    <td data-label="Attending">
+                      <div class="avatar-cell">
+                        <img src="../assets/images/dashboard/staff-06-dr-sanjay-verma.jpg" alt="Dr. Sanjay Verma portrait" class="avatar-thumb" width="34" height="34" loading="lazy" style="width:34px;height:34px;">
+                        <span>Dr. Sanjay Verma</span>
+                      </div>
+                    </td>
                     <td data-label="Status"><span class="badge badge-emerald">Discharge Ready</span></td>
                   </tr>
                   <tr>
-                    <td data-label="Patient"><strong>Fatima Al-Mansoor</strong><div class="mono" style="font-size:0.75rem;color:var(--text-muted);">UHID-2026-9044 · 62/F</div></td>
+                    <td data-label="Patient">
+                      <div class="avatar-cell">
+                        <img src="../assets/images/dashboard/patient-04-fatima-al-mansoor.jpg" alt="Patient Fatima Al-Mansoor portrait" class="avatar-thumb" width="40" height="40" loading="lazy" style="width:40px;height:40px;">
+                        <div>
+                          <strong>Fatima Al-Mansoor</strong>
+                          <div class="mono" style="font-size:0.75rem;color:var(--text-muted);">UHID-2026-9044 · 62/F</div>
+                        </div>
+                      </div>
+                    </td>
                     <td data-label="Ward / Bed" class="mono">Neuro · Bed 08</td>
-                    <td data-label="Attending">Dr. Omar Farooq</td>
+                    <td data-label="Attending">
+                      <div class="avatar-cell">
+                        <img src="../assets/images/dashboard/staff-04-dr-omar-farooq.jpg" alt="Dr. Omar Farooq portrait" class="avatar-thumb" width="34" height="34" loading="lazy" style="width:34px;height:34px;">
+                        <span>Dr. Omar Farooq</span>
+                      </div>
+                    </td>
                     <td data-label="Status"><span class="badge badge-teal">Admitted</span></td>
                   </tr>
                   <tr>
-                    <td data-label="Patient"><strong>David Kowalski</strong><div class="mono" style="font-size:0.75rem;color:var(--text-muted);">UHID-2026-9045 · 29/M</div></td>
+                    <td data-label="Patient">
+                      <div class="avatar-cell">
+                        <img src="../assets/images/dashboard/patient-05-david-kowalski.jpg" alt="Patient David Kowalski portrait" class="avatar-thumb" width="40" height="40" loading="lazy" style="width:40px;height:40px;">
+                        <div>
+                          <strong>David Kowalski</strong>
+                          <div class="mono" style="font-size:0.75rem;color:var(--text-muted);">UHID-2026-9045 · 29/M</div>
+                        </div>
+                      </div>
+                    </td>
                     <td data-label="Ward / Bed" class="mono">ER Triage · Bay 02</td>
-                    <td data-label="Attending">Dr. Claire Dupont</td>
+                    <td data-label="Attending">
+                      <div class="avatar-cell">
+                        <img src="../assets/images/dashboard/staff-02-dr-claire-dupont.jpg" alt="Dr. Claire Dupont portrait" class="avatar-thumb" width="34" height="34" loading="lazy" style="width:34px;height:34px;">
+                        <span>Dr. Claire Dupont</span>
+                      </div>
+                    </td>
                     <td data-label="Status"><span class="badge badge-amber">Pre-Op Prep</span></td>
                   </tr>
                 </tbody>
@@ -283,8 +386,9 @@
               <span class="badge badge-signal">3 Active</span>
             </div>
             <div style="display:flex;flex-direction:column;gap:12px;">
-              <div class="alert-item" style="padding:14px;border-radius:12px;border:1px solid var(--signal);background:var(--signal-soft);display:flex;justify-content:space-between;align-items:flex-start;gap:12px;">
-                <div>
+              <div class="alert-item" style="padding:14px;border-radius:12px;border:1px solid var(--signal);background:var(--signal-soft);display:flex;align-items:flex-start;gap:14px;">
+                <img src="../assets/images/dashboard/staff-03-nurse-kavita-reddy.jpg" alt="Charge Nurse Kavita Reddy" class="avatar-thumb" width="42" height="42" loading="lazy" style="width:42px;height:42px;flex-shrink:0;">
+                <div style="flex:1;min-width:0;">
                   <span class="badge badge-signal" style="margin-bottom:4px;">STAT · ICU TELEMETRY</span>
                   <h3 style="font-size:0.95rem;">ICU-A Bed 04 SpO2 Watch (Aarav Sharma)</h3>
                   <p style="font-size:0.84rem;margin-top:2px;">SpO2 dipped to 91% post-PCI. Charge Nurse Kavita Reddy notified at bedside.</p>
@@ -292,8 +396,9 @@
                 <button type="button" class="btn btn-secondary btn-sm" data-dismiss-alert>Acknowledge</button>
               </div>
 
-              <div class="alert-item" style="padding:14px;border-radius:12px;border:1px solid var(--amber);background:var(--amber-soft);display:flex;justify-content:space-between;align-items:flex-start;gap:12px;">
-                <div>
+              <div class="alert-item" style="padding:14px;border-radius:12px;border:1px solid var(--amber);background:var(--amber-soft);display:flex;align-items:flex-start;gap:14px;">
+                <img src="../assets/images/dashboard/msg-04-tpa-desk-amit-tiwari.jpg" alt="TPA Desk Lead Amit Tiwari" class="avatar-thumb" width="42" height="42" loading="lazy" style="width:42px;height:42px;flex-shrink:0;">
+                <div style="flex:1;min-width:0;">
                   <span class="badge badge-amber" style="margin-bottom:4px;">SLA · TPA PRE-AUTH DESK</span>
                   <h3 style="font-size:0.95rem;">3 Star Health Pre-Authorizations Expiring</h3>
                   <p style="font-size:0.84rem;margin-top:2px;">Attach signed 3T MRI and Cath Lab notes before 14:30 to avoid cashless hold.</p>
@@ -301,8 +406,9 @@
                 <button type="button" class="btn btn-secondary btn-sm" data-dismiss-alert>Acknowledge</button>
               </div>
 
-              <div class="alert-item" style="padding:14px;border-radius:12px;border:1px solid var(--primary);background:var(--primary-soft);display:flex;justify-content:space-between;align-items:flex-start;gap:12px;">
-                <div>
+              <div class="alert-item" style="padding:14px;border-radius:12px;border:1px solid var(--primary);background:var(--primary-soft);display:flex;align-items:flex-start;gap:14px;">
+                <img src="../assets/images/dashboard/msg-02-pharmacist-nitin-shah.jpg" alt="Chief Pharmacist Nitin Shah" class="avatar-thumb" width="42" height="42" loading="lazy" style="width:42px;height:42px;flex-shrink:0;">
+                <div style="flex:1;min-width:0;">
                   <span class="badge badge-teal" style="margin-bottom:4px;">PHARMACY · REORDER TRIGGER</span>
                   <h3 style="font-size:0.95rem;">Meropenem 1g IV Batch #MRP-2026-11B</h3>
                   <p style="font-size:0.84rem;margin-top:2px;">42 vials remaining in ICU sub-store. Auto-PO #PO-4490 queued for sign-off.</p>

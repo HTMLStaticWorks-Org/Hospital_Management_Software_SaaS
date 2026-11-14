@@ -3,6 +3,12 @@
    Used across all 9 pages in dashboard/
    ========================================================================== */
 
+/* Ensure position: sticky on topbar works by using clip rather than hidden on dashboard pages */
+html,
+body:has(.dash-shell) {
+  overflow-x: clip !important;
+}
+
 .dash-shell {
   display: flex;
   min-height: 100vh;
@@ -11,7 +17,7 @@
 }
 
 /* --------------------------------------------------------------------------
-   1. Collapsible Left Sidebar
+   1. Collapsible Left Sidebar (Fixed Positioning)
    -------------------------------------------------------------------------- */
 .dash-sidebar {
   width: 268px;
@@ -21,11 +27,20 @@
   border-right: 1px solid rgba(62, 242, 192, 0.18);
   display: flex;
   flex-direction: column;
-  position: sticky;
+  position: fixed;
   top: 0;
+  bottom: 0;
+  left: 0;
   height: 100vh;
   z-index: 900;
   transition: width 0.25s var(--ease-out), transform 0.25s var(--ease-out);
+}
+
+html[dir="rtl"] .dash-sidebar {
+  border-right: none;
+  border-left: 1px solid rgba(62, 242, 192, 0.18);
+  left: auto;
+  right: 0;
 }
 
 .sidebar-brand {
@@ -132,10 +147,30 @@ html[dir="rtl"] .dash-sidebar.is-collapsed [data-action="collapse-sidebar"] svg 
 .sidebar-nav {
   flex: 1;
   overflow-y: auto;
+  overflow-x: hidden;
   padding: var(--sp-3) var(--sp-2);
   display: flex;
   flex-direction: column;
   gap: 4px;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(62, 242, 192, 0.2) transparent;
+}
+
+.sidebar-nav::-webkit-scrollbar {
+  width: 4px;
+}
+
+.sidebar-nav::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.sidebar-nav::-webkit-scrollbar-thumb {
+  background: rgba(62, 242, 192, 0.25);
+  border-radius: 4px;
+}
+
+.sidebar-nav::-webkit-scrollbar-thumb:hover {
+  background: rgba(62, 242, 192, 0.45);
 }
 
 .sidebar-section-title {
@@ -304,6 +339,33 @@ html[dir="rtl"] .sidebar-logout-btn:hover svg {
   min-width: 0;
   display: flex;
   flex-direction: column;
+  width: 100%;
+}
+
+@media (min-width: 1024px) {
+  .dash-main-wrap {
+    margin-left: 268px;
+    width: calc(100% - 268px);
+    transition: margin-left 0.25s var(--ease-out), margin-right 0.25s var(--ease-out), width 0.25s var(--ease-out);
+  }
+
+  html[dir="rtl"] .dash-main-wrap {
+    margin-left: 0;
+    margin-right: 268px;
+  }
+
+  .dash-sidebar.is-collapsed ~ .dash-main-wrap,
+  .dash-shell:has(.dash-sidebar.is-collapsed) .dash-main-wrap {
+    margin-left: 82px;
+    width: calc(100% - 82px);
+  }
+
+  html[dir="rtl"] .dash-sidebar.is-collapsed ~ .dash-main-wrap,
+  html[dir="rtl"] .dash-shell:has(.dash-sidebar.is-collapsed) .dash-main-wrap {
+    margin-left: 0;
+    margin-right: 82px;
+    width: calc(100% - 82px);
+  }
 }
 
 .dash-topbar {
@@ -315,6 +377,7 @@ html[dir="rtl"] .sidebar-logout-btn:hover svg {
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--border-subtle);
+  box-shadow: 0 4px 16px rgba(6, 35, 43, 0.04);
   padding-inline: var(--sp-4);
   display: flex;
   align-items: center;
@@ -323,18 +386,22 @@ html[dir="rtl"] .sidebar-logout-btn:hover svg {
   flex-wrap: wrap;
 }
 
+html[data-theme="dark"] .dash-topbar {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
 .topbar-left {
   display: flex;
   align-items: center;
   gap: var(--sp-3);
   flex: 1;
-  min-width: 240px;
 }
 
 .global-search-wrap {
   position: relative;
   flex: 1;
   max-width: 380px;
+  min-width: 200px;
 }
 .global-search-wrap input {
   width: 100%;
@@ -361,6 +428,12 @@ html[dir="rtl"] .sidebar-logout-btn:hover svg {
   align-items: center;
   gap: 8px;
   flex-wrap: wrap;
+  margin-left: auto;
+}
+
+html[dir="rtl"] .topbar-right {
+  margin-left: 0;
+  margin-right: auto;
 }
 
 .role-switcher-wrap {
@@ -373,6 +446,7 @@ html[dir="rtl"] .sidebar-logout-btn:hover svg {
   border: 1px solid var(--border-strong);
   font-size: 0.8rem;
   font-weight: 600;
+  color: var(--text-main);
 }
 .role-switcher-select {
   border: none;
@@ -382,9 +456,19 @@ html[dir="rtl"] .sidebar-logout-btn:hover svg {
   font-weight: 700;
   font-size: 0.8rem;
   cursor: pointer;
+  color-scheme: light dark;
+}
+.role-switcher-select option {
+  background-color: #ffffff;
+  color: #122831;
 }
 html[data-theme="dark"] .role-switcher-select {
   color: var(--accent);
+  color-scheme: dark;
+}
+html[data-theme="dark"] .role-switcher-select option {
+  background-color: #062129;
+  color: #F3FAFA;
 }
 
 .user-monogram-pill {
@@ -399,6 +483,14 @@ html[data-theme="dark"] .role-switcher-select {
   color: var(--text-main);
   font-weight: 600;
   font-size: 0.84rem;
+}
+.user-monogram-pill .avatar-img {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1.5px solid var(--primary);
+  flex-shrink: 0;
 }
 .monogram-circle {
   width: 32px;
@@ -424,6 +516,21 @@ html[data-theme="dark"] .role-switcher-select {
   }
 }
 
+/* Generous, consistent vertical spacing between all main rows, grids, and panels inside dash-content */
+.dash-content > section,
+.dash-content > div.grid,
+.dash-content > section.grid,
+.dash-content > .dash-panel,
+.dash-content > .kpi-grid,
+.dash-content > .dash-welcome-banner,
+.dash-content .grid {
+  margin-bottom: var(--sp-5);
+}
+
+.dash-content > *:last-child {
+  margin-bottom: 0;
+}
+
 .dash-page-header {
   display: flex;
   flex-wrap: wrap;
@@ -431,6 +538,372 @@ html[data-theme="dark"] .role-switcher-select {
   justify-content: space-between;
   gap: var(--sp-3);
   margin-bottom: var(--sp-4);
+}
+
+/* --------------------------------------------------------------------------
+   2b. Dashboard Welcome Message Banner
+   -------------------------------------------------------------------------- */
+.dash-welcome-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-4);
+  background: linear-gradient(135deg, rgba(15, 163, 163, 0.08) 0%, rgba(62, 242, 192, 0.05) 50%, var(--surface-card) 100%);
+  border: 1px solid rgba(15, 163, 163, 0.28);
+  border-radius: var(--radius-lg);
+  padding: var(--sp-5) var(--sp-6);
+  margin-bottom: var(--sp-5);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 8px 32px -8px rgba(6, 35, 43, 0.08);
+  text-align: start;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+html[data-theme="dark"] .dash-welcome-banner {
+  background: linear-gradient(135deg, rgba(15, 163, 163, 0.18) 0%, rgba(6, 31, 39, 0.92) 55%, var(--surface-card) 100%);
+  border-color: rgba(62, 242, 192, 0.24);
+  box-shadow: 0 12px 36px -10px rgba(0, 0, 0, 0.55), 0 0 24px rgba(15, 163, 163, 0.12);
+}
+
+.dash-welcome-banner::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 5px;
+  height: 100%;
+  background: var(--grad-primary);
+  border-top-left-radius: var(--radius-lg);
+  border-bottom-left-radius: var(--radius-lg);
+}
+
+html[dir="rtl"] .dash-welcome-banner::before {
+  left: auto;
+  right: 0;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  border-top-right-radius: var(--radius-lg);
+  border-bottom-right-radius: var(--radius-lg);
+}
+
+.welcome-text-group {
+  flex: 1;
+  min-width: 0;
+  text-align: start;
+}
+
+.welcome-banner-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: var(--sp-2);
+  text-align: start;
+}
+
+.welcome-header-text {
+  text-align: start;
+}
+
+.welcome-pulse-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: rgba(15, 163, 163, 0.12);
+  border: 1px solid rgba(15, 163, 163, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary);
+  flex-shrink: 0;
+}
+
+html[data-theme="dark"] .welcome-pulse-icon {
+  background: rgba(62, 242, 192, 0.15);
+  border-color: rgba(62, 242, 192, 0.35);
+  color: var(--accent);
+}
+
+.welcome-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--emerald);
+  background: var(--emerald-soft);
+  padding: 4px 12px;
+  border-radius: var(--radius-full);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  margin-bottom: var(--sp-1);
+}
+
+.welcome-title {
+  font-size: 1.45rem;
+  font-weight: 800;
+  color: var(--text-main);
+  letter-spacing: -0.02em;
+  margin: 0 0 var(--sp-2) 0;
+  line-height: 1.25;
+  text-align: start;
+}
+
+.welcome-desc {
+  font-size: 0.94rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  margin: 0 0 var(--sp-3) 0;
+  max-width: 78ch;
+  text-align: start;
+}
+
+.welcome-quick-metrics {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+.welcome-metric-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 0.82rem;
+  padding: 5px 12px;
+  background: var(--surface-2);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  color: var(--text-main);
+}
+
+.welcome-metric-pill svg {
+  color: var(--primary);
+  flex-shrink: 0;
+}
+
+html[data-theme="dark"] .welcome-metric-pill svg {
+  color: var(--accent);
+}
+
+.welcome-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.welcome-dismiss-btn {
+  background: transparent !important;
+  color: var(--text-muted) !important;
+  border: none !important;
+  cursor: pointer;
+  padding: 6px;
+  border-radius: var(--radius-full);
+  transition: color 0.2s, background 0.2s;
+}
+
+.welcome-dismiss-btn:hover {
+  color: var(--text-main) !important;
+  background: var(--primary-soft) !important;
+}
+
+@media (max-width: 1023px) {
+  /* 1. Dashboard Topbar & Buttons at 768px Tablet View */
+  .dash-topbar {
+    padding-inline: 12px !important;
+    min-height: 60px !important;
+    gap: 8px !important;
+  }
+
+  .topbar-left {
+    flex: 0 0 auto !important;
+  }
+
+  .topbar-right {
+    display: flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+    flex-wrap: wrap !important;
+    justify-content: flex-end !important;
+    margin-left: auto !important;
+  }
+
+  .topbar-right .btn-primary.btn-sm {
+    padding: 5px 10px !important;
+    font-size: 0.78rem !important;
+    min-height: 34px !important;
+    height: 34px !important;
+  }
+
+  .topbar-right .btn-icon.btn-sm {
+    width: 34px !important;
+    height: 34px !important;
+    min-width: 34px !important;
+    padding: 0 !important;
+    font-size: 0.76rem !important;
+  }
+
+  .role-switcher-wrap {
+    padding: 3px 8px !important;
+    font-size: 0.74rem !important;
+    min-height: 34px !important;
+    box-sizing: border-box;
+  }
+
+  .role-switcher-select {
+    font-size: 0.74rem !important;
+  }
+
+  .user-monogram-pill {
+    min-height: 34px !important;
+    height: 34px !important;
+    padding: 2px 8px 2px 4px !important;
+    font-size: 0.76rem !important;
+    gap: 6px !important;
+  }
+
+  .user-monogram-pill .avatar-img {
+    width: 26px !important;
+    height: 26px !important;
+  }
+
+  /* 2. Page Header & Action Buttons */
+  .dash-page-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--sp-2);
+  }
+
+  .dash-page-header .btn-sm {
+    padding: 6px 12px !important;
+    font-size: 0.8rem !important;
+    min-height: 34px !important;
+  }
+
+  /* 3. Welcome Banner Tablet Layout */
+  .dash-welcome-banner {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: var(--sp-4) var(--sp-4);
+    gap: var(--sp-4);
+    text-align: start;
+  }
+
+  .welcome-text-group {
+    width: 100%;
+    text-align: start;
+  }
+
+  .welcome-banner-header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 14px;
+    text-align: start;
+  }
+
+  .welcome-header-text {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: start;
+  }
+
+  .welcome-badge {
+    align-self: flex-start;
+  }
+
+  .welcome-title {
+    text-align: start;
+    width: 100%;
+    margin-bottom: var(--sp-2);
+  }
+
+  .welcome-desc {
+    text-align: start;
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: var(--sp-3);
+  }
+
+  .welcome-quick-metrics {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 8px;
+  }
+
+  .welcome-actions {
+    width: 100%;
+    margin-top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .welcome-actions .btn-sm {
+    padding: 6px 12px !important;
+    font-size: 0.8rem !important;
+    min-height: 34px !important;
+  }
+
+  /* 4. Dashboard Content & Single Column Grid Stacking (Resolves 768px Table/Alerts Overlap) */
+  .dash-content {
+    padding: var(--sp-4) var(--sp-3) !important;
+    overflow-x: hidden;
+  }
+
+  .dash-content .grid-2,
+  .dash-content .grid {
+    grid-template-columns: 1fr !important;
+    gap: var(--sp-4) !important;
+  }
+
+  .dash-panel {
+    padding: var(--sp-4) var(--sp-3) !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    overflow: hidden;
+  }
+
+  .table-responsive {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .data-table {
+    min-width: 520px;
+    width: 100%;
+  }
+
+  .alert-item {
+    padding: 12px !important;
+  }
+
+  .alert-item .btn-sm {
+    padding: 5px 10px !important;
+    font-size: 0.78rem !important;
+    min-height: 32px !important;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .kpi-grid {
+    grid-template-columns: repeat(3, 1fr) !important;
+  }
 }
 
 /* --------------------------------------------------------------------------
@@ -562,6 +1035,18 @@ html[data-theme="dark"] .role-switcher-select {
   object-fit: cover;
   border: 2px solid var(--primary);
   flex-shrink: 0;
+}
+
+.alert-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  min-width: 0;
+  max-width: 100%;
+}
+.alert-item button {
+  flex-shrink: 0;
+  white-space: nowrap;
 }
 
 /* Simplified Stack View on Mobile (<640px) */

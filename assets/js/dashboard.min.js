@@ -79,6 +79,45 @@
       Billing: ['overview', 'patients', 'billing', 'appointments', 'messages', 'reports']
     };
 
+    var roleWelcome = {
+      Admin: {
+        title: 'Welcome back, Chief Administrator 👋',
+        desc: 'All 10 hospital clusters are running with <strong>99.99% operational uptime</strong>. You have <strong>1,482</strong> active patients, <strong>18</strong> pending triage admissions, and <strong>6</strong> surgical OT handovers today.',
+        shift: 'Shift: Morning (07:00 – 15:30 IST)',
+        metric1: 'ICU Load: 88% (4 Beds Ready)',
+        metric2: 'NABH Quality: In Compliance',
+        monogram: 'AD',
+        avatar: '../assets/images/dashboard/settings-admin-profile.jpg'
+      },
+      Doctor: {
+        title: 'Welcome back, Dr. Arvind Swaminathan 👋',
+        desc: 'You have <strong>14 clinical patient rounds</strong> scheduled, <strong>3 pending lab diagnostics</strong> (Roche Cobas), and <strong>2 emergency trauma consultations</strong> awaiting sign-off.',
+        shift: 'Ward Rounds: Cardiology & Trauma',
+        metric1: 'P1 Triage: 2 Awaiting Evaluation',
+        metric2: 'OPD Slot: 14:00 – 17:30 IST',
+        monogram: 'AS',
+        avatar: '../assets/images/dashboard/appt-04-dr-thomas-wright.jpg'
+      },
+      Nurse: {
+        title: 'Welcome back, Charge Nurse Priya Sharma 👋',
+        desc: 'Ward 3A has <strong>28 active beds occupied</strong>. 4 patient discharge summaries are queued for IV cannula removal, and <strong>2 critical antibiotic administrations</strong> are due within 30 minutes.',
+        shift: 'Floor: Ward 3A & High Dependency Unit',
+        metric1: 'Vitals Logged: 94% on Time',
+        metric2: 'Bed Turnover: 4 Discharges Ready',
+        monogram: 'PS',
+        avatar: '../assets/images/dashboard/staff-05-nurse-grace-okafor.jpg'
+      },
+      Billing: {
+        title: 'Welcome back, TPA Desk Lead Rajesh Varma 👋',
+        desc: '<strong>12 cashless claims</strong> await Star Health / MediAssist pre-authorization clearance, with <strong>₹14.8L in pending NHCX settlements</strong> ready for batch dispatch before 16:00.',
+        shift: 'Desk: TPA Cashless & IPD Discharge',
+        metric1: 'Pre-Auth SLA: 98.4% (<15 min)',
+        metric2: 'Pending Claims: ₹14,80,000',
+        monogram: 'RV',
+        avatar: '../assets/images/dashboard/msg-03-lab-lead-susan-cho.jpg'
+      }
+    };
+
     function applyRole(role) {
       var allowed = roleMap[role] || roleMap.Admin;
       document.querySelectorAll('.sidebar-link[data-nav-module]').forEach(function (link) {
@@ -87,6 +126,24 @@
       });
       var badgeEl = document.getElementById('active-role-badge');
       if (badgeEl) badgeEl.textContent = role + ' View';
+
+      var rw = roleWelcome[role] || roleWelcome.Admin;
+      var wTitle = document.getElementById('dash-welcome-user');
+      var wDesc = document.getElementById('dash-welcome-desc');
+      var wShift = document.getElementById('dash-welcome-shift');
+      var wM1 = document.getElementById('dash-welcome-m1');
+      var wM2 = document.getElementById('dash-welcome-m2');
+      if (wTitle) wTitle.textContent = rw.title;
+      if (wDesc) wDesc.innerHTML = rw.desc;
+      if (wShift) wShift.textContent = rw.shift;
+      if (wM1) wM1.textContent = rw.metric1;
+      if (wM2) wM2.textContent = rw.metric2;
+      var mono = document.querySelector('.monogram-circle');
+      if (mono && rw.monogram) mono.textContent = rw.monogram;
+      var topbarAvatar = document.getElementById('topbar-user-avatar');
+      if (topbarAvatar && rw.avatar) topbarAvatar.src = rw.avatar;
+      var welcomeAvatar = document.getElementById('dash-welcome-avatar');
+      if (welcomeAvatar && rw.avatar) welcomeAvatar.src = rw.avatar;
     }
 
     if (roleSelect) {
@@ -99,6 +156,23 @@
         localStorage.setItem('medicore_role', nextRole);
         applyRole(nextRole);
         showToast('Switched active RBAC workspace to ' + nextRole + ' Role.');
+      });
+    }
+
+    // Welcome Banner Dismissal
+    var dismissBtn = document.querySelector('[data-action="dismiss-welcome"]');
+    var welcomeBanner = document.querySelector('.dash-welcome-banner');
+    if (dismissBtn && welcomeBanner) {
+      if (sessionStorage.getItem('medicore_welcome_dismissed') === 'true') {
+        welcomeBanner.style.display = 'none';
+      }
+      dismissBtn.addEventListener('click', function () {
+        welcomeBanner.style.opacity = '0';
+        welcomeBanner.style.transform = 'translateY(-10px)';
+        setTimeout(function () {
+          welcomeBanner.style.display = 'none';
+          sessionStorage.setItem('medicore_welcome_dismissed', 'true');
+        }, 300);
       });
     }
 
